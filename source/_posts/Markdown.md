@@ -1,7 +1,9 @@
 ---
 title: Markdown
 date: 2022-06-18 09:04:01
-tags: markdown, tech
+tags:
+- markdown
+- tech
 ---
 ![Markdown](/images/markdown.png)
 ## What is markdown ?

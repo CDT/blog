@@ -1,7 +1,11 @@
 ---
 title: Single threaded and asynchronous Javascript
 date: 2022-06-19 20:57:20
-tags: javascript, single-threaded, asynchronous, tech
+tags:
+- javascript
+- single-threaded
+- asynchronous
+- tech
 ---
 ## Reference: 
 1. [A conclusion of Javascript running mechanism.](https://juejin.cn/post/6844903553795014663)

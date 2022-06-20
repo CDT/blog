@@ -1,7 +1,9 @@
 ---
 title: Git
 date: 2022-06-18 08:57:57
-tags: git, tech
+tags: 
+- git
+- tech
 ---
 ![Git](/images/git.png)
 ## What is Git ?
