@@ -8,7 +8,7 @@ tags:
 - tech
 ---
 ## Reference: 
-1. [A conclusion of Javascript running mechanism.](https://juejin.cn/post/6844903553795014663)
+1. [A conclusion of Javascript running mechanism](https://juejin.cn/post/6844903553795014663)
 2. [Detailed explanation of Javascript asynchronism](https://juejin.cn/post/6844903556084924423)
 3. [JavaScript Event Loop And Call Stack Explained](https://felixgerschau.com/javascript-event-loop-call-stack/)
 
