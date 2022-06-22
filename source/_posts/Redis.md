@@ -39,3 +39,5 @@ In file `redis.windows-service.conf`:
 `redis-cli`: connects to localhost on port 6379.
 `redis-cli -h [host] -p [port] -a [password]`: connect to specified host and port. If password contains special character, wrap it in quotes.
 
+## node redis
+Note that `redis` does not work in browser environment.
