@@ -57,8 +57,9 @@ widgets:
 # Value is the target link (E.g. GitHub: https://github.com/iTimeTraveler)
 social:
   Github: https://github.com/CDT
-  LinkedIn:
+  LinkedIn: https://www.linkedin.cn/incareer/in/%E6%B4%9E%E5%A4%A9-%E9%99%88-214711242
   Weixin:
+  Stack-Overflow: https://stackoverflow.com/users/1553886/cdt
   #Weibo: 
   #Twitter: 
   #Facebook: 
