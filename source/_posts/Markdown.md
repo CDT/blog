@@ -49,3 +49,4 @@ Client editor: [Marktext](https://github.com/marktext/marktext), a realtime rend
 | Superscript | X^2^ |
 
 **Escaping**: Use backslash to escape most special characters.
+**Leading spaces**: Markdown does not support leading spaces before each paragraph. Use &nbsp;(may have some problem with specific renderer like Hexo) or full-width space(a prettier solution) at the beginning.
