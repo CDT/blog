@@ -11,7 +11,7 @@ tags:
 
 ## Syntax
 | Syntax | Description |
-| ----------- | ----------- |
+| -----------: | ----------- |
 | **Special Characters** |
 | \n | New line. |
 | \f | Form feed. |
@@ -35,6 +35,15 @@ tags:
 | /i | Ignore case. |
 | /g | Global. |
 | **Sub-expression** |
-| Backreference | Back position references 
+| Sub-expression | Expression within brackets `(` and `)` is a sub-expression. |
+| Backreference | Use `\1`, `\2` in the back to reference the first, second expression in the front. Example: Use `\b(\w+)\s\1` to match two continuous same words in `Hello what what is the first thing, and I am am Tom.`. |
+| Non-capturing group | Use `(?:)` to avoid being captured. Example: Using `(Chendongti)(?:an)` to match `Chendongtian`  will only return one group `Chendongti`, `an` is not captured. |
+| Lookahead | Use `(?=)`/`(?!)` to add a must-have/must-not-have suffix. Example: Using `happ(?=ily)` to match `happ happily` will only return `happ` in `happily`, and `happ(?!ily)` will only return `happ` in `happy`. |
+| Lookbehind | Use `(?<=)`/`(?<!)` to add must-have/must-not-have prefix. Example: Using `(?<=ap)ple` to match `apple people` will only return `ple` in `apple`, and `(?<!ap)ple` will only return `ple` in `people`. |
+| **Logical operators** |
+| NOT | '^' and '!'. `[^abc]` |
+| OR | '|', `(a|b)`. |
+
+
 
 
