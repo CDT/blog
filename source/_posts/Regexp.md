@@ -41,8 +41,8 @@ tags:
 | Lookahead | Use `(?=)`/`(?!)` to add a must-have/must-not-have suffix. Example: Using `happ(?=ily)` to match `happ happily` will only return `happ` in `happily`, and `happ(?!ily)` will only return `happ` in `happy`. |
 | Lookbehind | Use `(?<=)`/`(?<!)` to add must-have/must-not-have prefix. Example: Using `(?<=ap)ple` to match `apple people` will only return `ple` in `apple`, and `(?<!ap)ple` will only return `ple` in `people`. |
 | **Logical operators** |
-| NOT | '^' and '!'. `[^abc]` |
-| OR | '|', `(a|b)`. |
+| NOT | `^`. `[^abc]`. |
+| OR | `\|`. `(a\|b)`. |
 
 
 
