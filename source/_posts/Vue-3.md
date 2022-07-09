@@ -17,8 +17,17 @@ tags:
 Options API is **function concerned**.
 Composition API is **logic concerned**.
 For complex components, code of same logic may be scattered in `props`, `data`, `methods`, `mounted`, which makes it hard to maintain. So in Vue 3, **Composition API** is introduced, code of same logic is put together in `setup`.
+See [which to choose](https://vuejs.org/guide/introduction.html#which-to-choose).
 
 2. Vite
-Vue 3's scaffolding tool migrated from `vue-cli` to 'create-vue', which is based on `vite` and has a much faster building speed than `webpack`. [See why vite is much faster](https://vitejs.dev/guide/why.html)
+Vue 3's scaffolding tool migrated from `vue-cli` to 'create-vue', which is based on `vite` and has a much faster building speed than `webpack`. See [why vite is much faster](https://vitejs.dev/guide/why.html)
 
-## Kickstart
+## Vue 3 features
+1. Composition API
+- Difference with `Options API` already explained above.
+- Use `<script setup>` or `<script>setup()` to indicate Composition API. Difference between `<script setup>` and `<script>setup()` is that no `return` is required in `<script setup>` to pass objects to template.
+- A typical `<script setup>` SFC(Single File Component) goes here:
+![script_setup_SFC](/images/script_setup_SFC.PNG)
+
+2. 
+
