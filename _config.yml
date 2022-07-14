@@ -103,3 +103,9 @@ theme: hipaper
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# hexo-tag-mmedia
+mmedia:
+  aplayer:
+    js: /assets/js/APlayer.min.js
+    css: /assets/css/APlayer.min.css
