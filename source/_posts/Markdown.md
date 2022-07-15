@@ -37,7 +37,7 @@ Client editor: [Marktext](https://github.com/marktext/marktext), a realtime rend
 ### Extended
 | Element | Syntax |
 | ---------- | ---------- |
-| Table | \| Syntax \| Description \|<br />\| ----------- \| ----------- \|<br />\| Header \| Title \|<br />\| Paragraph \| Text \| |
+| Table | \| Syntax \| Description \|<br />\| ----------- \| ----------- \|<br />\| Header \| Title \|<br />\| Paragraph \| Text \| <br>Note that there must be a blank line after the table.|
 | Fenced code block | \`\`\`{ firstname: 'dongtian', lastname: 'chen' }\`\`\` |
 | Footnote | Here's a sentence with a footnote. [^1]<br />[^1]: This is the footnote. |
 | Definition List | term<br />: definition |
