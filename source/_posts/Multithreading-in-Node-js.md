@@ -5,3 +5,7 @@ tags:
 - nodejs
 - multithreading
 ---
+## Refs
+1. [Node.js Worker Threads](https://nodejs.org/api/worker_threads.html)
+
+## 
