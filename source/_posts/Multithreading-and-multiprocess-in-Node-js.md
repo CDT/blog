@@ -6,6 +6,7 @@ tags:
 - multithreading
 - multiprocess
 ---
+![CPU](/images/cpu1.PNG)
 ## Refs
 1. [Node.js Worker Threads](https://nodejs.org/api/worker_threads.html)
 2. [Deep dive into threads and processes in Node.js](https://juejin.cn/post/6844903908385488903)
