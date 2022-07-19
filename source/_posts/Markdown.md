@@ -38,7 +38,7 @@ Client editor: [Marktext](https://github.com/marktext/marktext), a realtime rend
 | Element | Syntax |
 | ---------- | ---------- |
 | Table | \| Syntax \| Description \|<br />\| ----------- \| ----------- \|<br />\| Header \| Title \|<br />\| Paragraph \| Text \| <br>Note that there must be a blank line after the table.|
-| Fenced code block | \`\`\`{ firstname: 'dongtian', lastname: 'chen' }\`\`\` |
+| Fenced code block | \`\`\`{ firstname: 'dongtian', lastname: 'chen' }\`\`\`<br><br>Use \`\`\` [language] to specify code block language, for example \`\`\` js to specify javascript. [See supported language here](https://rdmd.readme.io/docs/code-blocks#language-support) |
 | Footnote | Here's a sentence with a footnote. [^1]<br />[^1]: This is the footnote. |
 | Definition List | term<br />: definition |
 | Strikethrough | \~\~The world is flat.\~\~ |
