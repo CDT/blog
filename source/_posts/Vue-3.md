@@ -133,6 +133,44 @@ The decision-making behind why `reactive()` and `ref()` exist as they do and oth
 reference: 
 [Reactivity Core](https://vuejs.org/api/reactivity-core.html)
 
+### Vue Cli Plugins and Presets
+reference: [Plugins and Presets](https://cli.vuejs.org/guide/plugins-and-presets.html)
+
+- What are plugins ?
+Plugins modify the internal webpack configuration and inject commands to vue-cli-service.
+
+Most of the features listed during the project creation process are implemented as plugins.
+
+If you inspect a newly created project's package.json, you will find dependencies that start with `@vue/cli-plugin-`. These are plugins.
+
+- Add a plugin to an existing project
+Use `vue add [plugin name]` to add a plugin to an existing project.
+For example, use `vue add eslint` to add `eslint` linter to the project.
+
+- What is a Vue Cli preset ?
+A JSON object that contains pre-defined options and plugins for creating a new project.
+
+Example: 
+``` js
+{
+  "useConfigFiles": true,
+  "cssPreprocessor": "sass",
+  "plugins": {
+    "@vue/cli-plugin-babel": {},
+    "@vue/cli-plugin-eslint": {
+      "config": "airbnb",
+      "lintOn": ["save", "commit"]
+    },
+    "@vue/cli-plugin-router": {},
+    "@vue/cli-plugin-vuex": {}
+  }
+}
+```
+
+### Useful commands
+- Use `vue ui` to start a ui interface inside a project created by `vue-cli`.
+
+
 
 
 
