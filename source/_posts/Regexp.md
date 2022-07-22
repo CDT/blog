@@ -1,6 +1,8 @@
 ---
 title: Regexp
 date: 2022-07-04 14:37:33
+categories:
+- tech
 tags:
 - tech
 - regexp

@@ -1,11 +1,16 @@
 ---
 title: Typescript
 date: 2022-07-22 21:18:09
+categories:
+- tech
+- underwork
 tags:
 - javascript
 - typescript
 - nodejs
 ---
+**(BLOG IN PROGRESS)**
+
 ![](/images/typescript1.png)
 ## Refs
 1. [Typesript](https://www.typescriptlang.org/)

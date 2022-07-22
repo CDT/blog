@@ -1,6 +1,8 @@
 ---
 title: Redis
 date: 2022-06-21 10:41:55
+categories:
+- tech
 tags:
 - tech
 - redis

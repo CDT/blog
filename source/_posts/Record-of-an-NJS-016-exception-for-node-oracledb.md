@@ -1,6 +1,8 @@
 ---
 title: Record of an NJS-016 exception for node oracledb
 date: 2022-07-12 09:34:13
+categories:
+- tech
 tags:
 ---
 ![Node oracledb](/images/devo-node-js.svg)

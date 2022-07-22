@@ -1,6 +1,8 @@
 ---
 title: Multithreading and multiprocess in Node.js
 date: 2022-07-15 10:43:46
+categories:
+- tech
 tags:
 - nodejs
 - multithreading

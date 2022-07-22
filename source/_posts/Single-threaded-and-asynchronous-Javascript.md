@@ -1,6 +1,8 @@
 ---
 title: Single threaded and asynchronous Javascript
 date: 2022-06-19 20:57:20
+categories:
+- tech
 tags:
 - javascript
 - single-threaded
