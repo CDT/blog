@@ -12,7 +12,6 @@ tags:
 ---
 **(BLOG STILL IN PROGRESS)**
 
-
 ![](/images/memory_leak1.jpg)
 ## Refs
 1. [Avoiding Memory Leaks in Node.js: Best Practices for Performance](https://blog.appsignal.com/authors/deepu-k-sasidharan)
