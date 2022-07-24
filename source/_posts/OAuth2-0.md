@@ -42,10 +42,13 @@ Includes:
 ![](/images/jwt1.png)
 
 ## Roles
-**Resource Owner**: The user or system that owns the protected resources and can grant access to them.
+![Four roles](/images/oauth2fourroles.png)
+**Resource Owner**: Owner of resource, grants access to them.
 
-**Client**: The client is the system that requires access to the protected resources. To access resources, the Client must hold the appropriate Access Token.
+**Client**: Requires access to resource, holds token.
 
-**Authorization Server**: This server receives requests from the Client for Access Tokens and issues them upon successful authentication and consent by the Resource Owner. The authorization server exposes two endpoints: the Authorization endpoint, which handles the interactive authentication and consent of the user, and the Token endpoint, which is involved in a machine to machine interaction.
+**Authorization Server**: Receives requests from the Client for Access Tokens and issues them upon successful authentication and consent by the Resource Owner.
 
-**Resource Server**: A server that protects the user’s resources and receives access requests from the Client. It accepts and validates an Access Token from the Client and returns the appropriate resources to it.
+**Resource Server**: Accepts and validates an Access Token from the Client and returns the appropriate resources to it.
+
+## Work flow
