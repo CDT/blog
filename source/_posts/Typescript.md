@@ -3,7 +3,6 @@ title: Typescript
 date: 2022-07-22 21:18:09
 categories:
 - tech
-- underwork
 tags:
 - javascript
 - typescript
@@ -22,7 +21,7 @@ tags:
 
 ## What is typescript ?
 A strongly typed programming language that builds on JavaScript.
-
+<!-- more -->
 ## Why typescript ?
 **Catch type errors beforehand**
 TypeScript adds additional syntax to JavaScript to catch type errors - the most common errors for programmers.

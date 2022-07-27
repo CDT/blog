@@ -3,7 +3,6 @@ title: SQL FAQ
 date: 2022-07-09 21:50:31
 categories:
 - tech
-- underwork
 tags:
 - tech
 - database

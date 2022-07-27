@@ -3,7 +3,6 @@ title: Memory leak in Javascript
 date: 2022-07-23 11:50:41
 categories:
 - tech
-- underwork
 tags:
 - tech
 - nodejs
@@ -18,6 +17,7 @@ tags:
 
 ## What is a memory leak ?
 Memory allocated but not freed.
+<!-- more -->
 
 ## What causes memory leak and how to resolve
 ### Accidental global variable

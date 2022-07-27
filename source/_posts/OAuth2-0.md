@@ -1,9 +1,11 @@
 ---
 title: OAuth2.0
+toc: true
 date: 2022-07-25 16:51:15
+cover: /images/oauth2.jpeg
+thumbnail: /images/oauth2.jpeg
 categories:
 - tech
-- underwork
 tags:
 - tech
 - OAuth2
@@ -11,7 +13,6 @@ tags:
 ---
 **(BLOG STILL IN PROGRESS)**
 
-![](/images/oauth2.jpeg)
 ## Refs
 1. [OAuth2.0](https://oauth.net/2/)
 2. [What is OAuth2.0?](https://auth0.com/intro-to-iam/what-is-oauth-2/) 
@@ -21,6 +22,8 @@ tags:
 ## What is OAuth 2.0 ?
 The industry-standard protocol for authorization. 
 This specification and its extensions are being developed within the [IETF OAuth Working Group](https://www.ietf.org/mailman/listinfo/oauth).
+
+<!-- more -->
 
 ## Authentication vs Authorization
 Authentication verifies the identity of a user or service, and authorization determines their access rights. OAuth2.0 standards for Open **Authorization**.
