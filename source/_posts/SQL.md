@@ -1,6 +1,7 @@
 ---
 title: SQL FAQ
 date: 2022-07-09 21:50:31
+cover: /images/sql1.png
 categories:
 - tech
 tags:
@@ -8,14 +9,13 @@ tags:
 - database
 - SQL
 ---
-![](/images/sql1.png)
 ### 1. Database links
 
 ### 2. Triggers
 
 ### 3. Procedures
 
-### 4. 
+### 4. Window function
 
 
 ### ORA-01489 result of string concatenation is too long
