@@ -18,7 +18,7 @@ tags:
 
 ## What is a Javascript Module ?
 Just a javascript file which can import functionality from other and export its own functionality.
-
+<!--more-->
 ## Why do we need Javascript Module ?
 Javascript starts small, but now it grows very large and complex.
 Split large javascript into separate modules and re-use it.
