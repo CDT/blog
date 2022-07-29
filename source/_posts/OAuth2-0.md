@@ -11,7 +11,6 @@ tags:
 - OAuth2
 - authorization
 ---
-**(BLOG STILL IN PROGRESS)**
 
 ## Refs
 1. [OAuth2.0](https://oauth.net/2/)

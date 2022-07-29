@@ -1,13 +1,14 @@
 ---
 title: Markdown
 date: 2022-06-18 09:04:01
+cover: /images/markdown.png
+thumbnail: /images/markdown.png
 categories:
 - tech
 tags:
 - markdown
 - tech
 ---
-![Markdown](/images/markdown.png)
 ## What is markdown ?
 A lightweight markup language which formats content by its simple syntax.
 
@@ -50,5 +51,21 @@ Client editor: [Marktext](https://github.com/marktext/marktext), a realtime rend
 | Subscript | H\~2\~O |
 | Superscript | X^2^ |
 
-**Escaping**: Use backslash to escape most special characters.
-**Leading spaces**: Markdown does not support leading spaces before each paragraph. Use &nbsp;(may have some problem with specific renderer like Hexo) or full-width space(a prettier solution) at the beginning.
+## FAQ
+- **Escaping**
+Use backslash to escape most special characters.
+
+- **Leading spaces**
+Markdown does not support leading spaces before each paragraph. Use &nbsp;(may have some problem with specific renderer like Hexo) or full-width space(a prettier solution) at the beginning.
+
+- **Custom style**
+Use html tags directly in markdown and style them with css.
+``` html
+> <div class="poetry">满堂花醉三千客，一剑霜寒十四州。</div>
+
+<style>
+  .poetry {
+    text-align: center;
+  }
+</style>
+```

@@ -109,18 +109,19 @@ navbar:
     # Navigation menu items
     menu:
         Home: /
-        Archives: /archives
-        Categories: /categories
-        Tags: /tags
+        # Archives: /archives
+        # Categories: /categories
+        # Tags: /tags
         Tech: /categories/tech
         Music: /categories/music
         Citations: /categories/citations
+        Misc: /categories/misc
         About: /about
     # Links to be shown on the right of the navigation bar
     links:
-        Download on GitHub:
+        Source for this blog:
             icon: fab fa-github
-            url: https://github.com/CDT
+            url: https://github.com/CDT/blog
 # Page footer configurations
 footer:
     # Links to be shown on the right of the footer section
@@ -169,7 +170,7 @@ search:
 comment:
     type: disqus
     # Disqus shortname
-    shortname: ''
+    shortname: 'personal-blog-wx403pf6sj'
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
 donates:
@@ -177,40 +178,40 @@ donates:
     -
         type: afdian
         # URL to the "Afdian.net" personal page
-        url: ''
+        url: 'https://afdian.net/@chendongtian/plan'
     # Alipay donate button configurations
     -
         type: alipay
         # Alipay qrcode image URL
-        qrcode: ''
+        qrcode: /images/alipay_shouqian.jpg
     # "Buy me a coffee" donate button configurations
-    -
-        type: buymeacoffee
-        # URL to the "Buy me a coffee" page
-        url: ''
+    #-
+        # type: buymeacoffee
+        # # URL to the "Buy me a coffee" page
+        # url: ''
     # Patreon donate button configurations
-    -
-        type: patreon
-        # URL to the Patreon page
-        url: ''
+    #-
+        # type: patreon
+        # # URL to the Patreon page
+        # url: ''
     # Paypal donate button configurations
-    -
-        type: paypal
-        # Paypal business ID or email address
-        business: ''
-        # Currency code
-        currency_code: USD
+    # -
+    #     type: paypal
+    #     # Paypal business ID or email address
+    #     business: '779888925@qq.com'
+    #     # Currency code
+    #     currency_code: USD
     # Wechat donate button configurations
     -
         type: wechat
         # Wechat qrcode image URL
-        qrcode: ''
+        qrcode: /images/qq_shouqian.jpg
 # Share plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
 share:
     type: sharethis
     # URL to the ShareThis share plugin script
-    install_url: ''
+    install_url: 'https://platform-api.sharethis.com/js/sharethis.js#property=62e33f2e987470001990b838&product=sop'
 # Sidebar configurations.
 # Please be noted that a sidebar is only visible when it has at least one widget
 sidebar:
@@ -260,7 +261,13 @@ widgets:
             #     url: https://dribbble.com
             # RSS:
             #     icon: fas fa-rss
-            #     url: /
+            #     url: /            
+            Linkedin:
+                icon: fab fa-linkedin
+                url: https://www.linkedin.cn/incareer/in/%E6%B4%9E%E5%A4%A9-%E9%99%88-214711242
+            Stackoverflow:
+                icon: fab fa-stack-overflow
+                url: https://stackoverflow.com/users/1553886/cdt
     # Table of contents widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
