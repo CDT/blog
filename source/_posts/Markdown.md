@@ -69,3 +69,11 @@ Use html tags directly in markdown and style them with css.
   }
 </style>
 ```
+
+- **Warning box**
+The easiest way is to use emojis:
+
+``` markdown
+> :warning: **If you are using mobile browser**: Be very careful here!
+```
+![Use emoji to call user attention](/images/markdown_emoji.png)

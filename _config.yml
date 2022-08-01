@@ -70,3 +70,9 @@ search:
   insight: true
   swiftype: null
   baidu: false
+# hexo-filter-emoji
+emoji:
+  enable: true
+  className: github-emoji
+  styles:
+  customEmojis:

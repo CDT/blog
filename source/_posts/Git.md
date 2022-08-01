@@ -1,13 +1,14 @@
 ---
 title: Git
 date: 2022-06-18 08:57:57
+cover: /images/git.png
+thumbnail: /images/git.png
 categories:
 - tech
 tags: 
 - git
 - tech
 ---
-![Git](/images/git.png)
 ## What is Git ?
 A **distributed** version control system.
 
@@ -28,14 +29,13 @@ Git consists of 4 areas:
 ## Concepts
 **HEAD**: Current branch.
 
-## How-tos
-1. Undo
+## FAQ
+#### Undo a commit
 undo add: `git reset`
 undo commit: `git reset --hard HEAD~1` (moves to one commit before and `--hard` resets staging and working changes)
 
-2. Links existing directory with remote repo
+#### Links existing directory with remote repo
 - In existing directory, `git init .`
 - `git remote add origin <remote repo url>`(`origin` is a conventional name for remote repo)
 - `git push origin <local branch name>`
 
-## FAQ

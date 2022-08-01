@@ -113,7 +113,7 @@ navbar:
         # Categories: /categories
         # Tags: /tags
         Tech: /categories/tech
-        Medical Business: /categories/HIT
+        HIT: /categories/HIT
         Music: /categories/music
         Citations: /categories/citations
         Misc: /categories/misc
