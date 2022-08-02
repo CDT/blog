@@ -77,3 +77,34 @@ The easiest way is to use emojis:
 > :warning: **If you are using mobile browser**: Be very careful here!
 ```
 ![Use emoji to call user attention](/images/markdown_emoji.png)
+
+- **Change line in blockquote**
+``` markdown
+> Case 1
+> 
+> 00:23
+> 
+> 00:54
+> 
+> &nbsp;
+> 
+> Case 2
+> 
+> 00:21
+> 
+> 00:51
+```
+will produce:
+> Case 1
+> 
+> 00:23
+> 
+> 00:54
+> 
+> &nbsp;
+> 
+> Case 2
+> 
+> 00:21
+> 
+> 00:51
