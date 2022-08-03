@@ -14,8 +14,8 @@ tags:
 ---
 **(THIS BLOG IS STILL UNDERWORK)**
 ## Ref
-4. [层次坐标](https://help.fanruan.com/finereport/index.php?doc-view-4001.html)
-
+1. [层次坐标](https://help.fanruan.com/finereport/index.php?doc-view-4001.html)
+<!--more-->
 ## 层次坐标
 用来表示扩展后的单元格位置，分为相对层次坐标和绝对层次坐标。
 
