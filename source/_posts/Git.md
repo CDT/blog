@@ -68,4 +68,5 @@ The leading slash anchors the match to the root.
 git add -f Website\bin\Settings.json
 ```
 
-
+### What is fast-forward ?
+![Fast forward](/images/fast-forward.png)
