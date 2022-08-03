@@ -7,4 +7,4 @@ public/
 .deploy*/
 _multiconfig.yml
 
-!node_modules\hexo-theme-icarus\include\style\article.styl
+!node_modules/hexo-theme-icarus/include/style/article.styl

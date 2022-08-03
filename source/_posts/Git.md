@@ -30,6 +30,9 @@ Git consists of 4 areas:
 **HEAD**: Current branch.
 
 ## FAQ
+#### What is `HEAD` in git ?
+The HEAD in Git is **the pointer to the current branch reference**, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory.
+
 #### Undo a commit
 undo add: `git reset`
 undo commit: `git reset --hard HEAD~1` (moves to one commit before and `--hard` resets staging and working changes)
@@ -38,4 +41,11 @@ undo commit: `git reset --hard HEAD~1` (moves to one commit before and `--hard` 
 - In existing directory, `git init .`
 - `git remote add origin <remote repo url>`(`origin` is a conventional name for remote repo)
 - `git push origin <local branch name>`
+
+#### What is a leading slash in `.gitignore` ?
+The leading slash anchors the match to the root.
+
+#### What is `*` in `.gitignore` ?
+
+#### How to include everything but particular file in `.gitignore` ?
 
