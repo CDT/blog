@@ -11,7 +11,7 @@ tags:
 - HIT
 - underwork
 ---
-**(THIS BLOG IS STILL UNDERWORK)**
+**(THIS BLOG IS STILL IN PROGRESS)**
 ## Ref
 1. [Health Level 7](https://en.wikipedia.org/wiki/Health_Level_7)
 2. [Here's What You Should Know about HL7 Messages and its Types](https://www.covetus.com/blog/heres-what-you-should-know-about-hl7-messages-and-its-types)

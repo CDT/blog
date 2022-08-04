@@ -1,6 +1,8 @@
 ---
 title: Multithreading and multiprocess in Node.js
 date: 2022-07-15 10:43:46
+cover: /images/cpu1.PNG
+thumbnail: /images/cpu1.PNG
 categories:
 - tech
 tags:
@@ -8,7 +10,6 @@ tags:
 - multithreading
 - multiprocess
 ---
-![CPU](/images/cpu1.PNG)
 ## Refs
 1. [Node.js Worker Threads](https://nodejs.org/api/worker_threads.html)
 2. [Deep dive into threads and processes in Node.js](https://juejin.cn/post/6844903908385488903)
@@ -22,7 +23,7 @@ A thread that enables node.js to execute JavaScript in parallel. Useful to handl
 ### How-to
 Create a worker file => Make a promise in caller file => Define on message/error/exit hooks
 worker.js file:
-```
+``` js
 const { workerData, parentPort }	= require('worker_threads')
 
 console.log('Technical Articles on ' + workerData);
@@ -30,8 +31,9 @@ console.log('Technical Articles on ' + workerData);
 parentPort.postMessage(
 	{ fileName: workerData, status: 'Done' })
 ```
+
 index.js file:
-```
+``` js
 const { Worker } = require('worker_threads')
 
 function runService(workerData) {
@@ -55,6 +57,7 @@ async function run() {
 
 run().catch(err => console.error(err))
 ```
+
 Key points:
 1. Worker use  `workerData` to receive data from caller and `parentPort` to post data to caller.
 2. Worker use `parentPort.postMessage` to send data to caller and caller use `on('message')` to receive.
@@ -63,7 +66,7 @@ Key points:
 ### An example to address the problem of single-threaded node.js
 Single threaded node.js will block on a time-consuming request.
 Example:
-```
+``` js
 const http = require('http');
 const longComputation = () => {
   let sum = 0;
@@ -101,7 +104,7 @@ Cons:
 ### Fork
 Use `child_process.fork` to create new process.
 Main.js:
-```
+``` js
 const http = require('http');
 const fork = require('child_process').fork;
 
@@ -129,8 +132,9 @@ server.listen(3000, '127.0.0.1', () => {
     console.log(`server started at http://127.0.0.1:3000`);
 });
 ```
+
 compute.js:
-```
+``` js
 const computation = () => {
     let sum = 0;
     console.info('计算开始');
@@ -157,12 +161,12 @@ process.on('message', msg => {
 ### Cluster
 `cluster` can create worker process in a single file.
 Example:
-```
+``` js
 const http = require('http');
 const numCPUs = require('os').cpus().length;
 const cluster = require('cluster');
 if(cluster.isMaster){
-    console.log(`Master proces id is ${process.pid}, cpu number ${numCPUs}`);
+    console.log(`Master process id is ${process.pid}, cpu number ${numCPUs}`);
     // fork workers
     for(let i= 0;i<numCPUs;i++){
         cluster.fork();
@@ -183,8 +187,8 @@ if(cluster.isMaster){
 ```
 
 Running code above, we got:
-```
-Master proces id is 18428, cpu number 4
+``` js
+Master process id is 18428, cpu number 4
 created slave pid 16672
 created slave pid 9896
 created slave pid 14676

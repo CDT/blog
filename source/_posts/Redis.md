@@ -1,13 +1,14 @@
 ---
 title: Redis
 date: 2022-06-21 10:41:55
+cover: /images/redis.png
+thumbnail: /images/redis.png
 categories:
 - tech
 tags:
 - tech
 - redis
 ---
-![redis](/images/redis.png)
 ## What is redis
 An **distributed in-memory key-value** database.
 distributed: redis can scale from a single instance to a distributed system.
@@ -36,6 +37,17 @@ In file `redis.windows-service.conf`:
   1. Comment `bind 127.0.0.1`(line 64). This makes redis listen to all interfaces.
   2. Change `procted-mode yes` to `protected-mode no`(line 83). All clients are now able to connect in.
   3. Uncomment `requirepass foobared`(line 503) and replace `foobared` to your own password.
+
+## Use 
+## Different types
+|Type|Description|
+|:-----:|:-----|
+|Hash|Key-value dictionary object.|
+|Sorted Set|Sorted set.|
+|Set|Unsorted set.|
+|String|Simplest type. String or number.|
+|List|Linked list under the hood. Can add element to the head/left or the tail/right.|
+|JSON|JSON object. Requires RedisJSON module be installed.|
 
 ## Commands
 `redis-cli`: connects to localhost on port 6379.

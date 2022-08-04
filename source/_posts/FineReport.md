@@ -12,7 +12,7 @@ tags:
 - database
 - sql
 ---
-**(THIS BLOG IS STILL UNDERWORK)**
+**(THIS BLOG IS STILL IN PROGRESS)**
 ## Ref
 1. [层次坐标](https://help.fanruan.com/finereport/index.php?doc-view-4001.html)
 <!--more-->
@@ -53,3 +53,9 @@ tags:
 - **$CellX**: 获取单元格CellX扩展出来的每个位置对应的值，常用于[条件汇总](https://help.fanruan.com/finereport/doc-view-345.html)
 
 ![$CellX](/images/cczb_formula4.png)
+
+## FAQ
+### iframe嵌套
+
+### Vue中报表弹窗
+代码见FRModal.vue

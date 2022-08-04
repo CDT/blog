@@ -1,6 +1,8 @@
 ---
 title: Vue 3
 date: 2022-06-27 11:52:03
+cover: /images/vue1.avif
+thumbnail: /images/vue1.avif
 categories:
 - tech
 tags:
@@ -9,9 +11,10 @@ tags:
 - vue3
 ---
 ## Refs
-[Composition API - An animated explanation](https://juejin.cn/post/6890545920883032071)
-[Vue2 to Vue3 — What’s changed?](https://medium.com/emblatech/vue2-to-vue3-whats-changed-5572514da20d#:~:text=Vue3%20was%20officially%20release%20in,and%20Vue3%20are%20very%20similar.)
-[Why vite ?](https://vitejs.dev/guide/why.html)
+1. [Composition API - An animated explanation](https://juejin.cn/post/6890545920883032071)
+2. [Vue2 to Vue3 — What’s changed?](https://medium.com/emblatech/vue2-to-vue3-whats-changed-5572514da20d#:~:text=Vue3%20was%20officially%20release%20in,and%20Vue3%20are%20very%20similar.)
+3. [Why vite ?](https://vitejs.dev/guide/why.html)
+4. [A definitive guide to Vue 3 components](https://blog.logrocket.com/definitive-guide-vue-3-components/#vue-3-createapp)
 
 ## Vue 3 VS Vue 2
 ### **Composition API** vs **Options API**
@@ -20,6 +23,52 @@ Options API is **function concerned**.
 Composition API is **logic concerned**.
 For complex components, code of same logic may be scattered in `props`, `data`, `methods`, `mounted`, which makes it hard to maintain. So in Vue 3, **Composition API** is introduced, code of same logic is put together in `setup`.
 See [which to choose](https://vuejs.org/guide/introduction.html#which-to-choose).
+
+### createApp vs vue instance
+
+In Vue 2, we mount a `App.vue` instance to `#app`:
+``` js
+new Vue({
+  store, router, render: h => h(App)
+}).$mount('#app')
+```
+
+In Vue 3, we `createApp` from a `App.vue` and mount to `#app`:
+``` js
+createApp(App).use(store).use(router).mount('#app')
+```
+
+#### Why use `createApp` over `new Vue` ?
+
+In Vue 2, any directives created using `Vue` object will be usable by all application instances. This becomes a problem when our web app has multiple Vue application instances but we want to limit certain functionality to specific instances.
+``` js
+// The only way to create a directive in Vue 2
+Vue.directive('directive', {
+    // ...
+});
+
+// Both of the application instances can access the directive
+const appOne = new Vue(App1).mount('#app1');
+const appTwo = new Vue(App2).mount('#app2');
+```
+
+Vue 3 solves this problem by creating directives on `app` instance instead of `Vue` object:
+``` js
+// Both of the application instances can access the directive
+const appOne = Vue.createApp(App1);
+appOne.directive('directive', {
+    // only availalble "appOne" instance */
+});
+appOne.mount('#app1');
+
+const appTwo = Vue.createApp(App2);
+appTwo.directive('directive', {
+    // only availalble to "appTwo"
+});
+appTwo.mount('#app2');
+```
+
+
 
 ### Vite
 Vue 3's scaffolding tool migrated from `vue-cli` to 'create-vue', which is based on `vite` and has a much faster building speed than `webpack`. See [why vite is much faster](https://vitejs.dev/guide/why.html)
@@ -31,6 +80,7 @@ Vue 3's scaffolding tool migrated from `vue-cli` to 'create-vue', which is based
 - A typical `<script setup>` SFC(Single File Component) goes here:
 ![script_setup_SFC](/images/script_setup_SFC.PNG)
 
+In Vue 3, 
 
 ## FAQ
 ### ref() vs reactive()
@@ -168,6 +218,10 @@ Example:
   }
 }
 ```
+
+### How to get query string in vue 3 ?
+- In vue 2, we got `this.$route.query` to get query string.
+- In vue 3, first `import { useRoute } from 'vue-router'`, then `useRoute().query` to get query string.
 
 ### Useful commands
 - Use `vue ui` to start a ui interface inside a project created by `vue-cli`.

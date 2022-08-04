@@ -10,7 +10,7 @@ tags:
 - piano
 - underwork
 ---
-**(THIS BLOG IS STILL UNDERWORK)**
+**(THIS BLOG IS STILL IN PROGRESS)**
 ## Refs
 ## Circle of Fifths
 ![Circle of fifths](/images/circle_of_fifths.png)
