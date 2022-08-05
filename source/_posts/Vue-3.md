@@ -15,6 +15,7 @@ tags:
 2. [Vue2 to Vue3 — What’s changed?](https://medium.com/emblatech/vue2-to-vue3-whats-changed-5572514da20d#:~:text=Vue3%20was%20officially%20release%20in,and%20Vue3%20are%20very%20similar.)
 3. [Why vite ?](https://vitejs.dev/guide/why.html)
 4. [A definitive guide to Vue 3 components](https://blog.logrocket.com/definitive-guide-vue-3-components/#vue-3-createapp)
+5. [ViteJS](https://vitejs.dev/guide/why.html)
 
 ## Vue 3 VS Vue 2
 ### **Composition API** vs **Options API**
