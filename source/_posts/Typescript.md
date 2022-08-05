@@ -1,6 +1,8 @@
 ---
 title: Typescript
 date: 2022-07-22 21:18:09
+cover: /images/typescript1.png
+thumbnail: /images/typescript1.png
 categories:
 - tech
 tags:
@@ -10,7 +12,6 @@ tags:
 ---
 **(BLOG IN PROGRESS)**
 
-![](/images/typescript1.png)
 ## Refs
 1. [Typesript](https://www.typescriptlang.org/)
 2. [Why create Typescript](https://www.typescriptlang.org/why-create-typescript)
@@ -32,9 +33,50 @@ TypeScript adds additional syntax to JavaScript to catch type errors - the most 
 ![Non-existent property, smart notice](/images/tscheck3.png)
 
 ## Use typescript
-### Typescript compiler
+### Run typescript
+[ts-node](https://www.npmjs.com/package/ts-node): Typescript execution and REPL for node.js, with source map and native ESM support.
+
+- run a file:
+
+script.ts: 
+
+``` ts
+const x = 10
+const y = 'foo'
+function add(x: number, y: number) {
+  return x + y
+}
+console.log(add(x, y))
+```
+
+`ts-node script.ts` gives:
+
+``` console
+> index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+test.ts:6:20 - error TS2345: Argument of type 'string' is not assignable to parameter of type 'number'.
+```
+
+- REPL example: 
+
+``` console
+> ts-node
+> const x = 10
+undefined
+> const y = 'foo'
+undefined
+> function add(x: number, y: number) { return x + y }
+undefined
+> add(x, y)
+error TS2345: Argument of type 'string' is not assignable to parameter of type 'number'
+```
+
+### Compile typescript
 1. Install `npm install -g typescript`
 2. Create `hello.ts`:
+
 ``` js
 // Greets the world.
 console.log("Hello world!");
@@ -59,6 +101,8 @@ greet('Maddison', Date())
 greet('Maddison', new Date())
 // In order to get a Date object, use new Date() instead.
 ```
+2. Global variables
+
 
 ### Modules
 Typescript modules is analogous to Javascript modules.

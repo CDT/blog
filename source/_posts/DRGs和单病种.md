@@ -20,7 +20,7 @@ tags:
 4. [国家医疗保障按病种分值付费(DIP)技术规范, 2020-10](/assets/docs/dip_tech_spec.pdf)
 5. [从DRG到DIP 你看懂医保局下的这盘棋了吗？](https://finance.sina.com.cn/chanjing/cyxw/2020-11-05/doc-iiznctkc9745916.shtml)
 6. [我国按病种付费的改革路径与实施策略](https://www.cn-healthcare.com/articlewm/20210511/content-1219183.html)
-7 .[DIP与DRG：相同与差异](http://www.hegang.gov.cn/xxgk_new/z_xgknr/z_xyl/z_xylbz/2021/05/35740.htm)
+7. [DIP与DRG：相同与差异](http://www.hegang.gov.cn/xxgk_new/z_xgknr/z_xyl/z_xylbz/2021/05/35740.htm)
 <!--more-->
 
 ## DRGs
