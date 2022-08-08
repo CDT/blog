@@ -108,3 +108,10 @@ will produce:
 > 00:21
 > 
 > 00:51
+
+- **Highlight delete/add line in code**
+Use `diff` directive:
+``` diff
+- I like markup
++ I like markdown
+```

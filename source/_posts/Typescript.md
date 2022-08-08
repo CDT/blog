@@ -10,7 +10,7 @@ tags:
 - typescript
 - nodejs
 ---
-**(BLOG IN PROGRESS)**
+**(THIS BLOG IS STILL IN PROGRESS)**
 
 # Refs
 1. [Typesript](https://www.typescriptlang.org/)
@@ -153,31 +153,86 @@ In TypeScript, just as in ECMAScript 2015, any file containing a top-level impor
 ## Ambient modules(.d.ts file)
 - We call declarations that don't define an implementation "ambient". Typically, these are defined in `.d.ts` files. If you are familiar with C/C++, you can think of these as `.h` files.
 - *.d.ts is the type definition files that allow to use existing JavaScript code in TypeScript.
+- *.d.ts is not compiled.
 
 For example, we have a simple JavaScript function that calculates the sum of two numbers:
 
 ### Write an ambient module
 ``` js
 // math.js
-const sum = (a, b) => a + b;
-
-export { sum };
+exports.add = (a, b) => a+b
 ```
 
-TypeScript doesn't have any information about the function including the name, the type of parameters. In order to use the function in a TypeScript file, we provide its definition in a d.ts file:
+TypeScript doesn't have any information about the function including the name, the type of parameters. If we import `math.js` from an `ts` file, errors are thrown:
+
+``` ts
+// index.ts
+import { add } from './math.js'
+// warning TS7016: Could not find a declaration file for module './math.js'
+// 'math.js' implicitly has an 'any' type
+
+console.log(add(1,2))
+```
+
+To solve the warning, a `.d.ts` declaration file must be added: 
 
 ``` ts
 // math.d.ts
-declare function sum(a: number, b: number): number;
+declare function add(a: number, b: number): number
 ```
 
-From now on, we can use the function in TypeScript without any compile errors.
+and change the import part in `index.ts`:
 
-The d.ts file doesn't contain any implementation, and isn't compiled to JavaScript at all.
+``` diff
+// index.ts
+- import { add } from './math.js'
++ import { add } from './math'
 
-### Import an ambient module
+console.log(add(1,2))
+```
+
+Wait, we still got an error in `math.d.ts`:
+**File `math.d.ts` is not a module**
+
+Why? Because `math.d.ts` does not contain any import/export statement. A `.ts` file is considered a module only if it contains at least one import/export statement.
+
+``` diff
+// math.d.ts
+declare function add(a: number, b: number): number
+```
+
+From now on, we can use the function in TypeScript without any warnings or errors.
 
 # `tsconfig.json` file
+- A `tsconfig.json` file in the root of a directory indicates the directory is the root of a typescript project.
+- Specifies root files and compiler options.
+
+``` json
+{
+  "compilerOptions": {
+    // module system for the program, e.g. commonjs for node.js project
+    "module": "commonjs",
+  },
+  // specific files to include, does not support patterns as opposed to "include" property
+  "files": [
+    "core.ts",
+    "sys.ts",
+    "types.ts",
+    "scanner.ts"
+  ],
+  // By default all @types packages are included. Packages in node_modules/@types of any enclosing folder are considered visible. 
+  // If types is specified, only packages listed will be included in the global scope.
+  "types": ["node", "jest", "express"],
+  // If typeRoots is specified, only packages under typeRoots will be included. For example:
+  "typeRoots": ["./typings", "./vendor/types"]
+  // include/exclude: specifies an array of filenames and patterns to include/exclude in the program
+  // ** matches any directory nested to any level
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["dist", "node_modules"]
+}
+```
+
+
 
 # FAQ
 ## Question mark in typescript
