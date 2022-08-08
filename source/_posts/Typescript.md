@@ -12,28 +12,30 @@ tags:
 ---
 **(BLOG IN PROGRESS)**
 
-## Refs
+# Refs
 1. [Typesript](https://www.typescriptlang.org/)
 2. [Why create Typescript](https://www.typescriptlang.org/why-create-typescript)
 3. [Typescript Handbook Intro](https://www.typescriptlang.org/docs/handbook/intro.html)
 4. [Modules .d.ts](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html)
 5. [Modules](https://www.typescriptlang.org/docs/handbook/modules.html)
 6. [.ts vs .d.ts](https://thisthat.dev/d-ts-vs-ts/)
+7. [Triple-slash directives](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html)
+8. [一文读懂TS的(.d.ts)文件](https://juejin.cn/post/6987735091925483551)
 
-## What is typescript ?
+# What is typescript ?
 A strongly typed programming language that builds on JavaScript.
 <!-- more -->
-## Why typescript ?
+# Why typescript ?
 **Catch type errors beforehand**
-TypeScript adds additional syntax to JavaScript to catch type errors - the most common errors for programmers.
+- TypeScript adds additional syntax to JavaScript to catch type errors - the most common errors for programmers.
 
 **Example**
 ![Not callable](/images/tscheck1.png)
 ![Non-existent property](/images/tscheck2.png)
 ![Non-existent property, smart notice](/images/tscheck3.png)
 
-## Use typescript
-### Run typescript
+# Run and compile typescript
+## Run typescript
 [ts-node](https://www.npmjs.com/package/ts-node): Typescript execution and REPL for node.js, with source map and native ESM support.
 
 - run a file:
@@ -73,7 +75,7 @@ undefined
 error TS2345: Argument of type 'string' is not assignable to parameter of type 'number'
 ```
 
-### Compile typescript
+## Compile typescript
 1. Install `npm install -g typescript`
 2. Create `hello.ts`:
 
@@ -83,8 +85,7 @@ console.log("Hello world!");
 ```
 3. Compile: `tsc hello.ts`
 
-### Declare types
-#### Function parameter type
+# Type a Function parameter
 
 ``` js
 function greet(person: string, date: Date) {
@@ -102,7 +103,7 @@ greet('Maddison', new Date())
 // In order to get a Date object, use new Date() instead.
 ```
 
-#### Object types
+# Type an object
 - Anonymous object type:
 
 ``` ts
@@ -137,14 +138,25 @@ function greet(person: Person) {
 }
 ```
 
-### .d.ts file
-- .ts is the standard TypeScript files. The content then will be compiled to JavaScript.
+# Triple-slash directives
+- Triple-slash directives are single-line comments containing a single XML tag at the top of a file, instructing compiler to do certain preprocessing.
+- Example: `<refrence path="..." />` include additional files in the compilation process. 
+- **Not recommended** for best practice, [see why here](https://medium.com/swlh/typescript-best-practices-slash-directives-types-and-unbound-methods-993195e1faf)
 
+
+
+# Modules
+Typescript modules is analogous to Javascript modules.
+
+In TypeScript, just as in ECMAScript 2015, any file containing a top-level import or export is considered a module. Conversely, a file without any top-level import or export declarations is treated as a script whose contents are available in the global scope (and therefore to modules as well).
+
+## Ambient modules(.d.ts file)
+- We call declarations that don't define an implementation "ambient". Typically, these are defined in `.d.ts` files. If you are familiar with C/C++, you can think of these as `.h` files.
 - *.d.ts is the type definition files that allow to use existing JavaScript code in TypeScript.
+
 For example, we have a simple JavaScript function that calculates the sum of two numbers:
 
-- We call declarations that don't define an implementation "ambient". Typically, these are defined in `.d.ts` files. If you are familiar with C/C++, you can think of these as `.h` files.
-
+### Write an ambient module
 ``` js
 // math.js
 const sum = (a, b) => a + b;
@@ -163,41 +175,12 @@ From now on, we can use the function in TypeScript without any compile errors.
 
 The d.ts file doesn't contain any implementation, and isn't compiled to JavaScript at all.
 
+### Import an ambient module
 
-### Modules
-Typescript modules is analogous to Javascript modules.
+# `tsconfig.json` file
 
-In TypeScript, just as in ECMAScript 2015, any file containing a top-level import or export is considered a module. Conversely, a file without any top-level import or export declarations is treated as a script whose contents are available in the global scope (and therefore to modules as well).
-
-#### Ambient modules
-- Modules area defined in its own `.d.ts` file. But it's convenient to group them together in one larger `.d.ts` file.
-- To group them, `module` keyword and quoted name of the module is used.
-
-**node.d.ts**:
-``` typescript
-declare module "url" {
-  export interface Url {
-    protocol?: string;
-    hostname?: string;
-    pathname?: string;
-  }
-
-  export function parse {
-    urlStr: string,
-    parseQueryString?,
-    slashesDenoteHost?
-  }: Url;
-}
-
-declare module "path" {
-  export function normalize(p: string): string;
-  export function join(...paths: any[]): string;
-  export var sep: string;
-}
-```
-
-## FAQ
-### Question mark in typescript
+# FAQ
+## Question mark in typescript
 Question mark has several uses in Typescript:
 1. Optional properties
 ``` ts
@@ -213,3 +196,43 @@ function say({first, last, mid}: FullName): void {
 
 say({first: '陈', last: '洞天'})
 ```
+
+2. null check
+- It's rather tedious to check if a deep property of an object is null in Javascript.
+
+``` js
+function getRowName(data) {
+  let name
+  if (data && data.row) {
+    name = data.row.name
+  }
+  return name
+}
+```
+
+- In typescript, use `?.` to test
+
+``` ts
+function getRowName(data: any) {
+  return data?.row?.name
+}
+```
+
+## Index signature
+- Sometimes name of a type's property is not known, but shape is known.
+- In these cases, use **index signature** to describe types of possible values.
+
+``` ts
+interface FullName {
+  [prop: string]: string
+}
+
+let obj: FullName = {
+  first: '陈',
+  last: '洞天',
+  mid: false // this will give error as expected type is string
+}
+```
+
+## @Types
+After Typescript 2.0, Typescript will look into `./node_modules/@types` folder of a package to get module type definitions.
