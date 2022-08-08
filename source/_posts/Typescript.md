@@ -84,7 +84,7 @@ console.log("Hello world!");
 3. Compile: `tsc hello.ts`
 
 ### Declare types
-1. Function parameter type
+#### Function parameter type
 
 ``` js
 function greet(person: string, date: Date) {
@@ -101,19 +101,49 @@ greet('Maddison', Date())
 greet('Maddison', new Date())
 // In order to get a Date object, use new Date() instead.
 ```
-2. Global variables
 
+#### Object types
+- Anonymous object type:
 
-### Modules
-Typescript modules is analogous to Javascript modules.
+``` ts
+function greet(person: { name: string; age: number }) {
+  return "Hello " + person.name
+}
+```
 
-In TypeScript, just as in ECMAScript 2015, any file containing a top-level import or export is considered a module. Conversely, a file without any top-level import or export declarations is treated as a script whose contents are available in the global scope (and therefore to modules as well).
+- through `interface` keyword:
+
+``` ts
+interface Person {
+  name: string;
+  age: number;
+}
+
+function greet(person: Person) {
+  return "Hello " + person.name;
+}
+```
+
+- through `type` keyword:
+
+``` ts
+type Person = {
+  name: string;
+  age: number;
+}
+
+function greet(person: Person) {
+  return "Hello " + person.name;
+}
+```
 
 ### .d.ts file
 - .ts is the standard TypeScript files. The content then will be compiled to JavaScript.
 
 - *.d.ts is the type definition files that allow to use existing JavaScript code in TypeScript.
 For example, we have a simple JavaScript function that calculates the sum of two numbers:
+
+- We call declarations that don't define an implementation "ambient". Typically, these are defined in `.d.ts` files. If you are familiar with C/C++, you can think of these as `.h` files.
 
 ``` js
 // math.js
@@ -132,3 +162,54 @@ declare function sum(a: number, b: number): number;
 From now on, we can use the function in TypeScript without any compile errors.
 
 The d.ts file doesn't contain any implementation, and isn't compiled to JavaScript at all.
+
+
+### Modules
+Typescript modules is analogous to Javascript modules.
+
+In TypeScript, just as in ECMAScript 2015, any file containing a top-level import or export is considered a module. Conversely, a file without any top-level import or export declarations is treated as a script whose contents are available in the global scope (and therefore to modules as well).
+
+#### Ambient modules
+- Modules area defined in its own `.d.ts` file. But it's convenient to group them together in one larger `.d.ts` file.
+- To group them, `module` keyword and quoted name of the module is used.
+
+**node.d.ts**:
+``` typescript
+declare module "url" {
+  export interface Url {
+    protocol?: string;
+    hostname?: string;
+    pathname?: string;
+  }
+
+  export function parse {
+    urlStr: string,
+    parseQueryString?,
+    slashesDenoteHost?
+  }: Url;
+}
+
+declare module "path" {
+  export function normalize(p: string): string;
+  export function join(...paths: any[]): string;
+  export var sep: string;
+}
+```
+
+## FAQ
+### Question mark in typescript
+Question mark has several uses in Typescript:
+1. Optional properties
+``` ts
+interface FullName {
+  first: string
+  last: string
+  mid?: string
+}
+
+function say({first, last, mid}: FullName): void {
+  console.log(first + (mid || '') + last)
+}
+
+say({first: '陈', last: '洞天'})
+```
