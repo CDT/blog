@@ -79,6 +79,7 @@ The easiest way is to use emojis:
 ![Use emoji to call user attention](/images/markdown_emoji.png)
 
 - **Change line in blockquote**
+
 ``` markdown
 > Case 1
 > 
@@ -95,6 +96,7 @@ The easiest way is to use emojis:
 > 00:51
 ```
 will produce:
+
 > Case 1
 > 
 > 00:23
@@ -108,6 +110,18 @@ will produce:
 > 00:21
 > 
 > 00:51
+
+or an easier one(leave one space at the beginning of the second line and so on):
+``` markdown
+> line 1
+ line 2
+ line 3
+```
+
+will produce: 
+> line 1
+ line 2
+ line 3
 
 - **Highlight delete/add line in code**
 Use `diff` directive:
