@@ -19,7 +19,7 @@ tags:
 - Github: [vue-element-plus-admin](https://github.com/kailong321200875/vue-element-plus-admin)
 
 - Doc: [Doc](https://element-plus-admin-doc.cn/)
-
+<!--more-->
 ## Preview
 ![Dashboard](/images/vue-element-plus-admin-dashboard.png)
 

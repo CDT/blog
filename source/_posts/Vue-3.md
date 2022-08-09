@@ -16,6 +16,9 @@ tags:
 3. [Why vite ?](https://vitejs.dev/guide/why.html)
 4. [A definitive guide to Vue 3 components](https://blog.logrocket.com/definitive-guide-vue-3-components/#vue-3-createapp)
 5. [ViteJS](https://vitejs.dev/guide/why.html)
+6. [What is the difference between "vite" and "vite preview"?](https://stackoverflow.com/questions/71703933/what-is-the-difference-between-vite-and-vite-preview#:~:text=Vite%20is%20a%20build%20tool,in%20a%20production%2Dlike%20environment.)
+
+<!--more-->
 
 ## Vue 3 VS Vue 2
 ### **Composition API** vs **Options API**
@@ -74,14 +77,20 @@ appTwo.mount('#app2');
 ### Vite
 Vue 3's scaffolding tool migrated from `vue-cli` to 'create-vue', which is based on `vite` and has a much faster building speed than `webpack`. See [why vite is much faster](https://vitejs.dev/guide/why.html)
 
+#### Vite commands
+
+|Command|Description|
+|:-----:|:-----|
+|`vite`| Start dev server with HMR, aliases: `vite dev`, `vite serve`. |
+|`vite build`| Build for production, files are output to `./dist`. |
+|`vite preview` | Locally preview production build, start a local web server serving built app from `./dist`. |
+
 ## Vue 3 features
 ### Composition API
 - Difference with `Options API` already explained above.
 - Use `<script setup>` or `<script>setup()` to indicate Composition API. Difference between `<script setup>` and `<script>setup()` is that no `return` is required in `<script setup>` to pass objects to template.
 - A typical `<script setup>` SFC(Single File Component) goes here:
 ![script_setup_SFC](/images/script_setup_SFC.PNG)
-
-In Vue 3, 
 
 ## FAQ
 ### ref() vs reactive()
@@ -226,6 +235,7 @@ Example:
 
 ### Useful commands
 - Use `vue ui` to start a ui interface inside a project created by `vue-cli`.
+- Use `vue add typescript` to add typescript plugin to a vue-cli project and transform it to a typescript project.
 
 
 
