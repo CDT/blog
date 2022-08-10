@@ -50,6 +50,15 @@ Git consists of 4 areas:
 ### What is `HEAD` in git ?
 The HEAD in Git is **the pointer to the current branch reference**, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory.
 
+### Git reset
+[Ref](https://stackoverflow.com/questions/3528245/whats-the-difference-between-git-reset-mixed-soft-and-hard)
+
+Suppose we have a branch master with A/B/C commits:
+ `- A - B - C (master)`
+- `reset --soft B`: Moves pointer to B; changes staged; run `commit` and will get a new commit as C
+- `reset --mixed B`: Default. moves pointer to B; changes remain but unstaged; run `add` and `commit` and will get a new commit as C
+- `reset --hard B`: Moves pointer to B; changes **permanently reset**; always run `status` to make sure changes can be discarded
+
 ### Undo a commit
 undo add: `git reset`
 undo commit: `git reset --hard HEAD~1` (moves to one commit before and `--hard` resets staging and working changes)
