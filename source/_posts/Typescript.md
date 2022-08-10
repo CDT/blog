@@ -21,6 +21,7 @@ tags:
 6. [.ts vs .d.ts](https://thisthat.dev/d-ts-vs-ts/)
 7. [Triple-slash directives](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html)
 8. [一文读懂TS的(.d.ts)文件](https://juejin.cn/post/6987735091925483551)
+9. [Typescript入门教程](https://ts.xcatliu.com/)
 
 # What is typescript ?
 A strongly typed programming language that builds on JavaScript.
@@ -84,6 +85,183 @@ error TS2345: Argument of type 'string' is not assignable to parameter of type '
 console.log("Hello world!");
 ```
 3. Compile: `tsc hello.ts`
+
+# Types
+
+``` ts
+// Primitive types:
+let isDone: boolean = false
+let decimal: number = 6
+let myName: string = 'Tom'
+// void can only be assigned undefined or null
+let useless1: void = undefined
+let useless2: void = null
+// null and undefined can also be used to define types
+// they can be assigned interchangeably
+let useless3: undefined = null
+let useless4: null = undefined
+// difference between null/undefined and void is that any type can assign its value to null/undefined but not void
+// the following is ok:
+let num1: number = undefined
+let u1: undefined
+let num2: number = u1
+// but this is not ok: ts2322 - Type void is not assignable to type number
+let u2: void = undefined
+let num3: number = u2 
+
+
+
+// Any type:
+// normal types cannot change its type:
+let myFavoriteNumber1: string = 'seven';
+myFavoriteNumber1 = 7; // ts2322 - Type number is not assignable to type string
+// any type can be assgined to another type
+let myFavoriteNumber2: any = 'seven'
+myFavoriteNumber2 = 7;
+// if a variable is not assigned to a type, it will implicitly be assigned to any type
+let something // ts-7043: Variable 'something' implicitly has an 'any' type, but a better type may be inferred from usage.
+something = 'seven'
+something = 7
+something.setName('Tom')
+```
+
+# Type inference
+``` ts
+let myFavoriteNumber = 'seven';
+myFavoriteNumber = 7;
+// Type 'number' is not assignable to type 'string'.ts(2322)
+
+// Above code is equivalent to:
+let myFavoriteNumber: string = 'seven';
+myFavoriteNumber = 7;
+// Typescript tries to infer a type when no type is specified
+
+// If not initialized, variable will be inferred as any type
+let myFavoriteNumber
+myFavoriteNumber = 'seven'
+myFavoriteNumber = 7
+```
+
+# Union Types
+``` ts
+let myFavoriteNumber: string | number;
+myFavoriteNumber = 'seven';
+myFavoriteNumber = 7;
+// above is ok
+
+
+myFavoriteNumber = true;
+// error TS2322: Type 'boolean' is not assignable to type 'string | number'.
+
+
+function getLength(something: string | number): number {
+  return something.length;
+}
+// error TS2339: Property 'length' does not exist on type 'string | number'.
+//   Property 'length' does not exist on type 'number'.
+// Only property owned by all types in a union type can be accessed.
+
+
+let myFavoriteNumber: string | number
+myFavoriteNumber = 'seven'
+console.log(myFavoriteNumber.length) // This works well
+myFavoriteNumber = 7
+console.log(myFavoriteNumber.length) // This will throw an error:
+// error TS2339: Property 'length' does not exist on type 'number'.
+// Type of a union type will be inferred after assigning a value.
+```
+
+# Interface
+``` ts
+interface Person {
+  name: string,
+  age: number
+}
+
+let tom: Person = {
+  name: 'Tom',
+  age: 25
+}
+
+let jack: Person = {
+  name: 'Jack'
+}
+// Property 'age' is missing in type '{ name: string; }' but required in type 'Person'.ts(2741)
+// test.ts(3, 3): 'age' is declared here.
+// variable declared must have all properties assigned
+
+let john: Person = {
+  name: 'John',
+  age: 31,
+  sex: 'male'
+}
+// Type '{ name: string; age: number; sex: string; }' is not assignable to type 'Person'.
+// Object literal may only specify known properties, and 'sex' does not exist in type 'Person'.ts(2322)
+// variable also cannot have additional properties
+
+interface Human {
+  name: string,
+  age?: number
+}
+// Question mark in a interface property means it's optional
+let jane: Human = {
+  name: 'Jane'
+}
+// jane is ok
+let joe: Human = {
+  name: 'Joe',
+  sex: 'female'
+}
+// Type '{ name: string; sex: string; }' is not assignable to type 'Human'.
+// Object literal may only specify known properties, and 'sex' does not exist in type 'Human'.ts(2322)
+// still no additional property allowed
+```
+
+``` ts
+interface Person {
+  name: string,
+  age?: number,
+  [propName: string]: string
+}
+// [propName: string]: any means any whatever property name is allowed with string value
+let tom: Person = {
+  name: 'Tom',
+  sex: 'male', // this property is ok
+  birthdate: new Date() // this won't work: 
+  // Type 'Date' is not assignable to type 'string'.ts(2322)
+  // test.ts(4, 3): The expected type comes from this index signature.
+}
+
+
+// Union types can also be used
+interface Human {
+  name: string;
+  age?: number;
+  [propName: string]: string | number;
+}
+
+let tom: Human = {
+  name: 'Tom',
+  age: 25,
+  gender: 'male'
+};
+
+
+// Make property readonly:
+interface Man {
+  readonly id: number,
+  name: string
+}
+
+let tom1: Man = {
+  id: 89757,
+  name: 'Tom'
+};
+
+tom1.id = 9527;
+// error: Cannot assign to 'id' because it is a read-only property.ts(2540)
+```
+
 
 # Type a Function parameter
 
@@ -196,9 +374,9 @@ Wait, we still got an error in `math.d.ts`:
 
 Why? Because `math.d.ts` does not contain any import/export statement. A `.ts` file is considered a module only if it contains at least one import/export statement.
 
-``` diff
+``` ts
 // math.d.ts
-declare function add(a: number, b: number): number
+export declare function add(a: number, b: number): number
 ```
 
 From now on, we can use the function in TypeScript without any warnings or errors.
@@ -232,6 +410,47 @@ From now on, we can use the function in TypeScript without any warnings or error
 }
 ```
 
+# Declaration Merging
+- Declaration merging merges two or more separate declarations with same name into a single definition.
+
+## Merging interfaces
+
+- Merging properties:
+
+``` ts
+interface Box {
+  height: number;
+  width: number;
+}
+interface Box {
+  scale: number;
+}
+let box: Box = { height: 5, width: 6, scale: 10 };
+```
+
+- Merging functions: each function member of the same name is treated as describing an overload of the same function.
+
+``` ts
+interface Cloner {
+  clone(animal: Animal): Animal;
+}
+interface Cloner {
+  clone(animal: Sheep): Sheep;
+}
+interface Cloner {
+  clone(animal: Dog): Dog;
+  clone(animal: Cat): Cat;
+}
+// the above will give:
+interface Cloner {
+  clone(animal: Dog): Dog;
+  clone(animal: Cat): Cat;
+  clone(animal: Sheep): Sheep;
+  clone(animal: Animal): Animal;
+}
+```
+
+## 
 
 
 # FAQ
@@ -270,22 +489,6 @@ function getRowName(data) {
 ``` ts
 function getRowName(data: any) {
   return data?.row?.name
-}
-```
-
-## Index signature
-- Sometimes name of a type's property is not known, but shape is known.
-- In these cases, use **index signature** to describe types of possible values.
-
-``` ts
-interface FullName {
-  [prop: string]: string
-}
-
-let obj: FullName = {
-  first: '陈',
-  last: '洞天',
-  mid: false // this will give error as expected type is string
 }
 ```
 
