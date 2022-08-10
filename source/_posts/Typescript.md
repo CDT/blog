@@ -22,6 +22,7 @@ tags:
 7. [Triple-slash directives](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html)
 8. [一文读懂TS的(.d.ts)文件](https://juejin.cn/post/6987735091925483551)
 9. [Typescript入门教程](https://ts.xcatliu.com/)
+10. [Javascript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
 # What is typescript ?
 A strongly typed programming language that builds on JavaScript.
@@ -281,40 +282,134 @@ greet('Maddison', new Date())
 // In order to get a Date object, use new Date() instead.
 ```
 
-# Type an object
-- Anonymous object type:
+# Array
 
 ``` ts
-function greet(person: { name: string; age: number }) {
-  return "Hello " + person.name
+let fibonacci: number[] = [1, 1, 2, 3, 5]
+
+let fibonacci: number[] = [1, '1', 2, 3, 5];
+// Type 'string' is not assignable to type 'number'.
+
+fibonacci.push('8')
+// Argument of type 'string' is not assignable
+// to parameter of type 'number'.ts(2345)
+
+// Generic type array:
+let fibonacci: Array<number> = [1, 1, 2, 3, 5];
+
+// Interface can also be used to represent an array:
+interface NumberArray {
+  [index: number]: number;
 }
+let fibonacci: NumberArray = [1, 1, 2, 3, 5];
+// but it's so complex, rarely used except in Array-like object
+
+function sum(a: number, b: number) {
+  let args: number = arguments
+}
+// error: Type 'IArguments' is not assignable to type 'number'.ts(2322)
+// arguments is an object array
+
+function sum() {
+  let args: {
+      [index: number]: number;
+      length: number;
+      callee: Function;
+  } = arguments;
+} // args is Array-like object
 ```
 
-- through `interface` keyword:
-
+# Function
 ``` ts
-interface Person {
-  name: string;
-  age: number;
+// Declare a function
+let mySum = function(x: number, y: number): number {
+  return x + y
 }
 
-function greet(person: Person) {
-  return "Hello " + person.name;
+// Declare a function with type predefined
+// In Typescript, => is used to define the shape of a function
+// left of => are argument types
+// right of => is return value type
+let mySum: (x: number, y: number) => number 
+= function (x: number, y: number): number {
+  return x + y;
+};
+
+
+// Shape a function with interface:
+interface SearchFunc {
+  (source: string, subString: string): boolean;
 }
+
+let mySearch: SearchFunc;
+mySearch = function(source: string, subString: string) {
+  return source.search(subString) !== -1;
+}
+
+
+// Use ? to mark an optional parameter
+// Note optional parameters must be after required parameters
+// No required parameter is allowed after optional parameter
+const fullName = (first: string, last: string, middle?: string): string {
+  if (middle) {
+    return first + ' ' + middle + ' ' + last
+  } else {
+    return first + ' ' + last
+  }
+}
+fullName('陈', '洞天')
+fullName('陈', '洞', '天')
+
+
+// Parameter default value
+function buildName(firstName: string, lastName: string = 'Cat') {
+  return firstName + ' ' + lastName;
+}
+let tomcat = buildName('Tom', 'Cat');
+let tom = buildName('Tom');
+
+
+// Rest parameters
+function push(array: any[], ...items: any[]) {
+  items.forEach(function(item) {
+      array.push(item);
+  });
+}
+
+let a = [];
+push(a, 1, 2, 3);
+
+
+// To reverse a number or string:
+function reverseNS(x: number | string): number | string | void {
+  if (typeof x === 'number') {
+      return Number(x.toString().split('').reverse().join(''));
+  } else if (typeof x === 'string') {
+      return x.split('').reverse().join('');
+  }
+}
+// However it's not obvious that 
+// reverseNS returns a number when input is number
+// and returns a string when input is string.
+// Rewrite it with function overload:
+function reverse(x: number): number;
+function reverse(x: string): string;
+function reverse(x: number | string): number | string | void {
+    if (typeof x === 'number') {
+        return Number(x.toString().split('').reverse().join(''));
+    } else if (typeof x === 'string') {
+        return x.split('').reverse().join('');
+    }
+}
+console.log(reverse(123))
+// It works and editor gives 'right' hint.
+// It calls reverse(x: number | string): number | string | void
+// but editor hints reverse(x: number): number
 ```
 
-- through `type` keyword:
-
-``` ts
-type Person = {
-  name: string;
-  age: number;
-}
-
-function greet(person: Person) {
-  return "Hello " + person.name;
-}
-```
+# Javascript class
+- Javascript class is built on top of prototype.
+- Javascript class is in fact 'special class'.
 
 # Triple-slash directives
 - Triple-slash directives are single-line comments containing a single XML tag at the top of a file, instructing compiler to do certain preprocessing.
