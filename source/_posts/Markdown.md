@@ -52,11 +52,16 @@ Client editor: [Marktext](https://github.com/marktext/marktext), a realtime rend
 | Superscript | X^2^ |
 
 ## FAQ
+
 - **Escaping**
 Use backslash to escape most special characters.
 
+***
+
 - **Leading spaces**
 Markdown does not support leading spaces before each paragraph. Use &nbsp;(may have some problem with specific renderer like Hexo) or full-width space(a prettier solution) at the beginning.
+
+***
 
 - **Custom style**
 Use html tags directly in markdown and style them with css.
@@ -70,13 +75,18 @@ Use html tags directly in markdown and style them with css.
 </style>
 ```
 
+***
+
 - **Warning box**
 The easiest way is to use emojis:
 
 ``` markdown
 > :warning: **If you are using mobile browser**: Be very careful here!
 ```
+
 ![Use emoji to call user attention](/images/markdown_emoji.png)
+
+***
 
 - **Change line in blockquote**
 
@@ -123,9 +133,47 @@ will produce:
  line 2
  line 3
 
+***
+
 - **Highlight delete/add line in code**
+
 Use `diff` directive:
+
+```
 ``` diff
 - I like markup
 + I like markdown
+```
+
+gives:
+
+``` diff
+- I like markup
++ I like markdown
+```
+
+***
+
+- **List in list/nested list**
+
+Use 2 or 4 spaces: 
+
+``` markdown
+# Unordered list
+
+* Item 1
+* Item 2
+* Item 3
+    * Item 3a
+    * Item 3b
+    * Item 3c
+
+# Ordered list
+
+1. Step 1
+2. Step 2
+3. Step 3
+    1. Step 3.1
+    2. Step 3.2
+    3. Step 3.3
 ```

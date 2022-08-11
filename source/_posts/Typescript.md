@@ -16,13 +16,9 @@ tags:
 1. [Typesript](https://www.typescriptlang.org/)
 2. [Why create Typescript](https://www.typescriptlang.org/why-create-typescript)
 3. [Typescript Handbook Intro](https://www.typescriptlang.org/docs/handbook/intro.html)
-4. [Modules .d.ts](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html)
-5. [Modules](https://www.typescriptlang.org/docs/handbook/modules.html)
-6. [.ts vs .d.ts](https://thisthat.dev/d-ts-vs-ts/)
-7. [Triple-slash directives](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html)
-8. [一文读懂TS的(.d.ts)文件](https://juejin.cn/post/6987735091925483551)
-9. [Typescript入门教程](https://ts.xcatliu.com/)
-10. [Javascript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+4. [Typescript入门教程](https://ts.xcatliu.com/)
+5. [Javascript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+6. [Type Declarations](https://microsoft.github.io/TypeScript-New-Handbook/chapters/type-declarations/)
 
 # What is typescript ?
 A strongly typed programming language that builds on JavaScript.
@@ -263,25 +259,6 @@ tom1.id = 9527;
 // error: Cannot assign to 'id' because it is a read-only property.ts(2540)
 ```
 
-
-# Type a Function parameter
-
-``` js
-function greet(person: string, date: Date) {
-  // parameter person and date must be of type string and Date
-  console.log(`Hello ${person}, today is ${date.toDateString()}!`);
-}
-```
-
-``` js
-greet('Maddison', Date())
-// This gives error: Argument of type 'string' is not assignable to parameter of type 'Date'.
-// Because Date() returns a string instead of Date.
-
-greet('Maddison', new Date())
-// In order to get a Date object, use new Date() instead.
-```
-
 # Array
 
 ``` ts
@@ -411,70 +388,255 @@ console.log(reverse(123))
 - Javascript class is built on top of prototype.
 - Javascript class is in fact 'special class'.
 
+``` js
+// Declare a class through class declaration:
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+// Declare a class through class expression:
+let Rectangle = class {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+console.log(Rectangle.name); // output: Rectangle
+
+
+
+class Rectangle {
+  // constructor is a special method for creating and initializing an object created with a class
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+  // Getter. Getter method is used like a normal property.
+  get area() {
+    return this.calcArea();
+  }
+
+  // static members area called without instantiating their class and **cannot** be called through a class instance.
+  // static methods are often used to create utility functions for an application
+  // static properties are useful for caches, fixed-configuration, or other replicated data
+  static shortName = 'Rect'
+  static areaDiff(rect1, rect2) {
+    return rect1.area - rect2.area
+  }
+
+  // Method
+  calcArea() {
+    return this.height * this.width;
+  }
+}
+
+const square1 = new Rectangle(10, 10)
+
+console.log(square1.area) // 100
+
+console.log(square1.shortName) // undefined
+
+console.log(Rectangle.shortName) // Rect
+
+const square2 = new Rectangle(20, 20)
+
+console.log(Rectangle.areaDiff(square2, square1)) // 300
+
+
+// extends a class:
+class DateNew extends Date {
+
+  getAbbrMonth() {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return months[this.getMonth()]
+  }
+
+}
+
+console.log((new DateNew()).getAbbrMonth());
+// expected output: "Aug" (current time 2022.8)
+```
+
+# Type assertion
+``` ts
+interface Cat {
+  name: string;
+  run(): void;
+}
+interface Fish {
+  name: string;
+  swim(): void;
+}
+
+function isFish(animal: Cat | Fish) {
+  if (typeof animal.swim === 'function') {
+      return true;
+  }
+  return false;
+}
+// error TS2339: Property 'swim' does not exist on type 'Cat | Fish'.
+//   Property 'swim' does not exist on type 'Cat'.
+// For union types, only property they have in common can be accessed
+
+
+// To solve this, use type assertion:
+function isFish(animal: Cat | Fish) {
+  if (typeof (animal as Fish).swim === 'function') {
+      return true;
+  }
+  return false;
+}
+// type assertion Syntax: VALUE as TYPE
+
+
+function swim(animal: Cat | Fish) {
+  (animal as Fish).swim();
+}
+const tom: Cat = {
+  name: 'Tom',
+  run() { console.log('run') }
+};
+swim(tom);
+// Above code is ok at compiling, but throws error at running:
+// Uncaught TypeError: animal.swim is not a function`
+// Type assertion may 'hide' errors, so use it with caution
+// Only use type assertion when you are fully sure that the type is correct after assertion
+
+
+interface ApiError extends Error {
+  code: number;
+}
+interface HttpError extends Error {
+  statusCode: number;
+}
+
+function isApiError(error: Error) {
+  if (error instanceof ApiError) {
+      return true;
+  }
+  return false;
+}
+// Editor check error: 'ApiError' only refers to a type, but is being used as a value here.ts(2693)
+// cannot use instanceof on an Typescript interface, instanceof cannot be used on Javascript class
+
+// To solve above problem, use type assertion:
+interface ApiError extends Error {
+    code: number;
+}
+interface HttpError extends Error {
+    statusCode: number;
+}
+
+function isApiError(error: Error) {
+    if (typeof (error as ApiError).code === 'number') {
+        return true;
+    }
+    return false;
+}
+
+
+// COMPATIBLE interfaces: 
+interface Animal {
+  name: string;
+}
+interface Cat {
+  name: string;
+  run(): void;
+}
+
+let tom: Cat = {
+  name: 'Tom',
+  run: () => { console.log('run') }
+};
+let animal: Animal = tom;
+
+// Above code works well, no error is thrown.
+// Although Cat and Animal are two distinct interfaces and no extends between them
+// under the hood Typescript thinks Cat is descendant of Animal.
+// Typescript only compares their shapes, so it is identical to Cat extends Animal.
+// When two interfaces are COMPATIBLE, they can be asserted to each other.
+// Father can be asserted to son and vice versa.
+
+// A conclusion to type assertion
+
+// 1. Union types can be asserted to one of them
+// 2. Father/Son classes can be asserted to each other
+// All types can be asserted to any and vice verse
+// Compatible types can be asserted toeach other
+
+
+// Type assertion only affects compilation
+function toBoolean(something: any): boolean {
+  return something as boolean;
+}
+
+toBoolean(1);
+// Above code will be compiled to 
+function toBoolean(something) {
+  return something;
+}
+
+toBoolean(1);
+// nothing is done on the return value.
+// To transform a type, use type transformation:
+function toBoolean(something: any): boolean {
+  return Boolean(something); // Transforms to boolean
+}
+
+toBoolean(1);
+```
+
+# 
+
 # Triple-slash directives
 - Triple-slash directives are single-line comments containing a single XML tag at the top of a file, instructing compiler to do certain preprocessing.
 - Example: `<refrence path="..." />` include additional files in the compilation process. 
 - **Not recommended** for best practice, [see why here](https://medium.com/swlh/typescript-best-practices-slash-directives-types-and-unbound-methods-993195e1faf)
 
-
-
-# Modules
-Typescript modules is analogous to Javascript modules.
-
-In TypeScript, just as in ECMAScript 2015, any file containing a top-level import or export is considered a module. Conversely, a file without any top-level import or export declarations is treated as a script whose contents are available in the global scope (and therefore to modules as well).
-
-## Ambient modules(.d.ts file)
-- We call declarations that don't define an implementation "ambient". Typically, these are defined in `.d.ts` files. If you are familiar with C/C++, you can think of these as `.h` files.
-- *.d.ts is the type definition files that allow to use existing JavaScript code in TypeScript.
-- *.d.ts is not compiled.
-
-For example, we have a simple JavaScript function that calculates the sum of two numbers:
-
-### Write an ambient module
-``` js
-// math.js
-exports.add = (a, b) => a+b
-```
-
-TypeScript doesn't have any information about the function including the name, the type of parameters. If we import `math.js` from an `ts` file, errors are thrown:
-
+# Declaration file
+## An example
 ``` ts
-// index.ts
-import { add } from './math.js'
-// warning TS7016: Could not find a declaration file for module './math.js'
-// 'math.js' implicitly has an 'any' type
+const k = Math.max(5, 6); // k = 6
+const j = Math.mix(7, 8); // Error: Property 'mix' does not exist on type 'Math'.
 
-console.log(add(1,2))
+// Hover mouse over max and you'll get its shape and description: 
+// (method) Math.max(...values: number[]): number
+//    Returns the larger of a set of supplied numeric expressions.
+
+@param values — Numeric expressions to be evaluated.
 ```
 
-To solve the warning, a `.d.ts` declaration file must be added: 
+- How did Typescript know that `max` was present but `mix` wasn't?
+- How did Typescript know the shape of `max`?
 
+The answer is there are delcaration files describing these built-in functions. 
+
+Ctrl click `Math.max` in VSCode and its jumps into a file:
 ``` ts
-// math.d.ts
-declare function add(a: number, b: number): number
+// path: [User directory]\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\node_modules\typescript\lib
+// file: lib.es5.d.ts
+/**
+ * Returns the larger of a set of supplied numeric expressions.
+ * @param values Numeric expressions to be evaluated.
+ */
+max(...values: number[]): number;
 ```
 
-and change the import part in `index.ts`:
+This is the declaration file for es5 in Typescript.
 
-``` diff
-// index.ts
-- import { add } from './math.js'
-+ import { add } from './math'
+## Concepts
+- A declaration file provides a way to declare the existence of some types or values without actually providing implementations for those values.
+- Usually, a declaration file describe the shape of existing Javascript code, make them able to work in Typescript environment, enables typechecking and code completion and so on.
+- Typescript mainly has two kinds of files:
+  - `.ts` *implementation* files. Produce `.js` code and is where you normally write your code.
+  - `.d.ts` *delcaration* files. Only contain type information. Don't produce `js` code, only used for typechecking.
+- Built-in declaration files is named with pattern `lib.[name].d.ts`
 
-console.log(add(1,2))
-```
-
-Wait, we still got an error in `math.d.ts`:
-**File `math.d.ts` is not a module**
-
-Why? Because `math.d.ts` does not contain any import/export statement. A `.ts` file is considered a module only if it contains at least one import/export statement.
-
-``` ts
-// math.d.ts
-export declare function add(a: number, b: number): number
-```
-
-From now on, we can use the function in TypeScript without any warnings or errors.
 
 # `tsconfig.json` file
 - A `tsconfig.json` file in the root of a directory indicates the directory is the root of a typescript project.
@@ -589,3 +751,6 @@ function getRowName(data: any) {
 
 ## @Types
 After Typescript 2.0, Typescript will look into `./node_modules/@types` folder of a package to get module type definitions.
+
+### Writing Node.js with Typescript
+- Node.js is not part of the built-in objects in Typescript. In order to write Node.js code with Typescript, import DefinitelyTyped Node.js @types files: ``` npm install @types/node --save-dev ```
