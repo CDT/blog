@@ -591,7 +591,28 @@ function toBoolean(something: any): boolean {
 toBoolean(1);
 ```
 
-# 
+# Type alias
+- Type alias gives a type an alias.
+
+``` ts
+type str = string
+let b:str = 'abc'
+```
+
+- `type` keyword can also type an enum.
+
+``` ts
+type Num123 = 1 | 2 | 3
+type CharABC = 'a' | 'b' | 'c'
+let c:Num123 = 4 // Error Type '4' is not assignable to type 'Num123'.ts(2322)
+```
+
+# Tuple
+- Tuple combines different types.
+
+```
+
+```
 
 # Triple-slash directives
 - Triple-slash directives are single-line comments containing a single XML tag at the top of a file, instructing compiler to do certain preprocessing.
@@ -706,9 +727,6 @@ interface Cloner {
   clone(animal: Animal): Animal;
 }
 ```
-
-## 
-
 
 # FAQ
 ## Question mark in typescript
