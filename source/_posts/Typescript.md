@@ -462,6 +462,201 @@ console.log((new DateNew()).getAbbrMonth());
 // expected output: "Aug" (current time 2022.8)
 ```
 
+# Typescript class
+- Typescript class is Javascript class, with a BIT MORE
+
+``` js
+let Rectangle = class {
+  static type: string = 'SimpleShape' // Typescript supports static property but javascript doesn't
+  public height: number // All properties must be defined
+  public width: number // All properties must be defined
+  private secret: string = 'Secret' // Private property is only accessible inside the class
+  protected meOrChild: string = 'meOrChild' // Protected property is only accessible inside the class and its child class
+
+  constructor (height: number, width: number) {
+    this.height = height;
+    this.width = width;
+  }
+
+}
+
+let rect = new Rectangle(10, 10)
+console.log(rect.secret) 
+// Typescript will throw error but COMPILED JAVASCRIPT WON'T
+// ONLY EDITOR WILL TYPECHECK
+// JAVASCRIPT HAS NO WAY TO LIMIT PROPERTY ACCESS
+```
+
+``` ts
+class Animal {
+  public name;
+  private constructor(name) {
+    this.name = name;
+  }
+}
+class Cat extends Animal {
+  constructor(name) {
+    super(name);
+  }
+}
+// Cannot extend a class with a private constructor:
+// Cannot extend a class 'Animal'. Class constructor is marked as private.ts(2675)
+
+let a = new Animal('Jack');
+// Cannot instantiate a class with a private constructor:
+// Constructor of class 'Animal' is private and only accessible within the class declaration.ts(2673)
+```
+
+``` ts
+class Animal {
+  public name: string;
+  protected constructor(name: string) {
+    this.name = name;
+  }
+}
+class Cat extends Animal {
+  constructor(name: string) {
+    super(name);
+  }
+}
+
+let a = new Animal('Jack');
+// A class with protected constructor can only be inherit/extended
+// index.ts(13,9): TS2674: Constructor of class 'Animal' is protected and only accessible within the class declaration.
+```
+
+``` ts
+class Animal {
+  readonly name; // set readonly property
+  public constructor(name) {
+    this.name = name;
+  }
+}
+
+let a = new Animal('Jack');
+console.log(a.name); // Jack
+a.name = 'Tom';
+
+// index.ts(10,3): TS2540: Cannot assign to 'name' because it is a read-only property.
+```
+
+``` ts
+abstract class Animal {
+  public name;
+  public constructor(name) {
+    this.name = name;
+  }
+  public abstract sayHi();
+}
+
+let a = new Animal('Jack');
+
+// index.ts(9,11): error TS2511: Cannot create an instance of the abstract class 'Animal'.
+```
+
+``` ts
+abstract class Animal {
+  public name;
+  public constructor(name) {
+    this.name = name;
+  }
+  public abstract sayHi();
+}
+
+class Cat extends Animal {
+  public eat() {
+    console.log(`${this.name} is eating.`);
+  }
+}
+
+let cat = new Cat('Tom');
+// abstract method in abstract class must be implemented
+// index.ts(9,7): error TS2515: Non-abstract class 'Cat' does not implement inherited abstract member 'sayHi' from class 'Animal'.
+```
+
+# Interface and class
+``` ts
+interface Alarm {
+  alert(): void;
+}
+
+class Door {
+}
+
+// extends class, implements interface
+class SecurityDoor extends Door implements Alarm {
+  alert() {
+      console.log('SecurityDoor alert');
+  }
+}
+
+class Car implements Alarm {
+  alert() {
+      console.log('Car alert');
+  }
+}
+```
+
+``` ts
+interface Alarm {
+    alert(): void;
+}
+
+interface Light {
+    lightOn(): void;
+    lightOff(): void;
+}
+
+class Car implements Alarm, Light {
+    alert() {
+        console.log('Car alert');
+    }
+    lightOn() {
+        console.log('Car light on');
+    }
+    lightOff() {
+        console.log('Car light off');
+    }
+}
+```
+
+``` ts
+interface Alarm {
+    alert(): void;
+}
+
+interface LightableAlarm extends Alarm {
+    lightOn(): void;
+    lightOff(): void;
+} // an interface can extend an interface
+```
+
+``` ts
+class Point {
+  x: number;
+  y: number;
+  constructor(x: number, y: number) {
+      this.x = x;
+      this.y = y;
+  }
+}
+
+interface Point3d extends Point {
+  z: number;
+}
+// An interface can extend a class!
+let point3d: Point3d = {x: 1, y: 2, z: 3};
+// A class in Typescript is also a type,
+// For the Point class above, it also serves like a type:
+type PointType = {
+  x: number,
+  y: number
+}
+// That's why class in Typescript can be extended by an interface.
+// Note that when consider class as a type, its constructor and static 
+// properties/methods are excluded.
+```
+
 # Type assertion
 ``` ts
 interface Cat {
@@ -610,8 +805,52 @@ let c:Num123 = 4 // Error Type '4' is not assignable to type 'Num123'.ts(2322)
 # Tuple
 - Tuple combines different types.
 
+``` ts
+type Man = [string, number]
+let tom: [string, number] = ['tom', 25]
+tom[0] = 'Tom'
+tom[1] = 26
+console.log(tom) // ['Tom', 26]
 ```
 
+# Enum
+- Although `enum` is a reserved word in Javascript, it's not supported in Javascript.
+
+``` ts
+// define an enum
+enum Days {Sun, Mon, Tue, Wed, Thu, Fri, Sat};
+// normal:
+console.log(Days["Sun"] === 0); // true
+console.log(Days.Sun === 0); // true, another way of index
+console.log(Days["Mon"] === 1); // true
+console.log(Days["Tue"] === 2); // true
+console.log(Days["Sat"] === 6); // true
+// reverse
+console.log(Days[0] === "Sun"); // true
+console.log(Days[1] === "Mon"); // true
+console.log(Days[2] === "Tue"); // true
+console.log(Days[6] === "Sat"); // true
+```
+
+``` ts
+// Manually assign value to enum
+enum Days {Sun = 7, Mon = 1, Tue, Wed, Thu, Fri, Sat};
+
+console.log(Days["Sun"] === 7); // true
+console.log(Days["Mon"] === 1); // true
+console.log(Days["Tue"] === 2); // true
+console.log(Days["Sat"] === 6); // true
+// enum not assigned manually will be assigned a value 
+// one greater than its previous value.
+```
+
+``` ts
+// wednes will override sun as 3
+enum Days {sun = 3, mon = 1, tues, wednes, thurs, fri, satur}
+
+console.log(Days['sun']) // 3
+console.log(Days['wednes']) // 3
+console.log(Days[3]) // wednes
 ```
 
 # Triple-slash directives
