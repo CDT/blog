@@ -786,6 +786,7 @@ function toBoolean(something: any): boolean {
 toBoolean(1);
 ```
 
+
 # Type alias
 - Type alias gives a type an alias.
 
@@ -852,6 +853,54 @@ console.log(Days['sun']) // 3
 console.log(Days['wednes']) // 3
 console.log(Days[3]) // wednes
 ```
+
+
+# Generics
+- Generics refers to parameterized types.
+
+- What if we want to create an array of any type with length 3 ?
+
+``` ts
+function createArray(length: number, value: any): Array<any> {
+  let result = [];
+  for (let i = 0; i < length; i++) {
+      result[i] = value;
+  }
+  return result;
+}
+
+createArray(3, 'x'); // ['x', 'x', 'x']
+// It works but the array generated does not have a specific type.
+```
+
+- Here's the solution using generics:
+
+``` ts
+function createArray<T>(length: number, value: T): Array<T> {
+  let result: T[] = [];
+  for (let i = 0; i < length; i++) {
+      result[i] = value;
+  }
+  return result;
+}
+
+createArray<string>(3, 'x') // ['x', 'x', 'x']
+createArray(3, 'x') // this also works using type inference
+```
+
+``` ts
+interface Lengthwise {
+  length: number;
+}
+
+function loggingIdentity<T extends Lengthwise>(arg: T): T {
+  console.log(arg.length);
+  return arg;
+}
+// To limit generics must have a length property, extend it
+// using an interface with length property.
+```
+
 
 # Triple-slash directives
 - Triple-slash directives are single-line comments containing a single XML tag at the top of a file, instructing compiler to do certain preprocessing.
