@@ -1055,8 +1055,7 @@ function getRowName(data: any) {
 }
 ```
 
-## @Types
-After Typescript 2.0, Typescript will look into `./node_modules/@types` folder of a package to get module type definitions.
+## DefinitelyTyped
+- TypeScript allows you to have Declaration Files which are files that allow you to describe the shape of code that's written in (for example) plain JavaScript. So, by referencing one of these files you tell TypeScript exactly how that JavaScript code or library you are using should be assumed to be "typed". 
 
-### Writing Node.js with Typescript
-- Node.js is not part of the built-in objects in Typescript. In order to write Node.js code with Typescript, import DefinitelyTyped Node.js @types files: ``` npm install @types/node --save-dev ```
+- Of course, this means that the declaration file need to be carefully written and in sync with the JavaScript library you are using.
