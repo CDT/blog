@@ -19,6 +19,7 @@ tags:
 4. [Typescript入门教程](https://ts.xcatliu.com/)
 5. [Javascript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 6. [Type Declarations](https://microsoft.github.io/TypeScript-New-Handbook/chapters/type-declarations/)
+7. [What is DefinitelyTyped?](https://stackoverflow.com/questions/39907142/what-is-definitelytyped)
 
 # What is typescript ?
 A strongly typed programming language that builds on JavaScript.
@@ -1059,3 +1060,5 @@ function getRowName(data: any) {
 - TypeScript allows you to have Declaration Files which are files that allow you to describe the shape of code that's written in (for example) plain JavaScript. So, by referencing one of these files you tell TypeScript exactly how that JavaScript code or library you are using should be assumed to be "typed". 
 
 - Of course, this means that the declaration file need to be carefully written and in sync with the JavaScript library you are using.
+
+- DefinitelyTyped is the most popular repository of Declaration Files for many many JavaScript libraries most of which do not provide their own declaration files (as they are not developed with TypeScript and are not committed to work with it). So it holds Declaration files maintained by the community.
