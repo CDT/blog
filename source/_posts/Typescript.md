@@ -20,6 +20,7 @@ tags:
 5. [Javascript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 6. [Type Declarations](https://microsoft.github.io/TypeScript-New-Handbook/chapters/type-declarations/)
 7. [What is DefinitelyTyped?](https://stackoverflow.com/questions/39907142/what-is-definitelytyped)
+8. [Ambient Modules](https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules)
 
 # What is typescript ?
 A strongly typed programming language that builds on JavaScript.
@@ -947,6 +948,49 @@ This is the declaration file for es5 in Typescript.
   - `.d.ts` *delcaration* files. Only contain type information. Don't produce `js` code, only used for typechecking.
 - Built-in declaration files is named with pattern `lib.[name].d.ts`
 
+## Declare global
+To declare a global variable in Typescript, create a `.d.ts` file and use `declare global{}` to extend global object with typings for the necessary properties or methods. Typescript looks for `.d.ts` file in the same place it looks for your regular `.ts` file.
+
+``` ts
+// index.d.ts
+declare global {
+  var country: string;
+  function multiply(a: number, b: number): number;
+}
+export {};
+```
+
+``` ts
+// index.ts
+global.country = 'Germany';
+console.log(global.country); // Germany
+console.log(country); // Germany
+console.log(window.country) // For browser environment, use window instead of global
+```
+
+## Ambient Modules
+In Node.js, most tasks are accomplished by loading one or more modules. We could define each module in its own .d.ts file with top-level export declarations, but it’s more convenient to write them as one larger .d.ts file. To do so, we use a construct similar to ambient namespaces, but we use the module keyword and the quoted name of the module which will be available to a later import. For example:
+
+``` ts
+declare module "url" {
+  export interface Url {
+    protocol?: string;
+    hostname?: string;
+    pathname?: string;
+  }
+  export function parse(
+    urlStr: string,
+    parseQueryString?,
+    slashesDenoteHost?
+  ): Url;
+}
+declare module "path" {
+  export function normalize(p: string): string;
+  export function join(...paths: any[]): string;
+  export var sep: string;
+}
+```
+
 
 # `tsconfig.json` file
 - A `tsconfig.json` file in the root of a directory indicates the directory is the root of a typescript project.
@@ -1062,3 +1106,4 @@ function getRowName(data: any) {
 - Of course, this means that the declaration file need to be carefully written and in sync with the JavaScript library you are using.
 
 - DefinitelyTyped is the most popular repository of Declaration Files for many many JavaScript libraries most of which do not provide their own declaration files (as they are not developed with TypeScript and are not committed to work with it). So it holds Declaration files maintained by the community.
+

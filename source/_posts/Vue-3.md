@@ -72,18 +72,10 @@ appTwo.directive('directive', {
 appTwo.mount('#app2');
 ```
 
-
-
 ### Vite
 Vue 3's scaffolding tool migrated from `vue-cli` to 'create-vue', which is based on `vite` and has a much faster building speed than `webpack`. See [why vite is much faster](https://vitejs.dev/guide/why.html)
 
-#### Vite commands
-
-|Command|Description|
-|:-----:|:-----|
-|`vite`| Start dev server with HMR, aliases: `vite dev`, `vite serve`. |
-|`vite build`| Build for production, files are output to `./dist`. |
-|`vite preview` | Locally preview production build, start a local web server serving built app from `./dist`. |
+For more information about vite, check out my post named `Vite` on this blog.
 
 ## Vue 3 features
 ### Composition API
