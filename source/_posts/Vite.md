@@ -86,6 +86,16 @@ export default {
   },
   server: {
     port: 4000, // Server port, note that if being used, Vite will try the next port.
+    proxy: { // custom proxy rules for the dev server, expects an object of '{key: option}' pairs. If key starts with ^, it will be interpreted as Regexp. It is node-http-proxy under the hood.
+      // string shorthand
+      '/foo': 'http://localhost:4567',
+      // with options
+      '/api': {
+        target: 'http://jsonplaceholder.typicode.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   },
   optimizeDeps: { // Read: https://vitejs.dev/guide/dep-pre-bundling.html
     include: [ // By default, linked packages not inside node_modules are not pre-bundled. Use this option to force a linked package to be pre-bundled.

@@ -1,2 +1,2 @@
-global.country = 1
-console.log(global.country)
+type Cat = { name: string, purrVelocity: number };
+var Cat = { slideStuffOffTheTable = true };

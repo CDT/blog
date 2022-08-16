@@ -1013,7 +1013,10 @@ declare module "path" {
   // If types is specified, only packages listed will be included in the global scope.
   "types": ["node", "jest", "express"],
   // If typeRoots is specified, only packages under typeRoots will be included. For example:
-  "typeRoots": ["./typings", "./vendor/types"]
+  "typeRoots": ["./typings", "./node_modules/@types"]
+  // To distinguish between types and typeRoots, read this:
+  // https://stackoverflow.com/questions/39826848/typescript-2-0-types-field-in-tsconfig-json
+
   // include/exclude: specifies an array of filenames and patterns to include/exclude in the program
   // ** matches any directory nested to any level
   "include": ["src/**/*", "tests/**/*"],
