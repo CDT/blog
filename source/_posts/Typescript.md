@@ -1103,6 +1103,33 @@ function getRowName(data: any) {
 }
 ```
 
+## Set
+``` ts
+// Create a set:
+let directions1 = new Set<string>();
+// Create and initialize a set:
+let directions2 = new Set<string>(['east', 'west']);
+
+directions1.add('east').add('west')
+directions1.has('east') // true
+directions1.size // 2
+directions1.delete('east')
+directions1.clear()
+
+// iteration with for
+for (let direction of directions2) {
+  console.log(direction)
+}
+
+// iteration with forEach
+directions2.forEach(direction => {
+  console.log(direction)
+})
+```
+
+## Debug with VS Code
+
+
 ## DefinitelyTyped
 - TypeScript allows you to have Declaration Files which are files that allow you to describe the shape of code that's written in (for example) plain JavaScript. So, by referencing one of these files you tell TypeScript exactly how that JavaScript code or library you are using should be assumed to be "typed". 
 
