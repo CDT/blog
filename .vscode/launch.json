@@ -1,17 +1,18 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-    {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "Launch Program",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "program": "${workspaceFolder}\\main.js"
-    }
+      {
+          "type": "node",
+          "request": "launch",
+          "name": "Build Project",
+          "program": "${workspaceFolder}\\test/ts/index.ts", // Entry file of the app
+          "preLaunchTask": "npm: build", // Task before launching debug. Calls `build` script of package.json
+          "sourceMaps": true, // use sourcemaps from `out` folder
+          "smartStep": true, // skip “uninteresting” code in the debugger (e.g. compiled JS-files)
+          "internalConsoleOptions": "openOnSessionStart", // open the debug console during a debugging session
+          "outFiles": [
+              "${workspaceFolder}/test/tsout/**/*.js" // place where the debugger looks for the sourceMap files
+          ]
+      }
   ]
 }
