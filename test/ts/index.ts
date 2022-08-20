@@ -11,5 +11,3 @@ class Dog {
 
 // This is fine
 var dog: Dog; 
-// This is wrong, Syntax error 'Dog' has already been declared.
-var Dog = {a:1};
