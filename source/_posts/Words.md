@@ -36,20 +36,20 @@ tags:
 |cosset|-|give a lot of attention to make comfortable and protect|I'm not for cosseting children too much.|
 |menace|-|something likely to cause harm|A careless driver on the road is a menace to th public.|
 |make off|-|leave quickly; escape|The thief took the jewelry and made off.|
-|set back|-|something that delays or prevents or aggravates a process|a setback in the plan|
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
+|setback|-|something that delays or prevents or aggravates a process|a setback in the plan|
+|tenacious|tenacity|holding tightly onto something|a tenacious man|
+|tenacity|-|determination to continue doing|Tenacity is the bridge to success.|
+|nicety|-|detail, small difference|the nicety of his argument|
+|twilight|twi(two, means very view)-light|evening|the twilight of my life|
+|become of|-|happen to|what will become of me?|
+|deplore|de(downwards) + plor(exclaim)|to say or think something is very bad|We deplore this lamentably ill-advised decision.|
+|stake|-|1. a share or a financial involvement in something such as a business|He holds 40% stake of the company.|
+|stake|-|2. the amount of money that you risk on the result of something such as a game or competition |She plays high-stakes blackjack at the casinos.|
+|grate|-|1. to rub food against a grater in order to cut it into small pieces|grated cheese|
+|grate|-|2. a metal structure that holds coal or wood in a fireplace||
+|oblique|-|having a sloping direction|an oblique line|
+|treble|triple|three times greater|My property taxes have almost trebled in the last ten years.|
+|palpitate|-|to beat very fast in a irregular way|His heart began to palpitate.|
 |||||
 |||||
 |||||
