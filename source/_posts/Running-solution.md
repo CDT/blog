@@ -35,25 +35,54 @@ tags:
 
 
 ## Canada Solution
-### Programs(Almost all in vancouver)
-|University|Program|Span|Requirements|Tuition|Others|
-|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|NEU Vancouver|[MSCS][1]|32 credits|no bar|32×1450=46400|[Intro][3]|
-|FDU|[MSACS][2]|30 credits|||[Intro][4]|
-|NYIT|MSCS||GPA>=2.85||[Intro][5]|
-|SFU|||||[Intro][6]|
-|TRU|||||[Intro][7], Only provides MS in Data Science|
-|UBCV|||||[Intro][8]|
-|Waterloo|||||Not in Vancouver and hard to apply|
+### Programs(Mostly in vancouver)
+- NEU Vancouver:
+  - [Apply][1]
+  - [Intro][3]
+  - 32 credits, 32×1450=46400
+  - IELTS 7.5/TOEFL 100/Duolingal 125, GRE optional
+
+- FDU Vancouver:
+  - [Apply][2]
+  - [Intro][4]
+  - 2.75, GRE, 3 rec, 
+
+- NYIT
+  - Only cybersecurity program provided
+  - [Intro][5]
+
+- SFU
+  - [Intro][6]
+  - 3.0/4.33,  3/4(china), TOEFL 93(20 each), IELTS 7(6.5 each)
+
+- TRU
+  - [Intro][7], Only provides MS in Data Science
+  - IELTS 6.5(6.0 each), TOEFL 570(?) TWE 4.5, two rec, 3.0/4.33
+
+- Lethbridge
+  - [Intro][9], [Intro2][10]
+  - [Requirements], 3.0 last 20 graded, IELTS 6.5(6.0 each), TOEFL 86
+
+- UBC
+  - [Intro][8]
+
+- Waterloo
+  - Not in Vancouver and hard to apply
+
+- [1 year programs](https://www.quora.com/Which-university-in-Canada-is-offering-a-1-year-MS-course-in-software-engineering-computer-science)
 
 [1]:https://app.applyyourself.com/AYApplicantMain/fl_AYApplicantMain.asp?AYID=0BCA2C8-997F-42F4-8E4C-D758D059894
 [2]:https://fdu.elluciancrmrecruit.com/ApplyVancouver/
 [3]:https://vancouver.northeastern.edu/academic_program/master-of-science-in-computer-science/
-[4]:https://www.fdu.edu/program/ms-computer-science/
-[5]:https://www.nyit.edu/engineering/computer_science_ms_admissions
+[4]:https://www.fdu.edu/campuses/vancouver-campus/admissions/graduate-admissions/msacs-admission-vancouver/
+[5]:https://vancouver.nyit.edu/#degrees
 [6]:https://www.sfu.ca/computing/current-students/graduate-students/academic-programs/professional-master-of-science-in-computer-science.html
-[7]:https://www.tru.ca/science/masters-degrees.html
+[7]:https://www.tru.ca/programs/catalogue/master-of-science-in-data-science.html
 [8]:https://www.cs.ubc.ca/students/grad/prospective-grads/grad-programs/full-time-masters-programs
+[9]:https://www.ulethbridge.ca/future-student/program/computer-science-arts-science#admission-requirements
+[10]:https://www.ulethbridge.ca/future-student/graduate-studies/master-science/computer-science
+[11]:https://www.ulethbridge.ca/future-student/graduate-studies/master-science
+[12]:https://www.quora.com/Which-university-in-Canada-is-offering-a-1-year-MS-course-in-software-engineering-computer-science
 
 ### Visa
 - 1 year program gives 1 year work permit, 2 year program gives 3 year work permit
