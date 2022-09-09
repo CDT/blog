@@ -118,6 +118,8 @@ insert into customers values(6, 'Komal', 22, 'MP', 4500);
 |%ROWCOUNT|Returns the number of rows affected by an INSERT, UPDATE, or DELETE statement, or returned by a SELECT INTO statement.|
 
 #### Examples
+**If you run the examples in PL/SQL Developer, remember to run the code of the procedure creation in a program windows instead of a sql window. Sql window does not throw errors!**
+
 - Implicit cursor:
 
 ``` sql
@@ -180,6 +182,7 @@ execute greetings; -- Notice this cannot be used in IDEs like PL/SQL Developer. 
 -- 3. in a PL/SQL block:
 begin 
   greetings;
+  greetings(); -- For procedure without parameters, brackets are optional.
 end;
 -- Hello World!
 ```
@@ -228,8 +231,177 @@ END;
 
 ```
 
+- Exception handling:
+
+``` sql
+DECLARE
+  c_id   customers.id%type := 8;
+  c_name customerS.Name%type;
+  c_addr customers.address%type;
+BEGIN
+  SELECT name, address INTO c_name, c_addr FROM customers WHERE id = c_id;
+  DBMS_OUTPUT.PUT_LINE('Name: ' || c_name);
+  DBMS_OUTPUT.PUT_LINE('Address: ' || c_addr);
+
+EXCEPTION
+  WHEN no_data_found THEN
+    dbms_output.put_line('No such customer!');
+  WHEN others THEN
+    dbms_output.put_line('Error!');
+END;
+--output: No such customer!
+```
+
+## CTE
+### Ref
+- 1. [SQL CTE](https://www.databasestar.com/sql-cte-with/)
+
+### Definition
+- Common Table Expression, a query defined within another query.
+- It's like a subquery, but can be assigned a name and reused many times.
+- It's also like a 'one-shot' view.
+- Also called a SQL WITH clause as it uses the WITH keyword.
+
+### Example
+
+#### Initialization data
+- Initialize data:
+
+``` sql
+CREATE TABLE employee (
+  emp_id NUMBER(5),
+  first_name VARCHAR2(50),
+  last_name VARCHAR2(50),
+  dept_id NUMBER(5),
+  manager_id NUMBER(5),
+  office_id NUMBER(5)
+);
+ 
+CREATE TABLE department (
+  dept_id NUMBER(5),
+  dept_name VARCHAR2(50)
+);
+ 
+INSERT ALL
+INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VALUES (1, 'Sally', 'Jones', 3, 2, 5)
+INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VALUES (2, 'Mark', 'Smith', 2, 4, 3)
+INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VALUES (3, 'John', 'Andrews', 1, 4, 3)
+INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VALUES (4, 'Michelle', 'Johnson', 2, NULL, 5)
+INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VALUES (5, 'Brian', 'Grand', 2, 2, 3)
+SELECT * FROM dual;
+ 
+INSERT ALL
+INTO department (dept_id, dept_name) VALUES (1, 'Sales')
+INTO department (dept_id, dept_name) VALUES (2, 'IT')
+INTO department (dept_id, dept_name) VALUES (3, 'Support')
+SELECT * FROM dual;
+```
+
+This creates the following data:
+
+|EMP_ID|FIRST_NAME|LAST_NAME|DEPT_ID|MANAGER_ID|OFFICE_ID|
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|1|Sally|Jones|3|2|5|
+|2|Mark|Smith|2|4|3|
+|3|John|Andrews|1|4|3|
+|4|Michelle|Johnson|2||5|
+|5|Brian|Grand|2|2|3|
+
+***
+
+#### Simple Example: Get employee name with department employe count
+
+``` sql
+WITH d_count AS
+ (SELECT dept_id, COUNT(*) AS dept_count FROM employee GROUP BY dept_id)
+SELECT e.first_name, e.last_name, d.dept_count
+  FROM employee e
+ INNER JOIN d_count d
+    ON e.dept_id = d.dept_id;
+```
+
+#### Recursive CTE Example
+
+``` sql
+WITH cteEmp(emp_id,
+first_name,
+manager_id,
+emplevel) AS
+ (SELECT emp_id, first_name, manager_id, 1
+    FROM employee
+   WHERE manager_id IS NULL
+  UNION ALL
+  SELECT e.emp_id, e.first_name, e.manager_id, r.emplevel + 1
+    FROM employee e, cteEmp r
+   WHERE e.manager_id = r.emp_id)
+SELECT emp_id, first_name, manager_id, emplevel
+  FROM cteEmp
+ ORDER BY emplevel;
+```
+
+- This produces the following result:
+
+|EMP_ID|FIRST_NAME|MANAGER_ID|EMPLEVEL|
+|:-----:|:-----:|:-----:|:-----:|
+|4|Michelle||1|
+|2|Mark|4|2|
+|3|John|4|2|
+|1|Sally|2|3|
+|5|Brian|2|3|
+
+The above result is generated in the following process:
+1. Get data from the initial query `where manager_id IS NULL`, which returns one row;
+**Notice that a recursive CTE must have be `UNION` query connecting a initial qery and a recursive query.**
+2. The recursive query `FROM employee e, cteEmp r WHERE e.manager_id = r.emp_id` associates the original table with data from the initial query, returning more data;
+3. Repeats step 2, until no more data is yielded.
+
 
 ## Window function
+
+## Materialized View
+
+### Ref
+1. [Materialized Views in Oracle](https://oracle-base.com/articles/misc/materialized-views#:~:text=A%20materialized%20view%2C%20or%20snapshot,a%20local%20or%20remote%20table.)
+
+### Concept
+- A materialized view, or snapshot as they were previously known, is a table segment whose contents are **periodically refreshed based on a query**, either against a local or remote table.
+
+### Syntax
+
+``` sql
+-- Normal
+CREATE MATERIALIZED VIEW [VIEW_NAME]
+BUILD [IMMEDIATE | DEFERRED]
+REFRESH [FAST | COMPLETE | FORCE ]
+ON [COMMIT | DEMAND ]
+[[ENABLE | DISABLE] QUERY REWRITE]
+AS
+SELECT ...;
+
+-- Pre-Built
+CREATE MATERIALIZED VIEW [VIEW_NAME]
+ON PREBUILT TABLE
+REFRESH [FAST | COMPLETE | FORCE ]
+ON [COMMIT | DEMAND ]
+[[ENABLE | DISABLE] QUERY REWRITE]
+AS
+SELECT ...;
+```
+
+- Build options:
+  - **IMMEDIATE**: The materialized view is populated immediately.
+  - **DEFERRED**: The materialized view is populated on the first request refresh.
+
+- Refresh types:
+  - **FAST**: A fast refresh is attempted. If materialized view logs are not present against the source tables in advance, the creation fails.
+  - **COMPLETE**: The table segment supporting the materialized view is truncated and repopulated completely using the associated query.
+  - **FORCE**: A fast refresh is attempted. If one is not possible a complete refresh is performed.
+
+- Trigger types:
+  - **ON COMMIT**: The refresh is triggered by a comitted data change in one of the dependent tables.
+  - **ON DEMAND**: The refresh is initiated by a manual request or a scheduled task.
+
+### Examples
 
 ## Others
 
@@ -240,3 +412,25 @@ Ref: [Stack Overflow ORA-01489](https://stackoverflow.com/questions/29776035/ora
 
 ### Update inserted row with trigger
 Ref: [Stack Overflow](https://stackoverflow.com/questions/45313561/update-inserted-row-with-trigger)
+
+### INSERT MULTIPLE ROWS
+- Use `INSERT ALL` to insert multiple rows:
+
+``` sql
+CREATE TABLE employee (
+  emp_id NUMBER(5),
+  first_name VARCHAR2(50),
+  last_name VARCHAR2(50),
+  dept_id NUMBER(5),
+  manager_id NUMBER(5),
+  office_id NUMBER(5)
+);
+ 
+INSERT ALL
+INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VALUES (1, 'Sally', 'Jones', 3, 2, 5)
+INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VALUES (2, 'Mark', 'Smith', 2, 4, 3)
+INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VALUES (3, 'John', 'Andrews', 1, 4, 3)
+INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VALUES (4, 'Michelle', 'Johnson', 2, NULL, 5)
+INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VALUES (5, 'Brian', 'Grand', 2, 2, 3)
+SELECT * FROM dual;
+```
