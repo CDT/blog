@@ -374,6 +374,7 @@ CREATE MATERIALIZED VIEW [VIEW_NAME]
 BUILD [IMMEDIATE | DEFERRED]
 REFRESH [FAST | COMPLETE | FORCE ]
 ON [COMMIT | DEMAND ]
+[START WITH ... NEXT ...]
 [[ENABLE | DISABLE] QUERY REWRITE]
 AS
 SELECT ...;
@@ -383,6 +384,7 @@ CREATE MATERIALIZED VIEW [VIEW_NAME]
 ON PREBUILT TABLE
 REFRESH [FAST | COMPLETE | FORCE ]
 ON [COMMIT | DEMAND ]
+[START WITH ... NEXT ...]
 [[ENABLE | DISABLE] QUERY REWRITE]
 AS
 SELECT ...;
@@ -396,12 +398,103 @@ SELECT ...;
   - **FAST**: A fast refresh is attempted. If materialized view logs are not present against the source tables in advance, the creation fails.
   - **COMPLETE**: The table segment supporting the materialized view is truncated and repopulated completely using the associated query.
   - **FORCE**: A fast refresh is attempted. If one is not possible a complete refresh is performed.
+  - **FAST VS COMPLETE**: FAST refresh only updates rows while COMPLETE refresh completely removes all data and inserts all data from the query.
 
 - Trigger types:
   - **ON COMMIT**: The refresh is triggered by a comitted data change in one of the dependent tables.
   - **ON DEMAND**: The refresh is initiated by a manual request or a scheduled task.
+  - Refreshing on commi is very intensive on a volative base table.
+
+- Prebuilt:
+  - **ON PREBUILT TABLE**: use existing table which must have same name as materialized view and same column structure as the query.
+  - **QUERY REWRITE**: tells optimizer if materilized view should be considered for qery rewrite operations.
+
+- Schedule:
+  - The `START WITH ... NEXT ...` specifies a schedule.
+
+### Refresh on demand
+- A materialized view can be refreshed either manually or as part of a refresh group or via a schedule.
+
+- Refresh manually:
+``` sql
+EXEC DMBS_MVIEW.refresh('mvt1');
+-- For PL/SQL, use this:
+begin
+    DBMS_MVIEW.REFRESH('mvt1');
+end;
+```
+
+- Create a refresh group:
+``` sql
+BEGIN
+   DBMS_REFRESH.make(
+     name                 => 'SCOTT.MINUTE_REFRESH',
+     list                 => '',
+     next_date            => SYSDATE,
+     interval             => '/*1:Mins*/ SYSDATE + 1/(60*24)',
+     implicit_destroy     => FALSE,
+     lax                  => FALSE,
+     job                  => 0,
+     rollback_seg         => NULL,
+     push_deferred_rpc    => TRUE,
+     refresh_after_errors => TRUE,
+     purge_option         => NULL,
+     parallelism          => NULL,
+     heap_size            => NULL);
+END;
+/
+
+BEGIN
+   DBMS_REFRESH.add(
+     name => 'SCOTT.MINUTE_REFRESH',
+     list => 'SCOTT.EMP_MV',
+     lax  => TRUE);
+END;
+/
+```
+
+- Create a schedule(must be specified at the creation of the materialized view):
+``` sql
+create materialized view mvt1
+build immediate
+refresh force on demand
+start with sysdate next sysdate + 1/24/60 -- Refresh every minute
+as
+select * from mvtt;
+```
+The materialized view `mvt1` will be refreshed every minute. An Oracle job is also created at the same time.
+To find out the job id, use this query:
+
+``` sql
+select m.owner, m.mview_name, r.job
+  from dba_refresh r
+ inner join dba_refresh_children rc
+    on rc.rowner = r.rowner
+   and rc.rname = r.rname
+ inner join dba_mviews m
+    on m.owner = rc.owner
+   and m.mview_name = rc.name
+ where m.mview_name = 'MVT1'
+```
 
 ### Examples
+- Create a test table `mvtt`:
+
+|ind|name|
+|:-----:|:-----:|
+|1|a|
+
+- Create a materialized view:
+
+``` sql
+create materialized view mvt1
+build immediate
+refresh force on demand
+as
+select * from mvtt;
+```
+
+Now `mvt1` has the same data as `mvtt`. Insert a new row will not trigger an update in `mvtt` because its trigger type is `on demand`.
 
 
 ## Others

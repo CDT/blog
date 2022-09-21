@@ -79,3 +79,9 @@ git add -f Website\bin\Settings.json
 
 ### What is fast-forward ?
 ![Fast forward](/images/fast-forward.png)
+
+### Git pull and git fetch
+- Ref: [Fetch vs pull](https://backlog.com/git-tutorial/tw/stepup/stepup3_2.html)
+- **Git pull**: Incorporates changes from a remote repository into current branch and then fast-forward/merge current branch.
+- **Git fetch**: If don't want to fast-forward/merge, use this.
+- pull = fetch + merge
