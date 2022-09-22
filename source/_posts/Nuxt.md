@@ -21,10 +21,10 @@ tags:
 - Nuxt.js simplifies the development of universal or single page Vue apps.
 
 ### Universal app sv SPA
-- Universal app is used to describe JavaScript code that can executebot on the client and the server side.
+- Universal app, aka SSR, server side rendering.
 - SPA: A website or web appliaction that dynamically rewrites a current page with new data from server, instead of loading entire new paegs.
 - Popular SPAs: Gmail, Google maps, Airbnb, Netflix, Pinterest, Paypal.
-- A universal app is about having an SPA, but instead of having a blank `index.html` page, theapplication is preloaded on a web server and sending rendered HTML as the response.
+- A universal app is about having an SPA, but instead of having a blank `index.html` page, the application is preloaded on a web server and sending rendered HTML as the response.
 - SPA does poorly on initial loading and SEO, as a lot of content has to be loaded at intial visit and `index.html` is blank which is hard to extract key information. Universal takes priority over SPA on initial loading speed and SEO.
 
 ### Ten reasons to use Nuxt
