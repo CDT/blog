@@ -14,6 +14,8 @@ tags:
 ## Ref
 1. [Learn PWA](https://web.dev/learn/pwa/)
 2. [Native vs Hybrid vs PWA](https://makelemonapp.com/beginners-guide-to-apps-native-vs-hybrid-vs-pwa/#:~:text=To%20put%20it%20simply%2C%20Native,such%20as%20HTML5%20and%20CSS.)
+3. [小程序的鼻祖-PWA](https://juejin.cn/post/7088496764331753502)
+4. [PWA和微信小程序](https://juejin.cn/post/6844903459951476750)
 <!--more-->
 
 ## What and why
@@ -24,6 +26,9 @@ tags:
 - Native: Apps built using programming language provided by the platform.
 - Hybrid: Built with web technology(HTML, JS, CSS) but allow access to platform features that a browser can't provide.
 - PWA: Essentially website with instant loading regardless of whether online or offline. Only accessible to platform features that a browser can provide.
+
+## Applications of PWA
+![PWA Applications](/images/pwaapps.awebp)
 
 ## Hands-on practice
 
