@@ -85,3 +85,33 @@ git add -f Website\bin\Settings.json
 - **Git pull**: Incorporates changes from a remote repository into current branch and then fast-forward/merge current branch.
 - **Git fetch**: If don't want to fast-forward/merge, use this.
 - pull = fetch + merge
+
+### Branches
+- `git branch`
+Show all local branches, with current branch marked with an asterisk.
+```
+* master
+Pages
+```
+
+- `git branch -r`
+Show all remote branches.
+```
+  origin/HEAD -> origin/master  // Currently checked out branch, which is origin/master
+  origin/master
+```
+
+- `git branch -a`
+List all branches.
+
+- `git branch newb`
+Create  new branch named newb.
+
+- `git checkout newb`
+Switch to branch newb.
+
+- `git checkout -b newb`
+Shorthand for `git branch newb` and `git checkout newb`.
+
+- `git branch -d newb`
+Delete local branch newb.

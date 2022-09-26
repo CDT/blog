@@ -88,7 +88,7 @@ http {
 }
 ```
 
-## Nginx as HTTP proxy
+### Nginx as HTTP proxy
 
 ```
 server {
@@ -101,7 +101,7 @@ server {
 }
 ```
 
-## Nginx as TCP proxy
+### Nginx as TCP proxy
 
 ```
 stream {
