@@ -19,6 +19,11 @@ tags:
 
 ## Example
 ### Simple counter
+```
+simple-counter
+- index.html
+- demo-worker.js
+```
 
 ``` html
 <!--index.html-->
@@ -67,6 +72,8 @@ function timedCount() {
 
 timedCount();
 ```
+
+Use `serve` to host the page. Web worker does not work by just double click the `index.html` file.
 
 ![Web worker example](/images/web_worker1.png)
 
