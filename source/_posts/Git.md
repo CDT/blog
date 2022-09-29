@@ -1,8 +1,8 @@
 ---
 title: Git
 date: 2022-06-18 08:57:57
-cover: /images/git.png
-thumbnail: /images/git.png
+cover: /images/git.svg
+thumbnail: /images/git.svg
 categories:
 - tech
 tags: 

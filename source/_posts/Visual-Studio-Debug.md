@@ -19,7 +19,7 @@ tags:
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "runtimeExecutable": "nodemon",
       "name": "Launch Program",
@@ -27,7 +27,7 @@ tags:
         "<node_internals>/**"
       ],
       "console": "integratedTerminal",
-      "program": "${workspaceFolder}\\proxy.js"
+      "program": "${workspaceFolder}\\main.js"
     }
   ]
 }
