@@ -2,6 +2,7 @@
 title: SQL Basics
 date: 2022-07-09 21:50:31
 cover: /images/sql1.png
+thumbnail: /images/sql1.png
 categories:
 - tech
 tags:
@@ -501,12 +502,6 @@ Now `mvt1` has the same data as `mvtt`. Insert a new row will not trigger an upd
 
 ### Database link
 
-### ORA-01489 result of string concatenation is too long
-Ref: [Stack Overflow ORA-01489](https://stackoverflow.com/questions/29776035/oracle-ora-01489-result-of-string-concatenation-is-too-long)
-
-### Update inserted row with trigger
-Ref: [Stack Overflow](https://stackoverflow.com/questions/45313561/update-inserted-row-with-trigger)
-
 ### INSERT MULTIPLE ROWS
 - Use `INSERT ALL` to insert multiple rows:
 
@@ -529,38 +524,3 @@ INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VA
 SELECT * FROM dual;
 ```
 
-### INSERT FAIL ON ORA-04091
-1. [ORA-04091 table is mutating, trgger/function may not see it](http://www.dba-oracle.com/t_avoiding_mutating_table_error.htm)
-
-``` sql
--- 1. create table
-create table cdt (a number)
-
--- 2. create before insert trigger
-CREATE OR REPLACE TRIGGER TRIG_CDT
-  before insert on cdt
-  for each row
-declare
-  cnt number;
-begin
-  select count(*)
-    into cnt
-    from cdt;
-end TRIG_CDT;
-
--- 3. insert
-insert into cdt(a)
-select 1 from dual
-```
-
-and we got: 
-```
-ORA-04091: table CDT is mutating, trigger/function may not see it
-ORA-06512: at "TRIG_CDT", line 4
-ORA-04088: error during execution of trigger 'TRIG_CDT'
-```
-
-However, this works, why ?:
-``` sql
-insert into cdt(a) values(1);
-```
