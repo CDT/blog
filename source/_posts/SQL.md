@@ -528,3 +528,39 @@ INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VA
 INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VALUES (5, 'Brian', 'Grand', 2, 2, 3)
 SELECT * FROM dual;
 ```
+
+### INSERT FAIL ON ORA-04091
+1. [ORA-04091 table is mutating, trgger/function may not see it](http://www.dba-oracle.com/t_avoiding_mutating_table_error.htm)
+
+``` sql
+-- 1. create table
+create table cdt (a number)
+
+-- 2. create before insert trigger
+CREATE OR REPLACE TRIGGER TRIG_CDT
+  before insert on cdt
+  for each row
+declare
+  cnt number;
+begin
+  select count(*)
+    into cnt
+    from cdt;
+end TRIG_CDT;
+
+-- 3. insert
+insert into cdt(a)
+select 1 from dual
+```
+
+and we got: 
+```
+ORA-04091: table CDT is mutating, trigger/function may not see it
+ORA-06512: at "TRIG_CDT", line 4
+ORA-04088: error during execution of trigger 'TRIG_CDT'
+```
+
+However, this works, why ?:
+``` sql
+insert into cdt(a) values(1);
+```
