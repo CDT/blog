@@ -13,6 +13,8 @@ tags:
 ## ORA-01489 result of string concatenation is too long
 Ref: [Stack Overflow ORA-01489](https://stackoverflow.com/questions/29776035/oracle-ora-01489-result-of-string-concatenation-is-too-long)
 
+<!--more-->
+
 ## Update inserted row with trigger
 Ref: [Stack Overflow](https://stackoverflow.com/questions/45313561/update-inserted-row-with-trigger)
 

@@ -15,6 +15,7 @@ tags:
 
 ## Refs
 1. [node-xlsx](https://www.npmjs.com/package/node-xlsx)
+<!--more-->
 
 ## About
 - `node-xlsx` is a lightweight excel parser and builder
