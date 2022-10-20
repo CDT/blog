@@ -40,23 +40,8 @@ Install: `npm install sqlite3`
 
 Use:
 
-``` js
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(':memory:');
+<script src="https://gist.github.com/CDT/e68210ea6b585b27e87c3f7ef3ab2962.js"></script>
 
-db.serialize(() => {
-    db.run("CREATE TABLE lorem (info TEXT)");
+As `sqlite3` does not support Promise, there's another wrapper library `sqlite` which provides Promise:
 
-    const stmt = db.prepare("INSERT INTO lorem VALUES (?)");
-    for (let i = 0; i < 10; i++) {
-        stmt.run("Ipsum " + i);
-    }
-    stmt.finalize();
-
-    db.each("SELECT rowid AS id, info FROM lorem", (err, row) => {
-        console.log(row.id + ": " + row.info);
-    });
-});
-
-db.close();
-```
+<script src="https://gist.github.com/CDT/bcd4c0b883b2cbb61ed6ce3d6cc4d05c.js"></script>
