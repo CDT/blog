@@ -108,7 +108,6 @@ head:
 navbar:
     # Navigation menu items
     menu:
-        Home: /
         # Archives: /archives
         # Categories: /categories
         # Tags: /tags

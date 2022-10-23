@@ -29,11 +29,11 @@ All my code snippets compiled.
 [B5]:https://gist.github.com/CDT/bcd4c0b883b2cbb61ed6ce3d6cc4d05c
 
 ## Frontend
-|NO|TITLE|DESCRIPTION|NO|TITLE|DESCRIPTION|
-|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|1|[Vuetify Login 1][F1]|vuetify, login|2|||
+1. Vuetify2页面和组件集合
 
-[F1]:https://codepen.io/ChenDongtian/pen/LYmwvVP
+- [Github](https://github.com/CDT/vuetify2_collection)
+
+- [Code Sandbox](https://codesandbox.io/p/github/CDT/vuetify2_collection/master)
 
 ## Machine Learning
 
