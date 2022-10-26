@@ -32,6 +32,6 @@
     "hexo-theme-landscape": "^0.0.3"
   },
   "devDependencies": {
-    "@types/node": "^18.7.5"
+    "@types/node": "^18.11.6"
   }
 }
