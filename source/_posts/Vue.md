@@ -234,10 +234,13 @@ Example:
 
 
 ## Vue Component Communication
+[Ref](https://medium.com/js-dojo/component-communication-in-vue-js-ca8b591d7efa)
 
 Component communication has three forms:
 1. Parent -> Child
 2. Child -> Parent
 3. Global
+
+- Parent send messages to child through props. Any change to prop is reflected immediately. Prop is immutable in child so vice versa not viable. This is a one-way communication.
 
 <script src="https://gist.github.com/CDT/deb1f223866b45c5fd64bfb7acc11c4f.js"></script>
