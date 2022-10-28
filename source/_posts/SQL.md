@@ -3,6 +3,7 @@ title: SQL Basics
 date: 2022-07-09 21:50:31
 cover: /images/sql1.png
 thumbnail: /images/sql1.png
+toc: true
 categories:
 - tech
 tags:

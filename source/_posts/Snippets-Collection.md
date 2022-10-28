@@ -18,7 +18,7 @@ All my code snippets compiled.
 |NO|TITLE|DESCRIPTION|NO|TITLE|DESCRIPTION|
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |1|[Simplest Server][B1]|express|2|[Express multiple process server][B2]|Express, multiple process|
-|3|[JWT Authentication server][B3]|express, jwt, authentication|4|[Sqlite3][B4]|sqlite3|
+|3|[JWT Authentication server][B3]|express, jwt, authentication, sqlite|4|[Sqlite3][B4]|sqlite3|
 |5|[Sqlite3 with promise][B5]|sqlite3, promise||||
 
 
@@ -34,6 +34,10 @@ All my code snippets compiled.
 - [Github](https://github.com/CDT/vuetify2_collection)
 
 - [Code Sandbox](https://codesandbox.io/p/github/CDT/vuetify2_collection/master)
+
+2. [Axios常用代码](https://gist.github.com/CDT/a4b97add834d6cb4a0d2faeac2dd5fd6)
+
+3. [Vue组件通信](https://gist.github.com/CDT/deb1f223866b45c5fd64bfb7acc11c4f)
 
 ## Machine Learning
 

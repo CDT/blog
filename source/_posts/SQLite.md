@@ -45,3 +45,11 @@ Use:
 As `sqlite3` does not support Promise, there's another wrapper library `sqlite` which provides Promise:
 
 <script src="https://gist.github.com/CDT/bcd4c0b883b2cbb61ed6ce3d6cc4d05c.js"></script>
+
+
+## MISC
+- Create table if not exists:
+
+``` sql
+CREATE TABLE if not exists users(username TEXT primary key, email TEXT unqiue, password TEXT not null)
+```

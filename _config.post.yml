@@ -1,4 +1,4 @@
 widgets:
-#     -
-#         type: toc
-#         position: right
+     -
+         type: toc
+         position: left
