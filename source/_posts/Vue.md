@@ -1,8 +1,8 @@
 ---
 title: Vue
 date: 2022-06-27 11:52:03
-cover: /images/vue1.avif
-thumbnail: /images/vue1.avif
+cover: /images/vue2.svg
+thumbnail: /images/vue2.svg
 toc: true
 categories:
 - tech
@@ -244,3 +244,14 @@ Component communication has three forms:
 - Parent send messages to child through props. Any change to prop is reflected immediately. Prop is immutable in child so vice versa not viable. This is a one-way communication.
 
 <script src="https://gist.github.com/CDT/deb1f223866b45c5fd64bfb7acc11c4f.js"></script>
+
+## Others
+
+### Add global property to Vue instance
+
+``` js
+// Vue 2
+Vue.prototype.$http = axios.create({ /* ... */ })
+// Vue 3
+app.config.globalProperties.$http = axios.create({ /* ... */ })
+```
