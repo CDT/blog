@@ -255,3 +255,340 @@ Vue.prototype.$http = axios.create({ /* ... */ })
 // Vue 3
 app.config.globalProperties.$http = axios.create({ /* ... */ })
 ```
+
+## Vuex
+
+- A global state manage with reactive props.
+- Note:
+  - Do not change props directly. Commit mutations otherwise changes will not be seen.
+
+### Vuex workflow
+
+![Vuex workflow](/images/vuex.png)
+
+### State
+
+- Map `state` in `computed`.
+
+``` js
+// store.js
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    count: 100
+  }
+})
+```
+
+``` html
+<!-- component.vue -->
+<script>
+export default {
+// 1. map with count
+computed: {
+  count () {
+    return this.$store.state.count
+  }
+}
+// 2. map with mapState
+computed: mapState({
+  // arrow functions can make the code very succinct!
+  count: state => state.count,
+  // passing the string value 'count' is same as `state => state.count`
+  countAlias: 'count',
+  // to access local state with `this`, a normal function must be used
+  countPlusLocalState (state) {
+    return state.count + this.localCount
+  }
+})
+// 3. mapState and name short
+computed: mapState([
+  // map this.count to store.state.count
+  'count'
+])  
+  
+// 4. mapState and local count methods merged
+computed: {
+  localCount () {},
+  ...mapState([
+    // map this.count to store.state.count
+    'count'
+  ])
+}
+}
+</script>
+```
+
+### Getters
+
+- `getters` is a computed property for global state.
+- `getters` are called without brackets.
+- `getters` are also mapped in `computed`.
+
+``` js
+// store.js
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    count: 100,
+    todos: [
+      { id: 1, text: 'Todo 1', done: true },
+      { id: 2, text: 'Todo 2', done: false }
+    ]
+  },
+  getters: {
+    doneTodos: (state) => state.todos.filter(todo => todo.done),
+    doneTodosLength: (state, getters) => getters.doneTodos.length,
+    // method style getter:
+    getTodoById: (state) => id => state.todos.find(todo => todo.id == id)
+  },
+  mutations: {
+  },
+  actions: {
+  },
+  modules: {
+  }
+})
+```
+
+``` html
+<!-- component.vue -->
+<template>
+  <div id="app">
+    <p>{{ $store.getters.doneTodos }}</p>
+    <p>{{ $store.getters.doneTodosLength }}</p>
+    <p>{{ doneTodos1 }}</p>
+    <p>{{ $store.getters.getTodoById(2) }}</p>
+    <p>{{ doneTodos }}</p>
+    <p>{{ doneTodosLength }}</p>
+    <p>{{ doneCount }}</p>
+</div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+export default {
+  data () {
+    return {
+      localCount: 1
+    }
+  },
+  computed: {
+    doneTodos1 () {
+      return this.$store.getters.doneTodos
+    },
+    // mix the getters into computed with object spread operator
+    ...mapGetters([
+      'doneTodos',
+      'doneTodosLength'
+    ]),
+    ...mapGetters({
+      // map with a different name
+      doneCount: 'doneTodosLength'
+    })
+  }
+  
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+```
+
+### Mutations
+
+- Mutation is the **only** way to change state.
+- Mutation must be synchronous.
+
+If we have a mutation like this:
+
+``` js
+mutations: {
+  someMutation (state) {
+    api.callAsyncMethod(() => {
+      state.count++
+    })
+  }
+}
+```
+
+Now imagine we are debugging the app and looking at the devtool's mutation logs. For every mutation logged, the devtool will need to capture a "before" and "after" snapshots of the state. However, the asynchronous callback inside the example mutation above makes that impossible: the callback is not called yet when the mutation is committed, and there's no way for the devtool to know when the callback will actually be called - any state mutation performed in the callback is essentially un-trackable!
+
+- Mutations are mapped in methods.
+
+``` js
+import { mapMutations } from 'vuex'
+
+export default {
+  // ...
+  methods: {
+    ...mapMutations([
+      'increment', // map `this.increment()` to `this.$store.commit('increment')`
+
+      // `mapMutations` also supports payloads:
+      'incrementBy' // map `this.incrementBy(amount)` to `this.$store.commit('incrementBy', amount)`
+    ]),
+    ...mapMutations({
+      add: 'increment' // map `this.add()` to `this.$store.commit('increment')`
+    })
+  }
+}
+```
+
+### Actions
+
+- `actions` do not mutate state directly, they only commit `mutations`.
+- `actions` can be asynchronous.
+- `actions` are mapped in methods.
+
+``` js
+// store.js
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    },
+    increment1 (state, payload) {
+      state.count += payload.amount
+    }
+  },
+  actions: {
+    increment (context) {
+      context.commit('increment')
+    },
+    // simpler:
+    increment1 ({ commit }) {
+      commit('increment')
+    },
+    // with async
+    increment2 ({ commit }) {
+      setTimeout(() => {
+        commit('increment')
+      }, 1000)  
+    },
+    // with payload
+    increment3 ({ commit }, payload) {
+      commit('increment1', payload)
+    }
+  }
+})
+
+
+// more pratical example:
+actions: {
+  checkout ({ commit, state }, products) {
+    // save the items currently in the cart
+    const savedCartItems = [...state.cart.added]
+    // send out checkout request, and optimistically
+    // clear the cart
+    commit(types.CHECKOUT_REQUEST)
+    // the shop API accepts a success callback and a failure callback
+    shop.buyProducts(
+      products,
+      // handle success
+      () => commit(types.CHECKOUT_SUCCESS),
+      // handle failure
+      () => commit(types.CHECKOUT_FAILURE, savedCartItems)
+    )
+  }
+}
+
+actions: {
+  actionA ({ commit }) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        commit('someMutation')
+        resolve()
+      }, 1000)
+    })
+  }
+}
+
+store.dispatch('actionA').then(() => {
+  // ...
+})
+
+// action calls action
+actions: {
+  // ...
+  actionB ({ dispatch, commit }) {
+    return dispatch('actionA').then(() => {
+      commit('someOtherMutation')
+    })
+  }
+}
+
+// assuming `getData()` and `getOtherData()` return Promises
+
+actions: {
+  async actionA ({ commit }) {
+    commit('gotData', await getData())
+  },
+  async actionB ({ dispatch, commit }) {
+    await dispatch('actionA') // wait for `actionA` to finish
+    commit('gotOtherData', await getOtherData())
+  }
+}
+```
+
+``` html
+<!-- component -->
+
+<script>
+import { mapActions } from 'vuex'
+
+export default {
+  methods: {
+    increment () {
+      this.$store.dispatch('increment')
+      // dispatch with a payload
+      this.$store.dispatch('increment3', {
+        amount: 10
+      })
+
+      // dispatch with an object
+      this.$store.dispatch({
+        type: 'incrementAsync',
+        amount: 10
+      })
+    },
+    ...mapActions(['increment']),
+    
+    ...mapActions({add: 'increment'})
+  },
+  mounted () {
+    this.$store.dispatch('increment3', {
+      amount: 10
+    })
+    this.add()
+  }
+}
+</script>
+```
+
+### Modules
+
