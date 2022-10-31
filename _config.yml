@@ -5,7 +5,7 @@ keywords: Chendongtian, blog
 author: Chendongtian
 language: en
 timezone: ''
-url: https://cdt.github.io
+url: https://blog-cdt1.vercel.app/
 permalink: ':year/:month/:day/:title/'
 permalink_defaults: null
 pretty_urls:
