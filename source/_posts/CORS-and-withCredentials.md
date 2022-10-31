@@ -16,6 +16,7 @@ tags:
 ## Ref
 1. [CORS tutorial](https://auth0.com/blog/cors-tutorial-a-guide-to-cross-origin-resource-sharing/)
 2. [关于CORS和withCredentials](https://juejin.cn/post/6844903938936799245)
+<!--more-->
 
 ## Origin
 - Two URLs have the same origin if protocol, port and host are the same.
