@@ -107,6 +107,6 @@ Connection: keep-alive
 - Setting withCredentials has no effect on same-origin requests.
 
 - In addition, this flag is also used to indicate when cookies are to be ignored in the response. The default is false.
-- `XMLHttpRequest` respons  es from a different domain cannot set cookie values for their own domain unless `withCredentials` is set to true before making the request. 
+- `XMLHttpRequest` responses from a different domain cannot set cookie values for their own domain unless `withCredentials` is set to true before making the request. 
 - The third-party cookies obtained by setting `withCredentials` to true will still honor same-origin policy and hence can not be accessed by the requesting script through `document.cookie` or from response headers.
 

@@ -592,3 +592,141 @@ export default {
 
 ### Modules
 
+``` js
+// typical mutli module
+const moduleA = {
+  state: () => ({ /*...*/ }),
+  mutations: { /*...*/ },
+  actions: { /*...*/ },
+  getters: { /*...*/ }
+}
+
+const moduleB = {
+  state: () => ({ /*...*/ }),
+  mutations: { /*...*/ },
+  actions: { /*...*/ }
+}
+
+store.state.a // -> `moduleA`'s state
+store.state.b // -> `moduleB`'s state
+
+export default new Vuex.Store({
+  modules: {
+    a: moduleA,
+    b: moduleB
+  }
+})
+```
+
+- Access root state in module:
+
+``` js
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+const moduleA = {
+  state: () => ({ count: 20 }),
+  mutations: {
+    increment (state) {
+      // state is moduleA's local state
+      state.count++
+      console.log(this.state.rootCount)
+      // this refers to global store and this.state.count points to global state count
+    }
+  },
+  actions: {
+    incrementByRootCount ({ state, commit, rootState}) {
+      if (rootState.count > state.count) {
+        commit('sumWithRootCount')
+      }
+    }
+  },
+  getters: {
+    sumWithRootCount (state, getters, rootState) {
+      return state.count + rootState.count
+    }
+  }
+}
+
+const moduleB = {
+  state: () => ({ /*...*/ }),
+  mutations: { /*...*/ },
+  actions: { /*...*/ }
+}
+
+export default new Vuex.Store({
+  state: {
+    rootCount: 10
+  },
+  modules: {
+    a: moduleA,
+    b: moduleB
+  }
+})
+// store.state.a -> `moduleA`'s state
+// store.state.b -> `moduleB`'s state
+```
+
+- By default, actions, mutations and getters are all registered under global scope. Calling them may call all the same named correspondent in modules. Be careful not to have same name.
+- Namespacing is introduced to avoid naming conflicts.
+
+``` js
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+
+export default new Vuex.Store({
+  state: {
+    countRoot: 200
+  },
+  modules: {
+    modA: {
+      namespaced: true,
+      state: {
+        countA: 100
+        // state is already namespaced and not affected.
+        // store.state.modA.countA
+      },
+      getters: {
+        isCountAPositive (state, getters, rootState, rootGetters) {
+          console.log(rootState.countRoot)
+          return state.countA > 0
+          // getters refers to modA's local getters
+          // rootState and rootGetters refers to root state and getters
+          // store.getters['modA/isCountAPositive']
+        }
+      },
+      actions: {
+        addAsyncA ({ dispatch, commit, getters, rootGetters }) {
+          setTimeout(() => { commit('addA') }, 1000)
+          // $store.dispatch('modA/addAsyncA') in vue component
+          // dispatch('someAction') dispatches module action by default
+          // dispatch('someAction', null, {root: true}) to dispatch a root action
+          // commit('mutation') to commit a module mutation
+          // commit('mutation', null, {root: true}) to commit a root mutation
+        }
+      },
+      mutations: {
+        addA (state) {
+          state.countA++
+        }
+        // ccommit('modA/addA')
+      },
+      modules: {
+        // here goes nested modules
+        nestedA: {
+          // if not namespaced, nested modules share namespace with parent
+          // if namespaced, add nested module namespace name in the same pattern
+          // like getters['modA/nestedA/getterName']
+          /* ... */
+        }
+      }
+    },
+    
+  }
+})
+```
