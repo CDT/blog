@@ -3,6 +3,7 @@ title: Running solution
 date: 2022-08-20 19:16:42
 cover: /images/run.webp
 thumbnail: /images/run.webp
+toc: true
 categories:
 - misc
 tags:
@@ -15,6 +16,10 @@ tags:
 2. [US VS Can](https://zhuanlan.zhihu.com/p/85539672)
 3. [Can Free Run](https://www.zhihu.com/question/31343947/answer/965343177)
 4. [Running Programs](https://zhuanlan.zhihu.com/p/550042677)
+5. [Manitoba Analysis](https://zhuanlan.zhihu.com/p/575391023)
+6. [Manitoba and NB](https://www.zhihu.com/question/416891888/answer/1699127858)
+7. [Graduate Diploma for family benefits](https://www.zhihu.com/question/408937735/answer/1364452504)
+8. [Points of notice](https://www.zhihu.com/question/395327745/answer/1240306158)
 
 ## US Solution
 ### Programs
@@ -35,9 +40,8 @@ tags:
 
 
 ## Canada Solution
-### Programs(Mostly in vancouver)
+### Master(Mostly in vancouver)
 - NEU Vancouver:
-  - [Apply][1]
   - [Intro][3]
   - 32 credits, 32×1450=46400
   - IELTS 7.5/TOEFL 100/Duolingal 125, GRE optional
@@ -45,11 +49,13 @@ tags:
 - FDU Vancouver:
   - [Apply][2]
   - [Intro][4]
-  - 2.75, GRE, 3 rec, 
+  - 2.75, GRE, 3 rec
+  - PR after graduation!
 
 - NYIT
   - Only cybersecurity program provided
   - [Intro][5]
+  - One year!
 
 - SFU
   - [Intro][6]
@@ -83,6 +89,25 @@ tags:
 [10]:https://www.ulethbridge.ca/future-student/graduate-studies/master-science/computer-science
 [11]:https://www.ulethbridge.ca/future-student/graduate-studies/master-science
 [12]:https://www.quora.com/Which-university-in-Canada-is-offering-a-1-year-MS-course-in-software-engineering-computer-science
+
+### Graduate diploma
+
+- Graduate diploma is cheap(cheaper than master), quick(often one year) and has low bars(lower than master).
+- Great for family. Spouse can get a work visa and kids can receive free compulsory education.
+- Even if not qualified for CS master, apply other majors like engineering, mechanics, auto repair, electrician can also get a job easily.
+- Manitoba is ideal for graduate diploma. One year diploma, get a job and IELTS 6/6/6/6 to apply. Said to be the easiest.
+- NB is even easier. Same as manitoba and can apply before graduation if got work experience.
+
+- UWinnipeg
+  - Network Security
+    - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/network-security-diploma)
+
+  - Web Development
+    - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/web-development-diploma)
+
+  - Artificial Intelligence
+    - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/artificial-intelligence-diploma)
+
 
 ### Visa
 - 1 year program gives 1 year work permit, 2 year program gives 3 year work permit
