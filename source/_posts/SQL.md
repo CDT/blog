@@ -503,6 +503,16 @@ Now `mvt1` has the same data as `mvtt`. Insert a new row will not trigger an upd
 
 ### Database link
 
+``` sql
+create public database link
+  mylink
+connect to
+  remote_username
+identified by
+  mypassword
+using 'tns_service_name'
+```
+
 ### INSERT MULTIPLE ROWS
 - Use `INSERT ALL` to insert multiple rows:
 
