@@ -60,7 +60,7 @@ tags:
   - Only cybersecurity program provided
   - [MS Cyber Security][5]
   - One year!
-  - submitted, require proof of degree
+  - submitted 2022.11.14
 
 - SFU
   - [Programs](https://www.sfu.ca/gradstudies/apply/programs/alphabetic.html)
@@ -76,7 +76,7 @@ tags:
 - TRU
   - [MDS](https://www.tru.ca/programs/catalogue/master-of-science-in-data-science.html)
   - IELTS 6.5(6.0 each), TOEFL 570(?) TWE 4.5, two rec, 3.0/4.33
-  - [Apply at EducationPlannerBC](apply.educationplannerbc.ca)
+  - [Apply at EducationPlannerBC](https://apply.educationplannerbc.ca)
   - website down
   - Duolingo not eligible
 
@@ -97,7 +97,7 @@ tags:
 
 - UNBC
   - MSCS
-  - [Apply at EducationPlannerBC](apply.educationplannerbc.ca)
+  - [Apply at EducationPlannerBC](https://apply.educationplannerbc.ca)
 
 - UVic
   - Programs
@@ -108,8 +108,12 @@ tags:
     - Master of Engineering in Electrical and Computer Engineering
     - Master of Engineering in Applied Data Science
     - Master of Science in Health Informatics
-  - [Apply at EducationPlannerBC](apply.educationplannerbc.ca)
+  - Low ranking, easier maybe
+  - MEng in Applied Data Science is 1 year and no thesis!
+  - [Apply at official site](https://www.uvic.ca/application)
+  - [Apply at EducationPlannerBC](https://apply.educationplannerbc.ca)
   - Duolingo not eligible, suspended.
+
 
 ### Graduate diploma
 
@@ -125,6 +129,7 @@ tags:
 
   - Web Development
     - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/web-development-diploma)
+    - submitted 2022.11.17, [checkout](https://oa2.uwinnipeg.ca/AdmissionsManager/#/)
 
   - Artificial Intelligence
     - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/artificial-intelligence-diploma)
