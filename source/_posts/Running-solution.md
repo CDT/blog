@@ -41,54 +41,75 @@ tags:
 
 ## Canada Solution
 ### Master(Mostly in vancouver)
+
+[Check out BC PNP programs!](https://www.welcomebc.ca/Immigrate-to-B-C/documents/BC-PNP-IPG-EEBC-IPG-Eligible-Programs-of-Study.aspx)
+
 - NEU Vancouver:
-  - [Intro][3]
+  - [MSCS](https://vancouver.northeastern.edu/academic_program/master-of-science-in-computer-science/)
   - 32 credits, 32×1450=46400
-  - IELTS 7.5/TOEFL 100/Duolingal 125, GRE optional
+  - IELTS 7.5/TOEFL 100/Duolingo 125, GRE optional
+  - needs rec and payment
 
 - FDU Vancouver:
-  - [Apply][2]
-  - [Intro][4]
+  - [MSACS](https://www.fdu.edu/campuses/vancouver-campus/admissions/graduate-admissions/msacs-admission-vancouver/)
   - 2.75, GRE, 3 rec
   - PR after graduation!
+  - paid, requires GRE and 3 rec, some said waived with a master degree(chinese degree eligible)
 
 - NYIT
   - Only cybersecurity program provided
-  - [Intro][5]
+  - [MS Cyber Security][5]
   - One year!
+  - submitted, require proof of degree
 
 - SFU
-  - [Intro][6]
+  - [Programs](https://www.sfu.ca/gradstudies/apply/programs/alphabetic.html)
+    - Computer Science MSc
+    - Master of Science in Professional Computer Science
+    - Big Data MSc
+    - Computing Science Dual Degree MSc
+    - Computing Science MSc
+    - Computing Science Non-Thesis MSc
   - 3.0/4.33,  3/4(china), TOEFL 93(20 each), IELTS 7(6.5 each)
+  - Duolingo not accepted, suspended.
 
 - TRU
-  - [Intro][7], Only provides MS in Data Science
+  - [MDS](https://www.tru.ca/programs/catalogue/master-of-science-in-data-science.html)
   - IELTS 6.5(6.0 each), TOEFL 570(?) TWE 4.5, two rec, 3.0/4.33
-
-- Lethbridge
-  - [Intro][9], [Intro2][10]
-  - [Requirements], 3.0 last 20 graded, IELTS 6.5(6.0 each), TOEFL 86
+  - [Apply at EducationPlannerBC](apply.educationplannerbc.ca)
+  - website down
+  - Duolingo not eligible
 
 - UBC
-  - [Intro][8]
+  - [App](https://evision.as.it.ubc.ca/)
+  - Okanagan Programs
+    - Master of Data Science
+    - Master of Science in Computer Science
+    - Master of Science in Computer Science in Interdisciplinary Studies
+  - Vancouver Programs
+    - Master of Data Science
+    - Master of Software Systems
+    - Master of Science in Bioinformatics
+    - Master of Science in Computer Science
+    - Master of Science in Computer Science Sub-Specialization in HumanComputer Interaction
+    - Master of Applied Science in Electrical & Computer Engineering
+  - Not accepting Duolingo, suspended.
 
-- Waterloo
-  - Not in Vancouver and hard to apply
+- UNBC
+  - MSCS
+  - [Apply at EducationPlannerBC](apply.educationplannerbc.ca)
 
-- [1 year programs](https://www.quora.com/Which-university-in-Canada-is-offering-a-1-year-MS-course-in-software-engineering-computer-science)
-
-[1]:https://app.applyyourself.com/AYApplicantMain/fl_AYApplicantMain.asp?AYID=0BCA2C8-997F-42F4-8E4C-D758D059894
-[2]:https://fdu.elluciancrmrecruit.com/ApplyVancouver/
-[3]:https://vancouver.northeastern.edu/academic_program/master-of-science-in-computer-science/
-[4]:https://www.fdu.edu/campuses/vancouver-campus/admissions/graduate-admissions/msacs-admission-vancouver/
-[5]:https://vancouver.nyit.edu/#degrees
-[6]:https://www.sfu.ca/computing/current-students/graduate-students/academic-programs/professional-master-of-science-in-computer-science.html
-[7]:https://www.tru.ca/programs/catalogue/master-of-science-in-data-science.html
-[8]:https://www.cs.ubc.ca/students/grad/prospective-grads/grad-programs/full-time-masters-programs
-[9]:https://www.ulethbridge.ca/future-student/program/computer-science-arts-science#admission-requirements
-[10]:https://www.ulethbridge.ca/future-student/graduate-studies/master-science/computer-science
-[11]:https://www.ulethbridge.ca/future-student/graduate-studies/master-science
-[12]:https://www.quora.com/Which-university-in-Canada-is-offering-a-1-year-MS-course-in-software-engineering-computer-science
+- UVic
+  - Programs
+    - MSCS
+    - Master of Applied Science in Computer Engineering
+    - Master of Engineering in Computer Engineering
+    - Master of Applied Science in Electrical and Computer Engineering
+    - Master of Engineering in Electrical and Computer Engineering
+    - Master of Engineering in Applied Data Science
+    - Master of Science in Health Informatics
+  - [Apply at EducationPlannerBC](apply.educationplannerbc.ca)
+  - Duolingo not eligible, suspended.
 
 ### Graduate diploma
 
