@@ -113,6 +113,7 @@ tags:
   - [Apply at official site](https://www.uvic.ca/application)
   - [Apply at EducationPlannerBC](https://apply.educationplannerbc.ca)
   - Duolingo not eligible, suspended.
+  - two assessment reports, waiting.
 
 
 ### Graduate diploma
@@ -133,6 +134,9 @@ tags:
 
   - Artificial Intelligence
     - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/artificial-intelligence-diploma)
+
+- UManitoba
+  - 
 
 
 ### Visa

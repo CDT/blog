@@ -1,18 +1,17 @@
 {
-  "version": "0.2.0",
-  "configurations": [
+    "version": "0.2.0",
+    "configurations": [
       {
-          "type": "node",
-          "request": "launch",
-          "name": "Build Project",
-          "program": "${workspaceFolder}\\test/ts/index.ts", // Entry file of the app
-          "preLaunchTask": "npm: build", // Task before launching debug. Calls `build` script of package.json
-          "sourceMaps": true, // use sourcemaps from `out` folder
-          "smartStep": true, // skip “uninteresting” code in the debugger (e.g. compiled JS-files)
-          "internalConsoleOptions": "openOnSessionStart", // open the debug console during a debugging session
-          "outFiles": [
-              "${workspaceFolder}/test/tsout/**/*.js" // place where the debugger looks for the sourceMap files
-          ]
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "node",
+        "name": "Launch Program",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "console": "integratedTerminal",
+        "program": "${workspaceFolder}\\test\\test.js"
       }
-  ]
-}
+    ]
+  }
+  
