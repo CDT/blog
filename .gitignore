@@ -6,4 +6,3 @@ node_modules/*
 test/
 .deploy*/
 _multiconfig.yml
-.vscode/
