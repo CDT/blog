@@ -58,23 +58,21 @@ tags:
 
 - NYIT
   - Only cybersecurity program provided
-  - [MS Cyber Security][5]
   - One year!
   - submitted 2022.11.14
 
 - SFU
   - [Programs](https://www.sfu.ca/gradstudies/apply/programs/alphabetic.html)
-    - Computer Science MSc
-    - Master of Science in Professional Computer Science
-    - Big Data MSc
-    - Computing Science Dual Degree MSc
-    - Computing Science MSc
-    - Computing Science Non-Thesis MSc
+    - Computer Science MSc(Course, Project, Thesis)
+    - Master of Science in Professional Computer Science(Course, Project)
+    - Big Data MSc(Not found)
+    - Computing Science Dual Degree MSc(Thesis, not recommended)
+    - Computing Science Non-Thesis MSc(Not found)
   - 3.0/4.33,  3/4(china), TOEFL 93(20 each), IELTS 7(6.5 each)
   - Duolingo not accepted, suspended.
 
 - TRU
-  - [MDS](https://www.tru.ca/programs/catalogue/master-of-science-in-data-science.html)
+  - [MDS, 2 years](https://www.tru.ca/programs/catalogue/master-of-science-in-data-science.html)
   - IELTS 6.5(6.0 each), TOEFL 570(?) TWE 4.5, two rec, 3.0/4.33
   - [Apply at EducationPlannerBC](https://apply.educationplannerbc.ca)
   - website down
@@ -136,8 +134,12 @@ tags:
     - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/artificial-intelligence-diploma)
 
 - UManitoba
-  - 
+  - Computer Science 2 years too long
+  - No satisfying extended education program, gave up.
 
+- Red River Polytech
+  - [Data science and machine learn](https://apply.rrc.ca/RecruitNewWFE/Account/Login)
+  - Submitted 2022.11.20
 
 ### Visa
 - 1 year program gives 1 year work permit, 2 year program gives 3 year work permit
