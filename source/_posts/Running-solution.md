@@ -40,7 +40,7 @@ tags:
 
 
 ## Canada Solution
-### Master(Mostly in vancouver)
+### BCPNP
 
 [Check out BC PNP programs!](https://www.welcomebc.ca/Immigrate-to-B-C/documents/BC-PNP-IPG-EEBC-IPG-Eligible-Programs-of-Study.aspx)
 
@@ -54,12 +54,12 @@ tags:
   - [MSACS](https://www.fdu.edu/campuses/vancouver-campus/admissions/graduate-admissions/msacs-admission-vancouver/)
   - 2.75, GRE, 3 rec
   - PR after graduation!
-  - paid, requires GRE and 3 rec, some said waived with a master degree(chinese degree eligible)
+  - paid not submitted, requires GRE and 3 rec, some said waived with a master degree(chinese degree eligible)
 
 - NYIT
   - Only cybersecurity program provided
   - One year!
-  - submitted 2022.11.14
+  - submitted 2022.11.14, [check out](https://apply.nyit.edu/apply/)
 
 - SFU
   - [Programs](https://www.sfu.ca/gradstudies/apply/programs/alphabetic.html)
@@ -69,7 +69,8 @@ tags:
     - Computing Science Dual Degree MSc(Thesis, not recommended)
     - Computing Science Non-Thesis MSc(Not found)
   - 3.0/4.33,  3/4(china), TOEFL 93(20 each), IELTS 7(6.5 each)
-  - Duolingo not accepted, suspended.
+  - [Apply](https://gograd.sfu.ca/apply/)
+  - Needs IELTS and 3 recs
 
 - TRU
   - [MDS, 2 years](https://www.tru.ca/programs/catalogue/master-of-science-in-data-science.html)
@@ -96,6 +97,7 @@ tags:
 - UNBC
   - MSCS
   - [Apply at EducationPlannerBC](https://apply.educationplannerbc.ca)
+  - 3 recs, Duolingo eligible
 
 - UVic
   - Programs
@@ -112,9 +114,10 @@ tags:
   - [Apply at EducationPlannerBC](https://apply.educationplannerbc.ca)
   - Duolingo not eligible, suspended.
   - two assessment reports, waiting.
+  - Paid, waiting
 
 
-### Graduate diploma
+### Others
 
 - Graduate diploma is cheap(cheaper than master), quick(often one year) and has low bars(lower than master).
 - Great for family. Spouse can get a work visa and kids can receive free compulsory education.
@@ -122,7 +125,7 @@ tags:
 - Manitoba is ideal for graduate diploma. One year diploma, get a job and IELTS 6/6/6/6 to apply. Said to be the easiest.
 - NB is even easier. Same as manitoba and can apply before graduation if got work experience.
 
-- UWinnipeg
+- UWinnipeg (Graduate diploma)
   - Network Security
     - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/network-security-diploma)
 
@@ -133,13 +136,17 @@ tags:
   - Artificial Intelligence
     - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/artificial-intelligence-diploma)
 
-- UManitoba
+- UManitoba (Graduate diploma)
   - Computer Science 2 years too long
   - No satisfying extended education program, gave up.
 
-- Red River Polytech
-  - [Data science and machine learn](https://apply.rrc.ca/RecruitNewWFE/Account/Login)
+- Red River Polytech (College)
+  - [Data science and machine learning](https://apply.rrc.ca/RecruitNewWFE/Account/Login)
   - Submitted 2022.11.20
+
+- University of Regina (Master)
+  - [Master of Engineering in Software Systems](https://banner.uregina.ca:17023/ssbprod/bwskalog.P_DispLoginNon)
+  - Submitted 2022.11.22
 
 ### Visa
 - 1 year program gives 1 year work permit, 2 year program gives 3 year work permit
