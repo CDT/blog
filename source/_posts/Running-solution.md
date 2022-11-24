@@ -146,7 +146,7 @@ tags:
 
 - University of Regina (Master)
   - [Master of Engineering in Software Systems](https://banner.uregina.ca:17023/ssbprod/bwskalog.P_DispLoginNon)
-  - Submitted 2022.11.22
+  - Submitted 2022.11.22, needs two rec
 
 ### Visa
 - 1 year program gives 1 year work permit, 2 year program gives 3 year work permit

@@ -357,9 +357,6 @@ The above result is generated in the following process:
 2. The recursive query `FROM employee e, cteEmp r WHERE e.manager_id = r.emp_id` associates the original table with data from the initial query, returning more data;
 3. Repeats step 2, until no more data is yielded.
 
-
-## Window function
-
 ## Materialized View
 
 ### Ref
@@ -498,6 +495,193 @@ select * from mvtt;
 
 Now `mvt1` has the same data as `mvtt`. Insert a new row will not trigger an update in `mvtt` because its trigger type is `on demand`.
 
+## Analytic Function/Window Function
+
+
+- [Ref](https://oracle-base.com/articles/misc/analytic-functions)
+
+### Key points
+
+- Analytic functions calculate an aggregate value based on a group of rows and return multiple rows for each group.
+- Analytic functions are just like GROUP BY aggregate functions, but do not reduce rows retured.
+- Syntax:
+  - `analytic_function([ arguments ]) OVER (analytic_clause)`
+    - Anytic clause can be broken down as: `[ query_partition_clause ] [ order_by_clause [ windowing_clause ] ]`
+
+### Example
+
+``` sql
+CREATE TABLE emp (
+  empno    NUMBER(4) CONSTRAINT pk_emp PRIMARY KEY,
+  ename    VARCHAR2(10),
+  job      VARCHAR2(9),
+  mgr      NUMBER(4),
+  hiredate DATE,
+  sal      NUMBER(7,2),
+  comm     NUMBER(7,2),
+  deptno   NUMBER(2)
+);
+
+INSERT INTO emp VALUES (7369,'SMITH','CLERK',7902,to_date('17-12-1980','dd-mm-yyyy'),800,NULL,20);
+INSERT INTO emp VALUES (7499,'ALLEN','SALESMAN',7698,to_date('20-2-1981','dd-mm-yyyy'),1600,300,30);
+INSERT INTO emp VALUES (7521,'WARD','SALESMAN',7698,to_date('22-2-1981','dd-mm-yyyy'),1250,500,30);
+INSERT INTO emp VALUES (7566,'JONES','MANAGER',7839,to_date('2-4-1981','dd-mm-yyyy'),2975,NULL,20);
+INSERT INTO emp VALUES (7654,'MARTIN','SALESMAN',7698,to_date('28-9-1981','dd-mm-yyyy'),1250,1400,30);
+INSERT INTO emp VALUES (7698,'BLAKE','MANAGER',7839,to_date('1-5-1981','dd-mm-yyyy'),2850,NULL,30);
+INSERT INTO emp VALUES (7782,'CLARK','MANAGER',7839,to_date('9-6-1981','dd-mm-yyyy'),2450,NULL,10);
+INSERT INTO emp VALUES (7788,'SCOTT','ANALYST',7566,to_date('13-JUL-87','dd-mm-rr')-85,3000,NULL,20);
+INSERT INTO emp VALUES (7839,'KING','PRESIDENT',NULL,to_date('17-11-1981','dd-mm-yyyy'),5000,NULL,10);
+INSERT INTO emp VALUES (7844,'TURNER','SALESMAN',7698,to_date('8-9-1981','dd-mm-yyyy'),1500,0,30);
+INSERT INTO emp VALUES (7876,'ADAMS','CLERK',7788,to_date('13-JUL-87', 'dd-mm-rr')-51,1100,NULL,20);
+INSERT INTO emp VALUES (7900,'JAMES','CLERK',7698,to_date('3-12-1981','dd-mm-yyyy'),950,NULL,30);
+INSERT INTO emp VALUES (7902,'FORD','ANALYST',7566,to_date('3-12-1981','dd-mm-yyyy'),3000,NULL,20);
+INSERT INTO emp VALUES (7934,'MILLER','CLERK',7782,to_date('23-1-1982','dd-mm-yyyy'),1300,NULL,10);
+COMMIT;
+```
+
+---
+
+- Get average department salary for each row
+
+``` sql
+SELECT empno, deptno, sal,
+       AVG(sal) OVER (PARTITION BY deptno) AS avg_dept_sal
+FROM   emp;
+```
+
+---
+
+- Get first value order by salary, put NULL values last in he sorted query results
+  - Note:
+    - In terms of sorting, SQL sorts `NULL` values to last in `ASC` order and first in `DESC`
+    - `MAX` and `MIN` ignores `NULL` values
+
+``` sql
+SELECT empno,
+       deptno,
+       sal,
+       FIRST_VALUE(sal IGNORE NULLS) OVER(PARTITION BY deptno order by sal asc nulls last) AS first_sal_in_dept
+  FROM emp;
+```
+
+---
+
+- Windowing clause: an extension of the `order_by_clause`, can only be used when `order_by_clause` is present.
+- When there's `order_by_clause`, a default windowing clause is attached: `RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`
+  - The fact it is RANGE, not ROWS, means it includes all rows with the same value as the value in the current row, even if they are further down the result set. As a result, the window may extend beyond the current row, even though you may not think this is the case.
+
+``` sql
+RANGE BETWEEN start_point AND end_point
+ROWS BETWEEN start_point AND end_point
+GROUPS BETWEEN start_point AND end_point (21c onward)
+```
+
+``` sql
+SELECT empno, deptno, sal, 
+       AVG(sal) OVER (PARTITION BY deptno ORDER BY sal) AS avg_dept_sal_sofar
+FROM   emp;
+
+     EMPNO     DEPTNO        SAL AVG_DEPT_SAL_SOFAR
+---------- ---------- ---------- ------------------
+      7934         10       1300               1300
+      7782         10       2450               1875
+      7839         10       5000         2916.66667
+
+      7369         20        800                800
+      7876         20       1100                950
+      7566         20       2975               1625
+      7788         20       3000               2175
+      7902         20       3000               2175
+
+      7900         30        950                950
+      7654         30       1250               1150
+      7521         30       1250               1150
+      7844         30       1500             1237.5
+      7499         30       1600               1310
+      7698         30       2850         1566.66667
+```
+
+``` sql
+SELECT empno, deptno, sal, 
+       AVG(sal) OVER (PARTITION BY deptno ORDER BY sal
+                      RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS range_avg,
+       AVG(sal) OVER (PARTITION BY deptno ORDER BY sal
+                      ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS rows_avg
+FROM   emp;
+
+     EMPNO     DEPTNO        SAL  RANGE_AVG   ROWS_AVG
+---------- ---------- ---------- ---------- ----------
+      7934         10       1300       1300       1300
+      7782         10       2450       1875       1875
+      7839         10       5000 2916.66667 2916.66667
+
+      7369         20        800        800        800
+      7876         20       1100        950        950
+      7566         20       2975       1625       1625
+      7788         20       3000       2175    1968.75
+      7902         20       3000       2175       2175
+
+      7900         30        950        950        950
+      7654         30       1250       1150       1100
+      7521         30       1250       1150       1150
+      7844         30       1500     1237.5     1237.5
+      7499         30       1600       1310       1310
+      7698         30       2850 1566.66667 1566.66667
+```
+
+---
+
+- `LAG`: Access the row at a given offset prior of the current row without using a self-join.
+- [Ref](https://www.oracletutorial.com/oracle-analytic-functions/oracle-lag/)
+- Syntax: 
+
+``` sql
+LAG(expression [, offset ] [, default ])
+OVER (
+	[ query_partition_clause ] 
+	order_by_clause
+)
+```
+
+``` sql
+SELECT e.empno,
+       e.deptno,
+       e.sal,
+       LAG(sal, 1) OVER(partition by deptno ORDER BY sal) sal_lower_closest
+  FROM emp e
+ order by deptno, sal
+
+
+ EMPNO     DEPTNO     SAL        SAL_LOWER_CLOSEST
+---------- ---------- ---------- ----------
+      7934	10	1300.00	
+      7782	10	2450.00	1300
+      7839	10	5000.00	2450
+      7369	20	800.00	
+      7876	20	1100.00	800
+      7566	20	2975.00	1100
+      7788	20	3000.00	2975
+      7902	20	3000.00	3000
+      7900	30	950.00	
+      7654	30	1250.00	950
+      7521	30	1250.00	1250
+      7844	30	1500.00	1250
+      7499	30	1600.00	1500
+      7698	30	2850.00	1600
+```
+
+---
+
+- `SUM` also supports windowing:
+
+``` sql
+SELECT e.empno,
+       e.deptno,
+       e.sal,
+       sum(sal) OVER(partition by deptno ORDER BY sal) dept_accum_sal
+  FROM emp e
+ order by deptno, sal
+```
 
 ## Others
 
@@ -512,6 +696,11 @@ identified by
   mypassword
 using 'tns_service_name'
 ```
+
+Find all database links:
+  - DBA_DB_LINKS - All DB links defined in the database
+  - ALL_DB_LINKS - All DB links the current user has access to
+  - USER_DB_LINKS - All DB links owned by current user
 
 ### INSERT MULTIPLE ROWS
 - Use `INSERT ALL` to insert multiple rows:
