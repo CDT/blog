@@ -55,6 +55,7 @@ tags:
   - 2.75, GRE, 3 rec
   - PR after graduation!
   - paid not submitted, requires GRE and 3 rec, some said waived with a master degree(chinese degree eligible)
+  - Needs last rec
 
 - NYIT
   - Only cybersecurity program provided
@@ -71,6 +72,7 @@ tags:
   - 3.0/4.33,  3/4(china), TOEFL 93(20 each), IELTS 7(6.5 each)
   - [Apply](https://gograd.sfu.ca/apply/)
   - Needs IELTS and 3 recs
+  - Needs last rec to submit
 
 - TRU
   - [MDS, 2 years](https://www.tru.ca/programs/catalogue/master-of-science-in-data-science.html)
