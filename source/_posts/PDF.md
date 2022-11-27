@@ -19,7 +19,7 @@ tags:
 
 - Portable Format Document
 - A format meant to be displayed identicaly in all platforms and media
-
+<!--more-->
 ## Simple Example
 
 - [Download](/doc/hello.pdf)
@@ -143,11 +143,17 @@ startxref
 %%EOF
 ```
 
-## Sign a PDF
+## Digital Sign a PDF
 
-- Signing can ensure a PDF has not been modified and to verify that the author is who we expect.
+- Digital Signing can ensure a PDF has not been modified and to verify that the author is who we expect.
 - For example, an important contract.
+- [Digital signature instructions](/assets/docs/forms-digital-signature-instructions.pdf)
+- [Create a digital ID](https://helpx.adobe.com/acrobat/using/digital-ids.html#create_a_self_signed_digital_id)
 
 
 ## Fill a PDF form
+
+- [Ref](https://www.adobe.com/acrobat/resources/how-to-create-fillable-pdf.html)
+
+- Paid function by Adobe.
 
