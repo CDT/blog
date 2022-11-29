@@ -54,10 +54,3 @@ The signature is used to verify the message wasn't tampered with along the way, 
 
 Things to note
 - If claim `exp` is not set, then the JWT token will never expire.
-
-## Node.js example
-
-Here's an example using `jsonwebtoken` and `sqlite` to authenticate user.
-It also supports nuxt.js `local` authentication strategy.
-
-<script src="https://gist.github.com/CDT/1fd5a58e692725f2c4360c2c70532c7b.js"></script>
