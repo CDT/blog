@@ -20,7 +20,7 @@ All my code snippets compiled.
 |1|[Simplest Server][B1]|express|2|[Express multiple process server][B2]|Express, multiple process|
 |3|[JWT Authentication server][B3]|express, jwt, authentication, sqlite|4|[Sqlite3][B4]|sqlite3|
 |5|[Sqlite3 with promise][B5]|sqlite3, promise|6|[Download file][B6]|download|
-|7|[Node oracle][B7]||||
+|7|[Node oracle][B7]||8|[Node.js auth][B8]|Login, router, sidebar|
 
 
 [B1]:https://gist.github.com/CDT/21cd65c9277255602575ed6099595f0e
@@ -30,6 +30,7 @@ All my code snippets compiled.
 [B5]:https://gist.github.com/CDT/bcd4c0b883b2cbb61ed6ce3d6cc4d05c
 [B6]:https://gist.github.com/CDT/2c5c05bb6ea0db8aa13c643f3ca4f591
 [B7]:https://gist.github.com/CDT/d9a077bbfaf63281dba0cbd8164f84ba
+[B8]:https://gist.github.com/CDT/2220146ff6fbc78c986eb29cafa5c341
 
 ## Frontend
 1. Vuetify2页面和组件集合
