@@ -34,7 +34,7 @@ tags:
 ### Layout
 
 - Defines structure of each line of code.
-- See synaxt [https://log4js-node.github.io/log4js-node/layouts.html].
+- See [syntax](https://log4js-node.github.io/log4js-node/layouts.html).
 
 ## Example
 
@@ -72,5 +72,11 @@ const logger = log4js.getLogger('special')
 // note that if file appender is defined, log4js will always create the file no matter if file appender is utilized.
 
 logger.debug('Some debug information.')
+```
+
+### Print error stack trace
+
+``` js
+logger.error(new Error(errorMessage).stack)
 ```
 

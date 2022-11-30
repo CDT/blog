@@ -48,7 +48,7 @@ tags:
   - [MSCS](https://vancouver.northeastern.edu/academic_program/master-of-science-in-computer-science/)
   - 32 credits, 32×1450=46400
   - IELTS 7.5/TOEFL 100/Duolingo 125, GRE optional
-  - needs rec and payment
+  - tried to submit 2022.11.30, failed due to technical issues
 
 - FDU Vancouver:
   - [MSACS](https://www.fdu.edu/campuses/vancouver-campus/admissions/graduate-admissions/msacs-admission-vancouver/)
@@ -100,6 +100,7 @@ tags:
   - MSCS
   - [Apply at EducationPlannerBC](https://apply.educationplannerbc.ca)
   - 3 recs, Duolingo eligible
+  - submitted 11.30
 
 - UVic
   - Programs

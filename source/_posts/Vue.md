@@ -256,6 +256,44 @@ Vue.prototype.$http = axios.create({ /* ... */ })
 app.config.globalProperties.$http = axios.create({ /* ... */ })
 ```
 
+### Global css
+
+In `main.js` file: `import './assets/css/main.css'`
+
+### Scoped css
+
+[Ref](https://vue-loader.vuejs.org/guide/scoped-css.html)
+
+By default, styles wrapped by `<style>` tags are global.
+
+When a `<style>` tag has the `scoped` attribute, its CSS will apply to elements of the current component only.
+
+It works by adding a unique `data-v` attribute to the component:
+
+``` html
+<style scoped>
+.example {
+  color: red;
+}
+</style>
+
+<template>
+  <div class="example">hi</div>
+</template>
+```
+
+``` html
+<style>
+.example[data-v-f3f3eg9] {
+  color: red;
+}
+</style>
+
+<template>
+  <div class="example" data-v-f3f3eg9>hi</div>
+</template>
+```
+
 ## Vuex
 
 - A global state manage with reactive props.

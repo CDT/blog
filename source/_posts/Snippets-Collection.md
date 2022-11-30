@@ -33,15 +33,19 @@ All my code snippets compiled.
 [B8]:https://gist.github.com/CDT/2220146ff6fbc78c986eb29cafa5c341
 
 ## Frontend
-1. Vuetify2页面和组件集合
 
-- [Github](https://github.com/CDT/vuetify2_collection)
 
-- [Code Sandbox](https://codesandbox.io/p/github/CDT/vuetify2_collection/master)
+|NO|TITLE|DESCRIPTION|NO|TITLE|DESCRIPTION|
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|1|[Vuetify2页面和组件集合][F1]|[Code Sandbox][F2]|2|[Axios常用代码][F3]||
+|3|[Vue组件通信][F4]||4|[Vuetify 全局toast][F5]||
 
-2. [Axios常用代码](https://gist.github.com/CDT/a4b97add834d6cb4a0d2faeac2dd5fd6)
 
-3. [Vue组件通信](https://gist.github.com/CDT/deb1f223866b45c5fd64bfb7acc11c4f)
+[F1]: https://github.com/CDT/vuetify2_collection
+[F2]: https://codesandbox.io/p/github/CDT/vuetify2_collection/master
+[F3]: https://gist.github.com/CDT/a4b97add834d6cb4a0d2faeac2dd5fd6
+[F4]: https://gist.github.com/CDT/deb1f223866b45c5fd64bfb7acc11c4f
+
 
 ## Machine Learning
 
