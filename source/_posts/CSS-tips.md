@@ -34,5 +34,3 @@ body {
 ```
 
 It does not matter if one of the property values is missing, as long as the other ones are in this order. 
-
-<iframe source="https://www.w3schools.com/cssref/playdemo.php?filename=playcss_background-repeat&preval=space" />
