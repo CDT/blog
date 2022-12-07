@@ -16,6 +16,7 @@ tags:
 ## Ref
 1. [CORS tutorial](https://auth0.com/blog/cors-tutorial-a-guide-to-cross-origin-resource-sharing/)
 2. [关于CORS和withCredentials](https://juejin.cn/post/6844903938936799245)
+3. [Using Java and window.postMessage](https://plainenglish.io/blog/javascript-and-window-postmessage-a60c8f6adea9)
 <!--more-->
 
 ## Origin
@@ -110,4 +111,28 @@ Connection: keep-alive
 - In addition, this flag is also used to indicate when cookies are to be ignored in the response. The default is false.
 - `XMLHttpRequest` responses from a different domain cannot set cookie values for their own domain unless `withCredentials` is set to true before making the request. 
 - The third-party cookies obtained by setting `withCredentials` to true will still honor same-origin policy and hence can not be accessed by the requesting script through `document.cookie` or from response headers.
+
+## postMessage
+
+There's an HTML5 function `window.postMessage()` to bypass CORS policy.
+
+One window obtains a reference to another and then dispatches a MessageEvent to it.
+
+``` js
+postMessage(message, targetOrigin)
+postMessage(message, targetOrigin, transfer)
+
+// message: Serialized. Can be an object.
+// targetOrigin: URI to which you want to send the message. Asterisk means message could be from anywhere.
+// transfer: TODO
+```
+
+For example, messaging from `https://abcd.com` to `https://defg.com`, targetOrigin would be `https://defg.com`.
+
+
+
+
+
+
+
 
