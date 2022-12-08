@@ -39,12 +39,14 @@ All my code snippets compiled.
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |1|[Vuetify2页面和组件集合][F1]|[Code Sandbox][F2]|2|[Axios常用代码][F3]||
 |3|[Vue组件通信][F4]||4|[Vuetify 全局toast][F5]||
+|5|[PostMessage][F5]|PostMessage can bypass CORS for iframe||||
 
 
 [F1]: https://github.com/CDT/vuetify2_collection
 [F2]: https://codesandbox.io/p/github/CDT/vuetify2_collection/master
 [F3]: https://gist.github.com/CDT/a4b97add834d6cb4a0d2faeac2dd5fd6
 [F4]: https://gist.github.com/CDT/deb1f223866b45c5fd64bfb7acc11c4f
+[F5]: https://gist.github.com/CDT/f5cef7ba5c7f51bf8bd5df04583d2739
 
 
 ## Machine Learning

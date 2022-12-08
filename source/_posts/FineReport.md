@@ -54,8 +54,28 @@ tags:
 
 ![$CellX](/images/cczb_formula4.png)
 
+## 跨域调用iframe嵌套报表
+
+- 思路：使用HTML5的postMessage方法实现。
+
+- 页面调用代码：
+
+``` js
+document.getElementById('报表iframeId').contentWindow.postMessage('commit', '*')
+```
+
+- 在报表中引用一个外部js，代码如下：
+
+``` js
+window.addEventListener("message", (event)=>{
+	if (event.data == 'commit') {
+		_g().parameterCommit()
+	}
+});
+```
+
+
 ## FAQ
-### iframe嵌套
 
 ### Vue中报表弹窗
 代码见FRModal.vue

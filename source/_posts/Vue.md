@@ -245,6 +245,61 @@ Component communication has three forms:
 
 <script src="https://gist.github.com/CDT/deb1f223866b45c5fd64bfb7acc11c4f.js"></script>
 
+## Vue Plugin
+
+- Plugin use case: global methods/properties/assets(directives/filters/transitions)/mixin/Vue instance/library
+
+### Vue 2 
+
+[Reference](https://v2.vuejs.org/v2/guide/plugins.html)
+
+``` js
+// main.js
+Vue.use(MyPlugin, { someOption: true }) // calls MyPlugin.install
+
+new Vue({
+  //... options
+})
+```
+
+``` js
+// MyPlugin.js
+export default {
+  install: (Vue, options) {
+    // 1. add global method or property
+    Vue.myGlobalMethod = function () {
+      // some logic ...
+    }
+
+    // 2. add a global asset
+    Vue.directive('my-directive', {
+      bind (el, binding, vnode, oldVnode) {
+        // some logic ...
+      }
+      ...
+    })
+
+    // 3. inject some component options
+    Vue.mixin({
+      created: function () {
+        // some logic ...
+      }
+      ...
+    })
+
+    // 4. add an instance method
+    Vue.prototype.$myMethod = function (methodOptions) {
+      // some logic ...
+    }
+  }
+}
+```
+
+
+### Vue 3
+
+[Ref](https://vuejs.org/guide/reusability/plugins.html)
+
 ## Others
 
 ### Add global property to Vue instance

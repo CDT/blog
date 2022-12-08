@@ -129,10 +129,97 @@ postMessage(message, targetOrigin, transfer)
 
 For example, messaging from `https://abcd.com` to `https://defg.com`, targetOrigin would be `https://defg.com`.
 
+Let's see an example blocking the cross domain call:
 
+``` js
+// test.js
+const express = require('express')
 
+const app1 = express()
+app1.use(express.static('public'))
+app1.listen(8001)
 
+const app2 = express()
+app2.use(express.static('log'))
+app2.listen(8002)
+```
 
+``` html
+<!--public/page1.html-->
+<!DOCTYPE html>
 
+<head>
+  <script>
+    function changePage2 () {
+      console.log('hello')
+      document.getElementById('page2').contentWindow.changePage2('Hello World!')
+    }
+  </script>
+</head>
 
+<body>
+  <button onclick="changePage2()">Change Page 2</button>
+  <iframe id="page2" src="http://localhost:8002/page2.html" />
+</body>
+```
 
+``` html
+<!DOCTYPE html>
+
+<head>
+  <script>
+    function changePage2 () {
+      document.getElementById('page2').contentWindow.postMessage('Hello world!', 'http://localhost:8002')
+    }
+  </script>
+</head>
+
+<body>
+  <button onclick="changePage2()">Change Page 2</button>
+  <iframe id="page2" src="http://localhost:8002/page2.html" />
+</body>
+```
+
+And clicking the button we got:
+
+![IFrame CORS](/images/iframe_cors.png)
+
+Let's change the code:
+
+``` html
+<!--public/page1.html-->
+<!DOCTYPE html>
+
+<head>
+  <script>
+    function changePage2 () {
+      document.getElementById('page2').contentWindow.postMessage('Hello world!', '')
+    }
+  </script>
+</head>
+
+<body>
+  <button onclick="changePage2()">Change Page 2</button>
+  <iframe id="page2" src="http://localhost:8002/page2.html" />
+</body>
+```
+
+``` html
+<!--public/page2.html-->
+<!DOCTYPE html>
+
+<head>
+  <script>
+    window.addEventListener('message', event => {
+      if (event.origin != 'http://localhost:8001') {
+        alert('invalid request, origin not localhost:8001')
+      }
+      document.getElementById('hello').innerHTML = event.data
+    })
+  </script>
+</head>
+
+<body>
+  <p id="hello">Hello</p>
+</body>
+```
