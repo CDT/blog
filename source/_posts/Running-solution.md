@@ -49,6 +49,7 @@ tags:
   - 32 credits, 32×1450=46400
   - IELTS 7.5/TOEFL 100/Duolingo 125, GRE optional
   - tried to submit 2022.11.30, failed due to technical issues
+  - submitted 12.1
 
 - FDU Vancouver:
   - [MSACS](https://www.fdu.edu/campuses/vancouver-campus/admissions/graduate-admissions/msacs-admission-vancouver/)
@@ -153,6 +154,42 @@ tags:
 
 ### Visa
 - 1 year program gives 1 year work permit, 2 year program gives 3 year work permit
+
+## WES
+
+### Ref
+1. [哪些大学需要WES？](https://zhuanlan.zhihu.com/p/443218087)
+2. [没忍住，我把WES学历认证曝光了..](https://zhuanlan.zhihu.com/p/425514790)
+
+### 概念
+
+- World Education Services,帮助想在美国或是加拿大留学的学生提供本科成绩认证及学历认证。简单来说是为了统一国际生的GPA算法标准。
+
+### 分类
+- WES 提供的评估服务分为两种：WES ICAP和WES Basic。这两种又细分为Course-by-Course; Document-by-Document以及CPA Board Evaluation。
+- ICAP和Basic的区别在于，ICAP可以给申请者在WES系统里存档，以后需要WES报告的时候，WES会直接查看系统然后发报告给收件人。而Basic则是做完这一次报告之后WES系统里就不再有申请者的信息了。
+- 一般我们都选择ICAP，因为系统存档后，之后需要再寄送认证至申请学校时，直接在官网order就可以了。
+
+### 计分调整
+
+（1）核心基础课-权重较高
+
+商科主要指的数学课，比如高数、微积分、线代、概率论这些课程，专业课程比如宏微观经济学，这些课程的学分一般都很高，认证的时候权重也很高。
+
+（2）大陆特色课-权重降低/变0
+
+大学英语从5分降为2分，毛邓理论从4分降为1分，毕业论文从16分降为4分。体育、军事理论、认识实习、思想政治课社会实践、大学生职业规划就业指导、形式与政策等涉及到体育类，政策类，社会实践和指导类课程均为0学分。
+
+（3）选修课-维持/降学分
+
+专业选修课比较重要，一般维持原有学分；公共选修课会被降学分或者按0学分处理。
+
+### 申请ICAP Course by Course
+
+1. 选择 Standard Application->Graduate Admissions->添加学历（只认证最高学历）->
+
+
+
 
 ## Others
 1. [RNIP Vernon](https://zhuanlan.zhihu.com/p/361744516)
