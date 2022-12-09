@@ -300,54 +300,40 @@ export default {
 
 [Ref](https://vuejs.org/guide/reusability/plugins.html)
 
-## Others
-
-### Add global property to Vue instance
+``` html
+<h1>{{ $translate('greetings.hello') }}</h1>
+```
 
 ``` js
-// Vue 2
-Vue.prototype.$http = axios.create({ /* ... */ })
-// Vue 3
-app.config.globalProperties.$http = axios.create({ /* ... */ })
+// main.js
+import { createApp } from 'vue'
+import i18nPlugin from './plugins/i18n'
+
+const app = createApp({})
+
+app.use(i18nPlugin, {
+  greetings: {
+    hello: 'Bonjour!'
+  }
+})
 ```
 
-### Global css
-
-In `main.js` file: `import './assets/css/main.css'`
-
-### Scoped css
-
-[Ref](https://vue-loader.vuejs.org/guide/scoped-css.html)
-
-By default, styles wrapped by `<style>` tags are global.
-
-When a `<style>` tag has the `scoped` attribute, its CSS will apply to elements of the current component only.
-
-It works by adding a unique `data-v` attribute to the component:
-
-``` html
-<style scoped>
-.example {
-  color: red;
+``` js
+// plugins/i18n.js
+export default {
+  install: (app, options) => {
+    // inject a globally available $translate() method
+    app.config.globalProperties.$translate = (key) => {
+      // retrieve a nested property in `options`
+      // using `key` as the path
+      return key.split('.').reduce((o, i) => {
+        if (o) return o[i]
+      }, options)
+    }
+  }
 }
-</style>
-
-<template>
-  <div class="example">hi</div>
-</template>
 ```
 
-``` html
-<style>
-.example[data-v-f3f3eg9] {
-  color: red;
-}
-</style>
-
-<template>
-  <div class="example" data-v-f3f3eg9>hi</div>
-</template>
-```
 
 ## Vuex
 
@@ -823,3 +809,63 @@ export default new Vuex.Store({
   }
 })
 ```
+
+
+
+## Others
+
+### Add global property to Vue instance
+
+``` js
+// Vue 2
+Vue.prototype.$http = axios.create({ /* ... */ })
+// Vue 3
+app.config.globalProperties.$http = axios.create({ /* ... */ })
+```
+
+### Global css
+
+In `main.js` file: `import './assets/css/main.css'`
+
+### Scoped css
+
+[Ref](https://vue-loader.vuejs.org/guide/scoped-css.html)
+
+By default, styles wrapped by `<style>` tags are global.
+
+When a `<style>` tag has the `scoped` attribute, its CSS will apply to elements of the current component only.
+
+It works by adding a unique `data-v` attribute to the component:
+
+``` html
+<style scoped>
+.example {
+  color: red;
+}
+</style>
+
+<template>
+  <div class="example">hi</div>
+</template>
+```
+
+``` html
+<style>
+.example[data-v-f3f3eg9] {
+  color: red;
+}
+</style>
+
+<template>
+  <div class="example" data-v-f3f3eg9>hi</div>
+</template>
+```
+
+### `created` vs `mounted`
+
+When `created`, DOM has not yet been `mounted`. No DOM operation can be done.
+
+Created is generally used for fetching data from backend API and setting it to data properties. But in SSR mounted() hook is not present you need to perform tasks like fetching data in created hook only.
+
+
+
