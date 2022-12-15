@@ -38,6 +38,21 @@ See full list [here](https://www.sqlite.org/whentouse.html)
 
 Install: `npm install sqlite3`
 
+You may encounter the following error: 
+
+```
+npm ERR! gyp ERR! find VS **************************************************************
+npm ERR! gyp ERR! find VS You need to install the latest version of Visual Studio
+npm ERR! gyp ERR! find VS including the "Desktop development with C++" workload.
+npm ERR! gyp ERR! find VS For more information consult the documentation at:
+npm ERR! gyp ERR! find VS https://github.com/nodejs/node-gyp#on-windows
+npm ERR! gyp ERR! find VS **************************************************************
+```
+
+Visual studio build tools are missing. The easiest way to install it is:
+
+`choco install visualstudio2017buildtools`
+
 Use:
 
 <script src="https://gist.github.com/CDT/e68210ea6b585b27e87c3f7ef3ab2962.js"></script>

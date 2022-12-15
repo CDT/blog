@@ -37,6 +37,60 @@ body {
 
 It does not matter if one of the property values is missing, as long as the other ones are in this order. 
 
+### Link LVHA rule
+
+`a:link` - a normal, unvisited link
+`a:visited` - a link the user has visited
+`a:hover` - a link when the user mouses over it
+`a:active` - a link the moment it is clicked
+
+When setting the style for several link states, there are some order rules:
+
+- `a:hover` MUST come after `a:link` and `a:visited`
+- `a:active` MUST come after `a:hover`
+
+### inline-block
+
+### Center text in div
+
+Using flexbox:
+
+``` html
+<div class="box">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
+</div>
+
+<style>
+.box
+{
+  height: 150px;
+  width: 400px;
+  background: #000;
+  font-size: 24px;
+  font-style: oblique;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+</style>
+```
+
+![](/images/text_center.png)
+
+### window.onload vs document.onload
+
+- `window.onload`：By default, it is fired when the entire page loads, including its content (images, CSS, scripts, etc.).
+In some browsers it now takes over the role of document.onload and fires when the DOM is ready as well.
+
+- `document.onload`: It is called when the DOM is ready which can be prior to images and other external content is loaded.
+
+In chrome, `console.log(document.onload)` returns null. So just use `window.onload`.
+
+
 ## HTML
 
 ### XHTML
