@@ -90,6 +90,9 @@ In some browsers it now takes over the role of document.onload and fires when th
 
 In chrome, `console.log(document.onload)` returns null. So just use `window.onload`.
 
+### Block formatting context
+
+
 
 ## HTML
 

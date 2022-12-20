@@ -49,9 +49,13 @@ npm ERR! gyp ERR! find VS https://github.com/nodejs/node-gyp#on-windows
 npm ERR! gyp ERR! find VS **************************************************************
 ```
 
-Visual studio build tools are missing. The easiest way to install it is:
+Visual studio build tools are missing. The easiest way to install it is through `choco`:
 
 `choco install visualstudio2017buildtools`
+
+If still not able to install `sqlite3` after it, reboot the computer.
+If still not able to install, repeatedly run the command until it is installed.
+Sometimes `sqlite3` cannot be installed with `yarn add -dev`, try to install it with `yarn add` and then modify `package.json` and then install with `yarn add -dev`.
 
 Use:
 
