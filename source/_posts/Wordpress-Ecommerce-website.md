@@ -13,7 +13,8 @@ tags:
 - woocommerce
 ---
 
-## Install
+## Install each component individually
+
 [Ref](https://www.howtosolutions.net/2021/07/install-wordpress-php-apache-mysql-on-windows-for-beginners/)
 
 ### Setup wordpress and mysql
@@ -150,5 +151,64 @@ Or the following php:
 
 Check out if modules and `.ini` file are configured correctly.
 
+## Install by XAMPP
+
+1. [Download](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/) and install
+
+2. Copy `wordpress` to `D:/xampp/htodcs`
+
+3. Open Mysql Admin, add database and user.
+
+4. Visit `localhost/wordpress` and configure wordpress
+
 ## Configure site
 
+### Install theme and plugins
+
+1. Plugins->Add New, search for `woocommerce` and install
+
+- If not able to install online, download the plugin file and install from file.
+
+2. Others
+
+- May encounter a dozen of plugins unable to directly install online, download them and install from file.
+
+- Use [Astra](https://wordpress.org/themes/astra/) theme. May unable to install online, download and install.
+
+- Use [Elementor page builder.](https://wordpress.org/plugins/elementor/)
+
+### Configure
+
+1. Settings->Permalinks, set Permalink structure to `Post name` to enhance SEO.
+
+2. Enable Astra
+  - Appearance->Themes
+  - Enable Astra
+  - Click theme details and then click Astra Options
+
+  ![Install Importer Plugin](/images/astra_options1.png) 
+
+3. Configure Starter Template for Astra
+
+  - Install [Starter Templates plugin](https://wordpress.org/plugins/astra-sites/) and activate it
+  - Click `See Library`
+  - Choose `Elementor` for page builder
+  - Select a template and apply
+
+4. Now customize your website.
+
+### Other Important Plugins
+
+- Yoast SEO: Improve SEO
+- Contact Form 7: Make customer contact you easier
+- UpdraftPlus: Backup website
+- MonsterInsights: Integrates Google Analysis
+- Paypal, Stripe, AliPay: Payment
+
+## Maintenance
+
+### Backup website
+
+- Method 1: Tools->Export/Import
+
+- Method 2: [Bluehost Site Migrator](https://wordpress.org/plugins/bluehost-site-migrator/)
