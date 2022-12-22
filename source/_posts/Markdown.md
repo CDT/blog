@@ -154,6 +154,21 @@ gives:
 
 ***
 
+- **Code block with filename**
+
+```
+``` js, test.js
+console.log('hello!')
+```
+
+gives:
+
+``` js, test.js
+console.log('hello!')
+```
+
+***
+
 - **List in list/nested list**
 
 Use 2 or 4 spaces: 
