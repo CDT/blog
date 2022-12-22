@@ -156,6 +156,7 @@ widgets:
         position: right
         type: adsense
         client_id: ca-pub-2110925248434778
+        slot_id: xxxxxxx
 plugins:
     animejs: true
     back_to_top: true
