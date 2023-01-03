@@ -152,11 +152,6 @@ widgets:
         order_by: name
         amount: 
         show_count: true
-    -
-        position: right
-        type: adsense
-        client_id: ca-pub-2110925248434778
-        slot_id: xxxxxxx
 plugins:
     animejs: true
     back_to_top: true

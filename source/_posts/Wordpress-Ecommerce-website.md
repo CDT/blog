@@ -57,9 +57,11 @@ Query OK, 0 rows affected (0.01 sec)
 
 ;extension=openssl
 ;extension=mysqli
+;extension=gd
 // uncomment
 extension=openssl
 extension=mysqli
+extension=gd
 
 upload_max_filesize = 2M
 post_max_size = 8M
@@ -176,6 +178,8 @@ Check out if modules and `.ini` file are configured correctly.
 - Use [Astra](https://wordpress.org/themes/astra/) theme. May unable to install online, download and install.
 
 - Use [Elementor page builder.](https://wordpress.org/plugins/elementor/)
+
+- Enable `gd` extension by uncommenting `;extension=gd` in `PHP.ini`
 
 ### Configure
 
