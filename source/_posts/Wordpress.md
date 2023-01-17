@@ -31,3 +31,9 @@ tags:
 
 使用UpdraftPlus迁移：将几个备份文件(Database, Plugins, Themes, Uploads, Others)从源网站复制到新网站，然后restore即可。
   - 经测试貌似会有问题，比如restore之后，访问新网站仍然会尝试访问就网站的域名，应该是数据库保存的是旧网站域名导致。
+
+
+## 调试
+
+- Woocommerce下单时PayPal提示"To comply with international regulations, this transaction has been declined."
+  - 中国区无法使用PayPal服务。

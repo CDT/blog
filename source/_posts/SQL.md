@@ -724,3 +724,25 @@ INTO employee (emp_id, first_name, last_name, dept_id, manager_id, office_id) VA
 SELECT * FROM dual;
 ```
 
+### MD5
+
+``` sql
+CREATE OR REPLACE FUNCTION MD5(
+
+                               passwd IN VARCHAR2)
+
+ RETURN VARCHAR2
+
+ IS
+
+  retval varchar2(32);
+
+BEGIN
+
+  retval := utl_raw.cast_to_raw(DBMS_OBFUSCATION_TOOLKIT.MD5(INPUT_STRING => passwd));
+
+  RETURN retval;
+
+END;
+```
+

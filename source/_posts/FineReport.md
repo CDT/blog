@@ -5,6 +5,7 @@ cover: /images/bi.webp
 thumbnail: /images/bi.webp
 categories:
 - tech
+toc: true
 tags:
 - tech
 - FineReport
@@ -79,3 +80,55 @@ window.addEventListener("message", (event)=>{
 
 ### Vue中报表弹窗
 代码见FRModal.vue
+
+### 调用存储过程(remoteEvaluate)
+- 帆软内置SQL方法：
+```
+SQL(connectionName,sql,columnIndex,rowIndex)：
+  返回通过sql语句从connectionName中获得数据表的第columnIndex列第rowIndex行所对应的元素。
+
+connectionName：数据库库的名字，字符串形式；
+sql:SQL语句，字符串形式；
+columnIndex:列序号，整形;
+rowIndex:行序号，整形。
+
+备注:行序号可以不写，这样返回值为数据列。
+示例：
+以我们提供的数据源HSQL为例
+SQL("HSQL","SELECT * FROM CUSTOMER",2,2)等于王先生。
+```
+
+- 需要注意的是，使用帆软内置SQL方法不支持DML语句如update/delete.
+  
+
+- 使用[remoteEvaluate](https://help.fanruan.com/finereport/doc-view-4316.html#25)方法来调用帆软内置的SQL方法，进而调用存储过程。
+
+``` js
+FR.Msg.prompt('重置密码', "新密码", '123456', function(password) {
+
+  if (password) {
+  	let clause = "SQL('THBI', \"call dtchen.update_password('" + password + "', " + user_id + ")\", 1, 1)"
+  	console.log(clause)
+  	console.log(FR.remoteEvaluate(clause))
+  }
+})
+```
+
+### 调用接口
+
+``` js
+var presetMessage = `您好，您${appdate}申请的${pname}患者的${appname}(${appno})项目由于以下原因无法执行：[此处填写原因]，请先完善。`
+
+var smsUrl = 'http://192.168.14.65:3000/misc/sms'
+
+var post = function(url, data) {
+  return fetch(url, {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+}
+
+FR.Msg.prompt(`发短信给${phone}`, "短信内容", presetMessage, function(msg) {
+  if (msg) {
+    post(smsUrl, {phone, msg, sender, empid})
+    FR.Msg.alert('提示', '短信已发送')
+  }
+}, 1300) // 此处1300估计多余
+```
