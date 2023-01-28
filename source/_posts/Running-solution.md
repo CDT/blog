@@ -74,6 +74,7 @@ tags:
   - [Apply](https://gograd.sfu.ca/apply/)
   - Needs IELTS and 3 recs
   - Needs last rec to submit
+  - submitted 2023.1.19, may missed the deadline
 
 - TRU
   - [MDS, 2 years](https://www.tru.ca/programs/catalogue/master-of-science-in-data-science.html)
@@ -81,6 +82,7 @@ tags:
   - [Apply at EducationPlannerBC](https://apply.educationplannerbc.ca)
   - website down
   - Duolingo not eligible
+  - 
 
 - UBC
   - [App](https://evision.as.it.ubc.ca/)
@@ -102,6 +104,7 @@ tags:
   - [Apply at EducationPlannerBC](https://apply.educationplannerbc.ca)
   - 3 recs, Duolingo eligible
   - submitted 11.30
+  - expired without emailing me, fuck!
 
 - UVic
   - Programs
@@ -119,6 +122,25 @@ tags:
   - Duolingo not eligible, suspended.
   - two assessment reports, waiting.
   - Paid, waiting
+
+### OINP
+
+- [OINP Masters Graduate Stream](https://www.ontario.ca/page/oinp-masters-graduate-stream)
+- [🇨🇦安省省提名打分更新！1⃣️省提名之硕博类](https://www.xiaohongshu.com/explore/638d690a0000000018013fe8)
+- [OINP invitations to apply](https://www.ontario.ca/page/ontario-immigrant-nominee-program-oinp-invitations-apply)
+
+此处主要分析OINP的Masters Graduate Stream项目。
+
+#### 要求
+
+1. 必须受邀(受邀机制见[OINP invitations to apply](https://www.ontario.ca/page/ontario-immigrant-nominee-program-oinp-invitations-apply))
+2. 教育程度
+  - 硕士学位
+  - 至少一年课程
+  - 在认可的大学列表中（2023年1月)：Algoma University, Brescia University College (Affiliated with the University of Western Ontario), Brock University, Carleton University, Dominican University College, Huron University College (Affiliated with the University of Western Ontario), King’s University College at the University of Western Ontario, Lakehead University, Laurentian University, McMaster University, Nipissing University, Ontario College of Art & Design University, Queen’s University, Royal Military College of Canada, Ryerson University, Saint Paul University (Federated with the University of Ottawa), St. Jerome’s University (Federated with the University of Waterloo), Trent University, University of Guelph, University of Ontario Institute of Technology, University of Ottawa, University of St. Michael’s College (Federated with the University of Toronto), University of Toronto, University of Trinity College (Federated with the University of Toronto), University of Waterloo, University of Windsor, Victoria University (Federated with the University of Toronto), Western University, Wilfrid Laurier University, York University
+  - 语言：英语或者法语至少达到CLB7。[CLB对照表](https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/operational-bulletins-manuals/standard-requirements/language-requirements/test-equivalency-charts.html)
+    - CLB7: 6/6/6/6 CLB8: 7.5/6.5/6.5/6.5 CLB9: 8/7/7/7 CLB10: 8.5/8/7.5/7.5
+
 
 
 ### Others
