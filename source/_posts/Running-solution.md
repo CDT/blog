@@ -131,17 +131,42 @@ tags:
 
 此处主要分析OINP的Masters Graduate Stream项目。
 
-#### 要求
+#### 核心要求
 
 1. 必须受邀(受邀机制见[OINP invitations to apply](https://www.ontario.ca/page/ontario-immigrant-nominee-program-oinp-invitations-apply))
 2. 教育程度
   - 硕士学位
   - 至少一年课程
   - 在认可的大学列表中（2023年1月)：Algoma University, Brescia University College (Affiliated with the University of Western Ontario), Brock University, Carleton University, Dominican University College, Huron University College (Affiliated with the University of Western Ontario), King’s University College at the University of Western Ontario, Lakehead University, Laurentian University, McMaster University, Nipissing University, Ontario College of Art & Design University, Queen’s University, Royal Military College of Canada, Ryerson University, Saint Paul University (Federated with the University of Ottawa), St. Jerome’s University (Federated with the University of Waterloo), Trent University, University of Guelph, University of Ontario Institute of Technology, University of Ottawa, University of St. Michael’s College (Federated with the University of Toronto), University of Toronto, University of Trinity College (Federated with the University of Toronto), University of Waterloo, University of Windsor, Victoria University (Federated with the University of Toronto), Western University, Wilfrid Laurier University, York University
-  - 语言：英语或者法语至少达到CLB7。[CLB对照表](https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/operational-bulletins-manuals/standard-requirements/language-requirements/test-equivalency-charts.html)
-    - CLB7: 6/6/6/6 CLB8: 7.5/6.5/6.5/6.5 CLB9: 8/7/7/7 CLB10: 8.5/8/7.5/7.5
+3. 语言：英语或者法语至少达到CLB7。[CLB对照表](https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/operational-bulletins-manuals/standard-requirements/language-requirements/test-equivalency-charts.html)
+  - CLB7: 6/6/6/6 CLB8: 7.5/6.5/6.5/6.5 CLB9: 8/7/7/7 CLB10: 8.5/8/7.5/7.5
 
+#### Ontario EOI
 
+- [Ontario Expression of interest](https://www.ontario.ca/document/oinp-entrepreneur-stream/expression-interest)
+
+- The EOI is comprised of two components, for a maximum EOI score of 200 points:
+  - self-declared score (maximum 126 points)
+  - business concept score (maximum 74 points)
+
+- OINP will assess and score your business concept.  Your business concept will need to score at least 37 of the available 74 points (50%) to be placed in the EOI selection pool.
+
+- Whether you are issued an invitation to apply (ITA) is based on your EOI rank in the selection pool. Only the top ranked candidates are invited to apply.
+
+#### 打分
+
+- Study/Work Permit: 10分
+- 收入：40k以上3分
+- STEM：12分
+- 教育经历：加拿大本地2年以上本一年以上硕：一个5分两个10分
+- 语言：
+  - 官方语言（英法）：一门5分
+  - CLB7-4分 CLB8-6分 CLB9/10-10分
+- 地域：
+  - Northern Ontario – 10 points
+  - Other areas outside GTA (except Northern Ontario) – 8 points
+  - Inside GTA (except Toronto) – 3 points
+  - Toronto – 0 points
 
 ### Others
 
