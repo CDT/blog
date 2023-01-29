@@ -81,6 +81,85 @@ window.addEventListener("message", (event)=>{
 ### Vue中报表弹窗
 代码见FRModal.vue
 
+``` html
+<template>
+<div class="ui large modal" id="fr-modal">
+  <i class="close icon"></i>
+  <div class="header">
+    <i class="fas fa-file-invoice-dollar"></i>  交易记录
+  </div>
+  <div class="image content">
+    <iframe id="reportFrame" :src="src + q" width="1200px" height="1000px">
+    </iframe>
+  </div>
+  <div class="actions">
+    <!-- <div class="ui black deny button">
+      Nope
+    </div> -->
+    <div class="ui positive right labeled icon button" @click="hideModal">
+      OK
+      <i class="checkmark icon"></i>
+    </div>
+    <!-- <div class="ui primary button" @click="hideModal">
+      好的
+    </div> -->
+  </div>
+</div>
+</template>
+
+<script>
+import $ from 'jquery'
+
+export default {
+  data () {
+    return {
+      src: "",
+      q: ""
+    }
+  },
+  methods: {
+    hideModal () {
+      $('#bill-list-modal').modal('hide')
+    }
+  },
+  mounted () {
+    this.$events.$on('show-out-bills', q => {
+      this.src = "http://xxx1.cpt"
+      this.q = q
+    })
+    this.$events.$on('show-in-bills', q => {
+      this.src = "http://xxx2.cpt"
+      this.q = q
+    })
+    this.$events.$on('show-apps', q => {
+      this.src = "http://xxx3.cpt"
+      this.q = q
+    })
+  }
+}
+</script>
+
+<style scoped lang="scss">
+</style>
+```
+
+``` html
+<template>
+  <div id="app">
+    <router-view/>
+
+    <fr-modal />
+  </div>
+</template>
+```
+
+``` js
+showBills (outVisit) {
+  this.$events.fire('show-out-bills', '&pid=' + outVisit.PATIENT_ID + '&vid=' + outVisit.VISIT_ID) 
+  $('#fr-modal').modal('show')
+}
+```
+
 ### 调用存储过程(remoteEvaluate)
 - 帆软内置SQL方法：
 ```

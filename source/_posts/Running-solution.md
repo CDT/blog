@@ -168,6 +168,11 @@ tags:
   - Inside GTA (except Toronto) – 3 points
   - Toronto – 0 points
 
+#### 申报
+
+1. [Western University](https://student.uwo.ca/psc/grdappprd/EMPLOYEE/SA/c/WSA_AAWS_MENU.WSA_SCC_NUR_REG.GBL?Page=WSA_SCC_NUR_REG&Action=U)
+  - 2023.1.29申
+
 ### Others
 
 - Graduate diploma is cheap(cheaper than master), quick(often one year) and has low bars(lower than master).
