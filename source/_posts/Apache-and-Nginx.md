@@ -5,6 +5,7 @@ cover: /images/apache_vs_nginx.webp
 thumbnail: /images/apache_vs_nginx.webp
 categories:
 - tech
+toc: true
 tags:
 - tech
 - apache
@@ -46,6 +47,45 @@ tags:
 ![Forward and Reverse Proxy](/images/forward_reverse_proxy.jpg)
 
 ## Apache
+
+### Connect Apache and PHP
+
+- In most cases, Apache uses thread-safe version of PHP.
+
+#### Connect PHP7:
+
+``` conf, httpd.conf
+LoadModule php7_module "D:/tools/php-7.4.33-Win32-vc15-x64/php7apache2_4.dll"
+
+<IfModule dir_module>
+    DirectoryIndex index.html index.php // add index.php
+</IfModule>
+
+
+<IfModule mime_module>
+  AddHandler application/x-httpd-php .php
+  AddType application/x-httpd-php .php .html
+</IfModule>
+
+
+PHPIniDir "D:/tools/php-7.4.33-Win32-vc15-x64"
+```
+
+### Connect PHP8
+
+- note that module name is not `php8_module` but `php_module`.
+
+### Run Apache
+
+- by `cmd`:
+  - cd `D:/apache24/bin`
+  - `httpd`
+
+- as a service:
+  - cd `D:/apache24/bin`
+  - `httpd -k install`: install `Apache2.4` service
+  - `net start apache2.4`
+  - Restart: `net stop apache2.4` + `net start apache2.4` or `httpd -k restart`
 
 ## Nginx
 - Nginx: HTTP server, reverse proxy server, mail proxy server, generic TCP/UDP proxy server

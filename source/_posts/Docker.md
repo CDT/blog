@@ -2,7 +2,8 @@
 title: Docker
 date: 2023-02-06 12:27:41
 cover: /images/docker-logo.png
-categories: /images/docker-logo.png
+thumbnail: /images/docker-logo.png
+categories: 
 - tech
 tags:
 - tech
@@ -27,3 +28,7 @@ toc: true
 
  - The image contains the container’s filesystem, it must contain everything needed to run an application
 
+
+## Dockerfile
+
+- A Dockerfile contains a script of instructions that Docker uses to create a container image.
