@@ -21,7 +21,7 @@ All my code snippets compiled.
 |3|[JWT Authentication server][B3]|express, jwt, authentication, sqlite|4|[Sqlite3][B4]|sqlite3|
 |5|[Sqlite3 with promise][B5]|sqlite3, promise|6|[Download file][B6]|download|
 |7|[Node oracle][B7]||8|[Node.js auth][B8]|Login, router, sidebar|
-|9|[Rename a file][B9]||10|||
+|9|[Rename a file][B9]||10|[Express session example][B10]|Enable session in express|
 
 
 [B1]:https://gist.github.com/CDT/21cd65c9277255602575ed6099595f0e
@@ -33,6 +33,7 @@ All my code snippets compiled.
 [B7]:https://gist.github.com/CDT/d9a077bbfaf63281dba0cbd8164f84ba
 [B8]:https://gist.github.com/CDT/2220146ff6fbc78c986eb29cafa5c341
 [B9]:https://gist.github.com/CDT/b95bed446c3d05e0d15b29164d97f8ba
+[B10]:https://gist.github.com/CDT/4527c91b7d75d3b489b7d532138f8ef9
 
 ## Frontend
 

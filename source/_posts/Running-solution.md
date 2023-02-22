@@ -57,11 +57,13 @@ tags:
   - PR after graduation!
   - paid not submitted, requires GRE and 3 rec, some said waived with a master degree(chinese degree eligible)
   - Needs last rec
+  - offer 2023.2.14
 
 - NYIT
   - Only cybersecurity program provided
   - One year!
   - submitted 2022.11.14, [check out](https://apply.nyit.edu/apply/)
+  - offer 2023.2.15
 
 - SFU
   - [Programs](https://www.sfu.ca/gradstudies/apply/programs/alphabetic.html)
@@ -188,6 +190,7 @@ tags:
   - Web Development
     - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/web-development-diploma)
     - submitted 2022.11.17, [checkout](https://oa2.uwinnipeg.ca/AdmissionsManager/#/)
+    - offer
 
   - Artificial Intelligence
     - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/artificial-intelligence-diploma)
@@ -199,10 +202,15 @@ tags:
 - Red River Polytech (College)
   - [Data science and machine learning](https://apply.rrc.ca/RecruitNewWFE/Account/Login)
   - Submitted 2022.11.20
+  - offer
 
 - University of Regina (Master)
   - [Master of Engineering in Software Systems](https://banner.uregina.ca:17023/ssbprod/bwskalog.P_DispLoginNon)
   - Submitted 2022.11.22, needs two rec
+
+- Concordia University
+  - submitted 2023.2
+  - [checkout](https://www.concordia.ca/admissions/graduate/apply-now.html)
 
 ### Visa
 - 1 year program gives 1 year work permit, 2 year program gives 3 year work permit
