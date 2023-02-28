@@ -206,7 +206,7 @@ tags:
 
 - University of Regina (Master)
   - [Master of Engineering in Software Systems](https://banner.uregina.ca:17023/ssbprod/bwskalog.P_DispLoginNon)
-  - Submitted 2022.11.22, needs two rec
+  - Submitted 2022.11.22, completed 2023.1
 
 - Concordia University
   - submitted 2023.2

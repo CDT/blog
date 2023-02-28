@@ -697,6 +697,12 @@ identified by
 using 'tns_service_name'
 ```
 
+``` sql
+-- user和password都不需要引号，如果passwrd有特殊字符，那就用双引号""包起来
+create public database link dbl_term connect to user1
+identified by "password1" using '192.168.100.100/orcl'
+```
+
 Find all database links:
   - DBA_DB_LINKS - All DB links defined in the database
   - ALL_DB_LINKS - All DB links the current user has access to
