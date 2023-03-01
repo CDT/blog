@@ -242,6 +242,10 @@ Component communication has three forms:
 3. Global
 
 - Parent send messages to child through props. Any change to prop is reflected immediately. Prop is immutable in child so vice versa not viable. This is a one-way communication.
+- Child `this.$emit('event-name', p1, p2)`, parent receive the event through `<child @event-name='handler' />`
+- Global communication can be done in two ways:
+  - A: `this.$root.$emit('event-name', p1, p2)` B: `this.$root.$on('event-name', (p1, p2) => {})`
+  - Use [vue-events](https://www.npmjs.com/package/vue-events). A: `this.$events.$emit('event', p1, p2)` B: `this.$events.$on('event', (p1, p2) => {})`
 
 <script src="https://gist.github.com/CDT/deb1f223866b45c5fd64bfb7acc11c4f.js"></script>
 
