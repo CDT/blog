@@ -22,8 +22,8 @@ All my code snippets compiled.
 |5|[Sqlite3 with promise][B5]|sqlite3, promise|6|[Download file][B6]|download|
 |7|[Node oracle][B7]||8|[Node.js auth][B8]|Login, router, sidebar|
 |9|[Rename a file][B9]||10|[Express session example][B10]|Enable session in express|
-|11|[Express session debug quiz][B11]|||||
-
+|11|[Express session debug quiz][B11]||12|[connect-sqlite3 example][B12]||
+|13|[User/Password based PassportJS Authentication][B13]||14|||
 
 [B1]:https://gist.github.com/CDT/21cd65c9277255602575ed6099595f0e
 [B2]:https://gist.github.com/CDT/aa0ab8523a014951c0c25bd1963a5a76
@@ -36,6 +36,8 @@ All my code snippets compiled.
 [B9]:https://gist.github.com/CDT/b95bed446c3d05e0d15b29164d97f8ba
 [B10]:https://gist.github.com/CDT/4527c91b7d75d3b489b7d532138f8ef9
 [B11]:https://gist.github.com/CDT/dba1c497ee964758e01ce38de24ca52f
+[B12]:https://gist.github.com/CDT/ed386733315fd93afcd4ed7b71f4384f
+[B13]:https://github.com/CDT/passportjs-user-password-demo
 
 ## Frontend
 
