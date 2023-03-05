@@ -22,6 +22,7 @@ All my code snippets compiled.
 |5|[Sqlite3 with promise][B5]|sqlite3, promise|6|[Download file][B6]|download|
 |7|[Node oracle][B7]||8|[Node.js auth][B8]|Login, router, sidebar|
 |9|[Rename a file][B9]||10|[Express session example][B10]|Enable session in express|
+|11|[Express session debug quiz][B11]|||||
 
 
 [B1]:https://gist.github.com/CDT/21cd65c9277255602575ed6099595f0e
@@ -34,6 +35,7 @@ All my code snippets compiled.
 [B8]:https://gist.github.com/CDT/2220146ff6fbc78c986eb29cafa5c341
 [B9]:https://gist.github.com/CDT/b95bed446c3d05e0d15b29164d97f8ba
 [B10]:https://gist.github.com/CDT/4527c91b7d75d3b489b7d532138f8ef9
+[B11]:https://gist.github.com/CDT/dba1c497ee964758e01ce38de24ca52f
 
 ## Frontend
 
