@@ -86,7 +86,7 @@ window.addEventListener("message", (event)=>{
 <div class="ui large modal" id="fr-modal">
   <i class="close icon"></i>
   <div class="header">
-    <i class="fas fa-file-invoice-dollar"></i>  交易记录
+    <i class="fas fa-file-invoice-dollar"></i>  {{ title }}
   </div>
   <div class="image content">
     <iframe id="reportFrame" :src="src + q" width="1200px" height="1000px">
@@ -96,7 +96,7 @@ window.addEventListener("message", (event)=>{
     <!-- <div class="ui black deny button">
       Nope
     </div> -->
-    <div class="ui positive right labeled icon button" @click="hideModal">
+    <div class="ui positive right labeled icon button">
       OK
       <i class="checkmark icon"></i>
     </div>
@@ -108,32 +108,20 @@ window.addEventListener("message", (event)=>{
 </template>
 
 <script>
-import $ from 'jquery'
 
 export default {
   data () {
     return {
       src: "",
-      q: ""
-    }
-  },
-  methods: {
-    hideModal () {
-      $('#bill-list-modal').modal('hide')
+      q: "",
+      title: "明细记录"
     }
   },
   mounted () {
-    this.$events.$on('show-out-bills', q => {
-      this.src = "http://xxx1.cpt"
-      this.q = q
-    })
-    this.$events.$on('show-in-bills', q => {
-      this.src = "http://xxx2.cpt"
-      this.q = q
-    })
-    this.$events.$on('show-apps', q => {
-      this.src = "http://xxx3.cpt"
-      this.q = q
+    this.$events.$on('show-fr-modal', (src, q, title) => {
+      this.src = src
+      this.q = typeof q == 'string' ? q : ('&' + this.$.param(q))
+      if (title) this.title = title
     })
   }
 }
@@ -193,7 +181,7 @@ FR.Msg.prompt('重置密码', "新密码", '123456', function(password) {
 })
 ```
 
-### 调用接口
+### 调用外部接口
 
 ``` js
 var presetMessage = `您好，您${appdate}申请的${pname}患者的${appname}(${appno})项目由于以下原因无法执行：[此处填写原因]，请先完善。`
@@ -210,4 +198,29 @@ FR.Msg.prompt(`发短信给${phone}`, "短信内容", presetMessage, function(ms
     FR.Msg.alert('提示', '短信已发送')
   }
 }, 1300) // 此处1300估计多余
+```
+
+### 外部页面出发报表接口
+
+``` js
+// 报表中引用本js文件
+window.onload = function () {
+	_g().parameterCommit()
+}
+
+window.addEventListener("message", (event)=>{
+	if (event.data == 'commit') {
+		_g().parameterCommit()
+	}
+});
+```
+
+``` js
+// 以vue为例，通过postMessage通讯：
+
+  methods: {
+    submit () {
+      document.getElementById('接诊').contentWindow.postMessage('commit', '*')
+    }
+  },
 ```
