@@ -37,3 +37,10 @@ tags:
 
 - Woocommerce下单时PayPal提示"To comply with international regulations, this transaction has been declined."
   - 中国区无法使用PayPal服务。
+
+## 其他
+
+### Headless Wordpress
+
+- [What is Headless Wordpress?](https://www.gatsbyjs.com/docs/glossary/headless-wordpress/)
+- Headless WordPress is a term for any website that uses WordPress as the back-end software to manage data and content, but uses separate technologies to display the data on the front-end. 

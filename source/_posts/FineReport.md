@@ -75,6 +75,26 @@ window.addEventListener("message", (event)=>{
 });
 ```
 
+## Excel导入
+
+- [Excel导入(8.0版)](https://help.fanruan.com/finereport8.0/doc-view-1067.html)
+- [Excel导入前前空表(8.0版)](https://help.fanruan.com/finereport8.0/doc-view-1893.html)
+- [JS實現一鍵清除填報内容](https://help.fanruan.com/finereport/doc-view-3434.html)
+- [例子](/assets/docs/bonus_team_dict_import.zip)
+
+- Excel导入的单元格必须设置为可扩展，并且必须设置为**列表**而不是分组！否则会提示找不到不定行单元格
+- Excel导入前清空已有表格：
+  ``` js
+  var arr = ["A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4"];
+  //将需要清空的控件所在单元格的编号塞入数组
+  for (i = 0; i < arr.length; i++) {
+    var cr = FR.cellStr2ColumnRow(arr[i]);
+    //根据单元格编号获取行列号
+    _g().setCellValue(0, cr.col, cr.row, "");
+    //遍历清空单元格内容
+  }
+  ```
+
 
 ## FAQ
 

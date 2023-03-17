@@ -814,6 +814,25 @@ export default new Vuex.Store({
 })
 ```
 
+### Two-way binding
+
+``` html
+<script>
+export default {
+  computed: {
+    name: {
+      get() {
+        return this.$store.state.form.name;
+      },
+      set(value) {
+        this.$store.commit('updateName', value);
+      },
+    },
+  }
+};
+</script>
+```
+
 
 
 ## Others

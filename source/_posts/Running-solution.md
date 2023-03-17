@@ -50,6 +50,7 @@ tags:
   - IELTS 7.5/TOEFL 100/Duolingo 125, GRE optional
   - tried to submit 2022.11.30, failed due to technical issues
   - submitted 12.1
+  - offer 2023.3.14
 
 - FDU Vancouver:
   - [MSACS](https://www.fdu.edu/campuses/vancouver-campus/admissions/graduate-admissions/msacs-admission-vancouver/)
@@ -64,6 +65,7 @@ tags:
   - One year!
   - submitted 2022.11.14, [check out](https://apply.nyit.edu/apply/)
   - offer 2023.2.15
+  - deposit paid but withdrawed from program due to NEU offer, 3240 USD deducted
 
 - SFU
   - [Programs](https://www.sfu.ca/gradstudies/apply/programs/alphabetic.html)
