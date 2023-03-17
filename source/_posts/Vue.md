@@ -249,6 +249,89 @@ Component communication has three forms:
 
 <script src="https://gist.github.com/CDT/deb1f223866b45c5fd64bfb7acc11c4f.js"></script>
 
+## Vue 2
+
+### Watch
+
+- Trigger a function whenever a reactive property it depends changes:
+
+``` js
+new Vue({
+  data: {
+    message: 'Hello, world!'
+  },
+  watch: {
+    message (newValue, oldValue) {
+      console.log('The message changed from', oldValue, 'to', newValue)
+    }
+  }
+})
+```
+
+- **immediate** property:
+  - [Eager watchers](https://vuejs.org/guide/essentials/watchers.html#eager-watchers)
+  - Will be called on data initialization
+  ```js
+  new Vue({
+    data: {
+      count: 0
+    },
+    watch: {
+      count: {
+        handler(newValue, oldValue) {
+          console.log(`count changed from ${oldValue} to ${newValue}`)
+        },
+        immediate: true
+      }
+    }
+  })
+  ```
+  - The output will be `count changed from undefined to 0`.
+
+## Vue reactivity
+
+### Object
+
+- Existing object properties are reactive
+- New properties added on the fly:
+  - `this.obj.newProp = 10` will not add a reactive `newProp` to `obj`
+  - `Vue.set(this.obj, 'newProp', 10)` or `this.$set(this.obj, 'newProp', 10)` will add a reactive `newProp` to `this.obj`
+  - Once the new property is added using `Vue.set` or `this.$set`，subsequent assignment operations no long need to use `Vue.set` or `this.$set`, just use normal assignment operation like `this.obj.newProp = 11`.
+
+``` html
+<template>
+  <div>
+    <div>{{ obj.m }}</div>
+    <div>{{ obj.n }}</div>
+  </div>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    obj: {
+      m: 10,
+    },
+  }),
+  mounted() {
+    setTimeout(() => {
+      //this.obj.m = 11 
+      //this.obj.n = 12
+      // Only this.obj.n = 12 will not trigger update on the page
+      // Two statements combined will trigger an update on the page bu subsequent changes on n will not trigger updates
+      this.$set(this.obj, "n", 12)
+    }, 1000);
+    setTimeout(() => {
+      this.obj.n = 13 // Will trigger update as this.$set(this.obj, "n", 12) has made property n reactive.
+    }, 2000);
+  },
+};
+</script>
+```
+
+### Array
+
+
 ## Vue Plugin
 
 - Plugin use case: global methods/properties/assets(directives/filters/transitions)/mixin/Vue instance/library
