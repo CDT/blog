@@ -1,5 +1,5 @@
 ---
-title: JS FAQ
+title: Javascript FAQ
 date: 2023-03-20 21:40:55
 cover: /images/JavaScript-logo.png
 thumbnail: /images/JavaScript-logo.png
