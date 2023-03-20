@@ -251,7 +251,43 @@ tags:
 1. 选择 Standard Application->Graduate Admissions->添加学历（只认证最高学历）->
 
 
+## Study Permit(Student Direct Stream)
 
+- [How to apply](https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/student-direct-stream/apply.html)
+
+- [Login to IRCC](https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html)
+
+### Proof of Financial Support
+
+- :notebook: This case is for SDS only. Normal study permit may require more materials.
+
+- 可接受的材料：
+  - your bank statements for the past four months
+  - a bank draft in convertible currency
+  - pay stubs
+  - an employment letter
+  - proof of assets or business
+  - proof of payment of tuition and accommodation fees
+  - tax reports, declarations or statements
+  - proof of a student/education loan from a financial institution
+  - a letter from the person or institution providing you with money
+  - proof of funding paid from within Canada, if you have a scholarship or are in a Canadian-funded educational program
+  - proof of a Canadian bank account in your name if money has been transferred to Canada
+
+- 我准备的材料：
+1. 纳税证明
+2. 工资流水：至少4个月
+3. 房本
+4. 大额定存
+9. 我没有的：股票、基金、车产
+
+- 文件格式：
+1. 
+
+### Client Information
+
+1. Study Plan
+2. 
 
 ## Others
 1. [RNIP Vernon](https://zhuanlan.zhihu.com/p/361744516)
