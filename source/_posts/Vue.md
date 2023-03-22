@@ -249,6 +249,12 @@ Component communication has three forms:
 
 <script src="https://gist.github.com/CDT/deb1f223866b45c5fd64bfb7acc11c4f.js"></script>
 
+### Pitfalls
+
+- Using `this.$root.$emit/$on`, be careful not to call `$on` multiple times with the same handler, this will cause the handler to be bound multiple times on the same event. Use `$off` to unbind at appropriate time.
+  - Example: A component binds a handler to an event in the `mount` hook. When the component is destroyed, the handler is still bound to that event. If the component is created repeatedly, this will also cause the handler to be bound repeatedly on the same event.
+  - This also applies to `vue-events`
+
 ## Vue 2
 
 ### Watch
