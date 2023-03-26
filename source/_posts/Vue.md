@@ -337,6 +337,10 @@ export default {
 
 ### Array
 
+- [Array change detection](https://v2.vuejs.org/v2/guide/list.html#Array-Change-Detection)
+
+- Array change using methods like `push/pop` will be detected. Changes on array items will not be detected.
+
 
 ## Vue Plugin
 

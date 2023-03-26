@@ -244,3 +244,17 @@ window.addEventListener("message", (event)=>{
     }
   },
 ```
+
+### JS常用函数
+
+- `_g().getCellValue`
+
+`getCellValue`的第一个参数是列号，且是0 based。
+
+``` js
+参数：
+row: row()
+col: col()
+
+FR.Msg.alert('提示', row + '行' + col + '列' + _g().getCellValue(col - 1, row - 1))
+```

@@ -192,7 +192,7 @@ tags:
   - Web Development
     - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/web-development-diploma)
     - submitted 2022.11.17, [checkout](https://oa2.uwinnipeg.ca/AdmissionsManager/#/)
-    - offer
+    - offer 2023.1
 
   - Artificial Intelligence
     - [Intro](https://pace.uwinnipegcourses.ca/international-students/programs/artificial-intelligence-diploma)
@@ -204,11 +204,12 @@ tags:
 - Red River Polytech (College)
   - [Data science and machine learning](https://apply.rrc.ca/RecruitNewWFE/Account/Login)
   - Submitted 2022.11.20
-  - offer
+  - offer 2022.12.04
 
 - University of Regina (Master)
   - [Master of Engineering in Software Systems](https://banner.uregina.ca:17023/ssbprod/bwskalog.P_DispLoginNon)
   - Submitted 2022.11.22, completed 2023.1
+  - rejected 2023.3.25
 
 - Concordia University
   - submitted 2023.2
