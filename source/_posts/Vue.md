@@ -983,5 +983,114 @@ When `created`, DOM has not yet been `mounted`. No DOM operation can be done.
 
 Created is generally used for fetching data from backend API and setting it to data properties. But in SSR mounted() hook is not present you need to perform tasks like fetching data in created hook only.
 
+### Two-way binding
 
+- Make child data sync parent's data
+
+- Method 1: Use `update`
+
+``` html
+<!-- child -->
+
+<template>
+  <div>
+    <p>Counter value: {{ count }}</p>
+    <button v-on:click="incrementCounter">Increment</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    incrementCounter() {
+      this.count++
+      this.$emit('update:count', this.count)
+    }
+  }
+}
+</script>
+```
+
+``` html
+<!-- parent -->
+<template>
+  <div>
+    <counter v-bind:count="parentCount" v-on:update:count="parentCount = $event" />
+    <p>Parent count value: {{ parentCount }}</p>
+  </div>
+</template>
+
+<script>
+import Counter from './Counter.vue'
+
+export default {
+  components: {
+    Counter
+  },
+  data() {
+    return {
+      parentCount: 0
+    }
+  }
+}
+</script>
+```
+
+- Method 2: Use `sync`
+
+``` html
+<!-- child -->
+<template>
+  <div>
+    <p>Counter value: {{ count }}</p>
+    <button v-on:click="incrementCounter">Increment</button>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    count: {
+      type: Number,
+      default: 0
+    }
+  },
+  methods: {
+    incrementCounter() {
+      this.$emit('update:count', this.count + 1)
+    }
+  }
+}
+</script>
+```
+
+``` html
+<!-- parent -->
+<template>
+  <div>
+    <counter v-bind:count.sync="parentCount" />
+    <p>Parent count value: {{ parentCount }}</p>
+  </div>
+</template>
+
+<script>
+import Counter from './Counter.vue'
+
+export default {
+  components: {
+    Counter
+  },
+  data() {
+    return {
+      parentCount: 0
+    }
+  }
+}
+</script>
+```
 
