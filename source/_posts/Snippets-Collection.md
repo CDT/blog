@@ -23,14 +23,11 @@ All my code snippets compiled.
 |7|[Node oracle][B7]||8|[Node.js auth][B8]|Login, router, sidebar|
 |9|[Rename a file][B9]||10|[Express session example][B10]|Enable session in express|
 |11|[Express session debug quiz][B11]||12|[connect-sqlite3 example][B12]||
-<<<<<<< HEAD
-|13|[PassportJS Local Strategy Example][B13]|failureFlash, connect-flash, connect-ensure-login|14|[Express-session example][B14]||
-|15|[connect-flash example][B15]||16|||
-=======
 |13|[OAuth2 server demo based on oauth2orize][B13]||14|[Express-session example][B14]||
 |15|[Fix passport successReturnToOrRedirect][B15]||16|[Express-session memorystore][B16]||
+|17|[Express static server][B17]||18|||
 
->>>>>>> 1345659e89fdb001dddf469f7415c2c7a53e3e0c
+
 
 [B1]:https://gist.github.com/CDT/21cd65c9277255602575ed6099595f0e
 [B2]:https://gist.github.com/CDT/aa0ab8523a014951c0c25bd1963a5a76
@@ -44,16 +41,11 @@ All my code snippets compiled.
 [B10]:https://gist.github.com/CDT/4527c91b7d75d3b489b7d532138f8ef9
 [B11]:https://gist.github.com/CDT/dba1c497ee964758e01ce38de24ca52f
 [B12]:https://gist.github.com/CDT/ed386733315fd93afcd4ed7b71f4384f
-<<<<<<< HEAD
-[B13]:https://gist.github.com/CDT/46612eed4776c6f9773d25d15bb9f9e9
-[B14]:https://gist.github.com/CDT/283a724da096cd63b057f9c0830f422d
-[B15]:https://gist.github.com/CDT/70a3f661d5e19be35f854b9fd77410a8
-=======
 [B13]:https://github.com/CDT/oauth2-server
 [B14]:https://gist.github.com/CDT/283a724da096cd63b057f9c0830f422d
 [B15]:https://gist.github.com/CDT/e7281165dacd24ebf84db76ff185c2ba
 [B16]:https://gist.github.com/CDT/1efbee9ac42b0d8a3ca78dd35e1b86dc
->>>>>>> 1345659e89fdb001dddf469f7415c2c7a53e3e0c
+[B17]:https://gist.github.com/CDT/b9edf78e2e618c5ef4fe801ea8b523c2
 
 ## Frontend
 

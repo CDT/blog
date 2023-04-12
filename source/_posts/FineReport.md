@@ -83,18 +83,42 @@ window.addEventListener("message", (event)=>{
 - [例子](/assets/docs/bonus_team_dict_import.zip)
 
 - Excel导入的单元格必须设置为可扩展，并且必须设置为**列表**而不是分组！否则会提示找不到不定行单元格
-- Excel导入前清空已有表格：
-  ``` js
-  var arr = ["A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4"];
-  //将需要清空的控件所在单元格的编号塞入数组
-  for (i = 0; i < arr.length; i++) {
-    var cr = FR.cellStr2ColumnRow(arr[i]);
-    //根据单元格编号获取行列号
-    _g().setCellValue(0, cr.col, cr.row, "");
-    //遍历清空单元格内容
-  }
+- 帆软8.0的Excel导入貌似有bug，建议是在界面上添加按钮先删除数据，然后再导入Excel
+  - Excel导入前：
+  ``` js, beforeExcelImport.js
+  FR.Msg.alert('提示', '导入Excel前需清空字典数据以保数据正确，请确保您已点击“清空字典”清空字典数据')
+  ```
+  - 按钮事件：
+  ``` js, click.js
+  FR.Msg.confirm('警告', `是否确定要清空字典数据？`, function(val) {
+    if (val) {
+      FR.Msg.confirm('警告', `请再次确认是否确定要清空字典数据？请确保您已备份`, function(val) {
+        if (val) { 
+        let clause = "SQL('HRP_BI', \"call hrp_pas.delete_putout_dict_team()\", 1, 1)"
+        console.log(clause)
+        console.log(FR.remoteEvaluate(clause))
+        FR.Msg.alert('提示', '数据清空成功')
+        _g().parameterCommit()
+        }
+      })
+    }
+  })
   ```
 
+## JS API
+
+### contentPane
+
+- [contentPane](https://help.fanruan.com/finereport10.0/doc-view-619.html)
+
+- `contentPane.deleteRows`
+  - `contentPane.deleteRows(['A2', 'A3', 'A4'])`
+
+### _g()
+
+- `_g().parameterCommit()`
+
+### curLGP
 
 ## FAQ
 
@@ -220,7 +244,7 @@ FR.Msg.prompt(`发短信给${phone}`, "短信内容", presetMessage, function(ms
 }, 1300) // 此处1300估计多余
 ```
 
-### 外部页面出发报表接口
+### 外部页面触发报表接口
 
 ``` js
 // 报表中引用本js文件
