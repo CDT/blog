@@ -22,20 +22,43 @@ tags:
 
 - 考虑使用KnowRoaming，据说不花钱。
 
-## Github
+## some Github
 
-1. [List - Awesome ChatGPT](https://github.com/stars/acheong08/lists/awesome-chatgpt)
-2. [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
-3. [Awesome ChatGPT Prompts(zh)](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)
-4. [ChatGPT Web V1](https://github.com/Chanzhaoyu/chatgpt-web)
-5. [ChatGPT Wechat](https://github.com/fuergaosi233/wechat-chatgpt)
-6. [ChatGPT Academic](https://github.com/binary-husky/chatgpt_academic)
-7. [ChatGPT Web V2](https://github.com/Yidadaa/ChatGPT-Next-Web)
-8. [ChatGPT Web Demo](https://github.com/ddiu8081/chatgpt-demo)
-9. [ChatGPT Visual](https://github.com/microsoft/visual-chatgpt)
-10. [Colossal AI - Toy ChatGPT](https://github.com/hpcaitech/ColossalAI)
+### Lists
 
-## Zhihu
+ - [Awesome ChatGPT](https://github.com/stars/acheong08/lists/awesome-chatgpt)
+
+### Prompts
+
+- [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
+- [Awesome ChatGPT Prompts(zh)](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)
+
+### Web
+
+- [ChatGPT Web V1](https://github.com/Chanzhaoyu/chatgpt-web)
+- [ChatGPT Web V2](https://github.com/Yidadaa/ChatGPT-Next-Web)
+- [ChatGPT One Page](https://github.com/xqdoo00o/chatgpt-web)
+
+### Wechat
+
+- [ChatGPT Wechat](https://github.com/fuergaosi233/wechat-chatgpt)
+- [ChatGPT WeChat V2 Python](https://github.com/zhayujie/chatgpt-on-wechat)
+- [ChatGPT Wechat V3](https://github.com/AutumnWhj/ChatGPT-wechat-bot)
+- [ChatGPT Wechat V4](https://github.com/wangrongding/wechat-bot)
+
+### Academic
+
+- [ChatGPT Academic](https://github.com/binary-husky/chatgpt_academic)
+
+### Others
+
+- [ChatGPT Visual](https://github.com/microsoft/visual-chatgpt)
+
+### Others
+
+- [Colossal AI - Toy ChatGPT](https://github.com/hpcaitech/ColossalAI)
+
+## some Zhihu
 1. [ChatGPT + Midjourney设计产品](https://www.zhihu.com/question/582979328/answer/2910126860)
 2. [ChatGPT应用](https://zhuanlan.zhihu.com/p/612651871)
 3. [Colossal AI](https://zhuanlan.zhihu.com/p/617996976)
@@ -52,3 +75,10 @@ tags:
 
 ## New Bing
 1. [New Bing Desktop Unofficial](https://github.com/dice2o/BingGPT)
+
+## AutoGPTs
+
+1. [知乎AutoGPT介绍](https://zhuanlan.zhihu.com/p/621608363)
+2. [Github - AgentGPT](https://github.com/reworkd/AgentGPT)
+3. [AgentGPT](https://agentgpt.reworkd.ai/)
+4. [Github - AutoGPT](https://github.com/Significant-Gravitas/Auto-GPT)
