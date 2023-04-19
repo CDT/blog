@@ -258,6 +258,12 @@ tags:
 
 - [Login to IRCC](https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html)
 
+- [参考](https://www.chinazxzy.com/fymb/4026.html)
+
+- [资金证明](https://www.youtucanada.com/canadian-study-permit-financial-supports/)
+
+- [参考](https://zhuanlan.zhihu.com/p/194166387)
+
 ### Proof of Financial Support
 
 - :notebook: This case is for SDS only. Normal study permit may require more materials.

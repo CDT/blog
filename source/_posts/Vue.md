@@ -341,6 +341,33 @@ export default {
 
 - Array change using methods like `push/pop` will be detected. Changes on array items will not be detected.
 
+### Vue.nextTick
+
+- Vue.nextTick is a method provided by the Vue.js framework that allows you to schedule a function to be executed after the next DOM update cycle. 
+
+- In Vue.js, when you modify the data in a component, Vue updates the virtual DOM and then applies those changes to the real DOM. However, this process is asynchronous, so if you want to perform some action immediately after the DOM has been updated, you can't rely on the DOM being up-to-date right away.
+
+- This is where Vue.nextTick comes in. It allows you to schedule a function to be executed after the next DOM update cycle, which means that the DOM will be fully up-to-date when the function is executed.
+
+``` js
+Vue.component('my-component', {
+  template: '<div>{{ message }}</div>',
+  data: function () {
+    return {
+      message: 'Hello Vue!'
+    }
+  },
+  mounted: function () {
+    this.message = 'Hello World!'
+    Vue.nextTick(function () {
+      // DOM has now been updated
+      console.log(this.$el.textContent) // => 'Hello World!'
+    })
+  }
+})
+```
+
+- In this example, when the component is mounted, the message data property is changed to "Hello World!". Then, Vue.nextTick is called with a callback function that logs the text content of the component's root element. Since Vue.nextTick schedules the callback to be executed after the next DOM update cycle, the text content will be "Hello World!", which is the updated value of the message property.
 
 ## Vue Plugin
 
@@ -1094,3 +1121,27 @@ export default {
 </script>
 ```
 
+### v-model modifiers
+
+- [Ref](https://v2.vuejs.org/v2/guide/forms.html#Modifiers)
+
+- `.number`:
+  - If you want user input to be automatically typecast as a Number, you can add the number modifier to your v-model managed inputs:
+  - `<input v-model.number="age" type="number">`
+  - This is often useful, because even with type="number", the value of HTML input elements always returns a string. If the value cannot be parsed with parseFloat(), then the original value is returned.
+
+
+### Watch nested data
+
+- [Ref](https://v2.vuejs.org/v2/api/#watch)
+
+- ``` js
+  watch: {
+    item: {
+      handler(val){
+        // do stuff
+      },
+      deep: true
+    }
+  }
+  ```

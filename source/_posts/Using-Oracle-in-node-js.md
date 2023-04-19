@@ -12,14 +12,18 @@ tags:
 - nodejs
 ---
 
-## Basic
+## FAQ
 
-### Install
+### Foat precision
 
-`yarn add oracledb`
+- When retrieving float number, there will be precision problems.
+  - Solution: [fetchAsString](https://node-oracledb.readthedocs.io/en/latest/api_manual/oracledb.html#oracledb.fetchAsString)
+  - Solution: trim number to certain digits like 10 or 12
 
-## Example
+### execute() options
 
-### Simple
+- See a list of `execute()` [options](https://node-oracledb.readthedocs.io/en/latest/api_manual/connection.html#executeoptionsparams)
+
+
 
 

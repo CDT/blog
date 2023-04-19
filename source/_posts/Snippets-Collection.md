@@ -25,7 +25,7 @@ All my code snippets compiled.
 |11|[Express session debug quiz][B11]||12|[connect-sqlite3 example][B12]||
 |13|[OAuth2 server demo based on oauth2orize][B13]||14|[Express-session example][B14]||
 |15|[Fix passport successReturnToOrRedirect][B15]||16|[Express-session memorystore][B16]||
-|17|[Express static server][B17]||18|||
+|17|[Express static server][B17]||18|[Oracle自增主键][B18]||
 
 
 
@@ -46,6 +46,7 @@ All my code snippets compiled.
 [B15]:https://gist.github.com/CDT/e7281165dacd24ebf84db76ff185c2ba
 [B16]:https://gist.github.com/CDT/1efbee9ac42b0d8a3ca78dd35e1b86dc
 [B17]:https://gist.github.com/CDT/b9edf78e2e618c5ef4fe801ea8b523c2
+[B18]:https://gist.github.com/CDT/5c422b5a46fc117abcfd3beb85df49dd
 
 ## Frontend
 
