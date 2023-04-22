@@ -32,6 +32,7 @@ tags:
 
 - [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
 - [Awesome ChatGPT Prompts(zh)](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)
+- [学术常用指令](https://zhuanlan.zhihu.com/p/623736540)
 
 ### Web
 
@@ -57,6 +58,7 @@ tags:
 ### Others
 
 - [Colossal AI - Toy ChatGPT](https://github.com/hpcaitech/ColossalAI)
+- [KeepChatGPT - Keeps errors away from chatGPT](https://github.com/xcanwin/KeepChatGPT/)
 
 ## some Zhihu
 1. [ChatGPT + Midjourney设计产品](https://www.zhihu.com/question/582979328/answer/2910126860)
