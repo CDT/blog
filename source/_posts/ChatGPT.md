@@ -84,3 +84,9 @@ tags:
 2. [Github - AgentGPT](https://github.com/reworkd/AgentGPT)
 3. [AgentGPT](https://agentgpt.reworkd.ai/)
 4. [Github - AutoGPT](https://github.com/Significant-Gravitas/Auto-GPT)
+
+## 其他
+
+### 短信平台
+
+1. [2023短信平台评测](https://www.vpsdawanjia.com/6778.html)
