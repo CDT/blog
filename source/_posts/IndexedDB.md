@@ -1,7 +1,7 @@
 ---
 title: IndexedDB
-cover: /images/indexeddb.web
-thumbnail: /images/indexeddb.web
+cover: /images/indexeddb.webp
+thumbnail: /images/indexeddb.webp
 date: 2023-05-23 12:03:47
 categories:
 - tech
