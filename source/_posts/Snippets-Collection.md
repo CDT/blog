@@ -26,8 +26,7 @@ All my code snippets compiled.
 |13|[OAuth2 server demo based on oauth2orize][B13]||14|[Express-session example][B14]||
 |15|[Fix passport successReturnToOrRedirect][B15]||16|[Express-session memorystore][B16]||
 |17|[Express static server][B17]||18|[Oracle自增主键][B18]||
-|19|[OpenAI API Example][B19]||20|||
-
+|19|[OpenAI API Example][B19]||20|[Node.js POST files][B20]|Node.js(not browser) POST request with files|
 
 
 [B1]:https://gist.github.com/CDT/21cd65c9277255602575ed6099595f0e
@@ -49,6 +48,7 @@ All my code snippets compiled.
 [B17]:https://gist.github.com/CDT/b9edf78e2e618c5ef4fe801ea8b523c2
 [B18]:https://gist.github.com/CDT/5c422b5a46fc117abcfd3beb85df49dd
 [B19]:https://gist.github.com/CDT/f0b02847bddca429e47e128b7a0b4555
+[B20]:https://gist.github.com/CDT/92a620a42cec33795c05d0006cea1339
 
 ## Frontend
 
@@ -58,7 +58,7 @@ All my code snippets compiled.
 |1|[Vuetify2页面和组件集合][F1]|[Code Sandbox][F2]|2|[Axios常用代码][F3]||
 |3|[Vue组件通信][F4]||4|[Vuetify 全局toast][F5]||
 |5|[PostMessage][F5]|PostMessage can bypass CORS for iframe|6|[HTML Calendar][F6]|Normal html date input only pops up calendar when the rightmost icon is clicked, this one makes the calendar pop up when anywhere of the input is clicked|
-|7|[Tailwind Demo][F7]|Tailwind Demo|8|||
+|7|[Tailwind Demo][F7]|Tailwind Demo|8|[Login pages][F8]|Login pages|
 
 
 [F1]: https://github.com/CDT/vuetify2_collection
@@ -68,7 +68,7 @@ All my code snippets compiled.
 [F5]: https://gist.github.com/CDT/f5cef7ba5c7f51bf8bd5df04583d2739
 [F6]: https://gist.github.com/CDT/0dd1a707046cc4dfbf68bc6f2f085abc
 [F7]: https://gist.github.com/CDT/0b693d635991aad8deac604bbcd5f6e5
-
+[F8]: https://gist.github.com/CDT/e3e449a09fa92d1b07fa1ef3a639839d
 
 ## Machine Learning
 
