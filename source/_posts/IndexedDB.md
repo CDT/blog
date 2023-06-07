@@ -21,3 +21,60 @@ tags:
 
 
 
+## 示例代码
+
+<script src="https://gist.github.com/CDT/27e034743a8b2dee7bc18c574ca52d02.js"></script>
+
+## 解释
+
+1. `indexedDB`: reserved keyword. 直接指向indexedDB对象
+
+2. `indexedDB.open('myDatabase', 1)`: 第二个参数是版本号。一般修改表结构，加索引的时候，提升版本号。
+
+3. `request.onupgradeneeded`: 不知道为什么叫这个名字。一般是数据库打开/创建后，在这个回调函数创建object store(类似rdbms的table)，以及索引。
+
+4. `request.onsuccess`：数据库成功open并upgrade之后，执行此函数。
+
+5. `var transaction = db.transaction(['myObjectStore'], 'readwrite');`: 打开一系列表，准备进行事务操作
+
+6. `var objectStore = transaction.objectStore('myObjectStore');`: 打开事务内的一个objectStore
+
+7. 读取objectStore:
+
+``` js
+objectStore.openCursor().onsuccess = function(event) {
+    var cursor = event.target.result;
+    if (cursor) {
+        var listItem = document.createElement('div');
+        listItem.textContent = cursor.value.name + ', Age: ' + cursor.value.age;
+        dataContainer.appendChild(listItem);
+        cursor.continue();
+    }
+};
+```
+
+8. 按属性查询：
+
+``` js
+var transaction = db.transaction(['myObjectStore'], 'readonly');
+var objectStore = transaction.objectStore('myObjectStore');
+var index = objectStore.index('name');
+
+var name = 'John Doe';
+var age = 25;
+var keyRange = IDBKeyRange.only(name);
+
+var request = index.openCursor(keyRange);
+
+request.onsuccess = function(event) {
+    var cursor = event.target.result;
+    if (cursor) {
+        if (cursor.value.age === age) {
+            // Found the object with the specified name and age
+            console.log('Found:', cursor.value);
+        }
+
+        cursor.continue();
+    }
+};
+```

@@ -59,6 +59,7 @@ All my code snippets compiled.
 |3|[Vue组件通信][F4]||4|[Vuetify 全局toast][F5]||
 |5|[PostMessage][F5]|PostMessage can bypass CORS for iframe|6|[HTML Calendar][F6]|Normal html date input only pops up calendar when the rightmost icon is clicked, this one makes the calendar pop up when anywhere of the input is clicked|
 |7|[Tailwind Demo][F7]|Tailwind Demo|8|[Login pages][F8]|Login pages|
+|9|[IndexedDB Demo][F9]|IndexedDB examples|10|[Markdown & Highlight][F10]|Markdown renderer with code highlight support|
 
 
 [F1]: https://github.com/CDT/vuetify2_collection
@@ -69,6 +70,8 @@ All my code snippets compiled.
 [F6]: https://gist.github.com/CDT/0dd1a707046cc4dfbf68bc6f2f085abc
 [F7]: https://gist.github.com/CDT/0b693d635991aad8deac604bbcd5f6e5
 [F8]: https://gist.github.com/CDT/e3e449a09fa92d1b07fa1ef3a639839d
+[F9]: https://gist.github.com/CDT/27e034743a8b2dee7bc18c574ca52d02
+[F10]: https://gist.github.com/CDT/c0bfe577fc3899bde7345a84e6af8698
 
 ## Machine Learning
 
