@@ -184,22 +184,9 @@ So in essence, "fine" refers to the delicate nature of the changes during fine-t
     -  The idea behind LoRA is that fine-tuning a foundation model on a downstream task does not require updating all of its parameters. There is a low-dimension matrix that can represent the space of the downstream task with very high accuracy. 
   - **PTuning**
     - A PEFT method introduced by THUDM, current at [v2](https://github.com/THUDM/P-tuning-v2)
-    
+  - Other methods
+    - [See huggingface supported methods](https://huggingface.co/docs/peft/index)
+    - LoRA, Prefix Tuning, P-Tuning, Prompt Tuning, AdaLoRA, LLaMA-Adapter, IA3...
+
 
 ![Unsupervised VS Supervised Fine-tuning](/images/Unsup_vs_sup_learning.webp)
-
-- LoRA
-- PEFT
-
-#### Challenges of fine-tuning and why human involvement is important
-
-## Knowledge
-
-### Unsupervised VS Supervised VS Self-supervised learning
-
-|Feature|Unsupervised|Supervised|Self-supervised|
-|:-----:|:-----:|:-----:|:-----:|
-|||||
-|||||
-|||||
-|||||
